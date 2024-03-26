@@ -1,0 +1,9 @@
+.id {
+    display: block;
+  }
+  
+  input[type='submit'],
+  .id {
+    margin-top: 1rem;
+  }
+  
