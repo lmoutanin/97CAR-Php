@@ -1,3 +1,5 @@
+
+
 <?php
 
 
@@ -29,8 +31,8 @@ function inscription($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePost
         $codePostal_nettoye = filterchar($codePostal);
         $telephone_nettoye = filterchar($telephone);
     } else {
+        echo "<p>Erreur  </p>";
     }
-
 
     if (
         !empty($email_nettoye) && !empty($mdp_nettoye) && !empty($civilite_nettoye)  && !empty($prenom_nettoye)
@@ -50,8 +52,35 @@ function inscription($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePost
         $requete->execute();
 
         echo "<p>Merci de votre inscription   $prenom_nettoye !</p>";
-    }  
+
+        
+    }else{
+        echo "<p> Erreur de votre inscription </p>";
+    }
+}
+?>
+
+<?php 
+
+function connexion($email ,$mdp) {
+
+
+    if (isset($_POST[$email]) && isset($_POST[$mdp]))
+    {
+
+        $email_nettoye = filter_var($_POST[$email], FILTER_SANITIZE_EMAIL);
+        $mdp_nettoye = filterchar($mdp);
+    
+    } 
+    else { 
+
+           }
+
 }
 
 
+
+
+
 ?>
+ 
