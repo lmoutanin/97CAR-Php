@@ -1,7 +1,4 @@
-<?php 
-require('filter.php');
-
-?>
+<?php require('filtre_inscription.php') ?>
 
 <!DOCTYPE html>
 <html>
@@ -15,12 +12,14 @@ require('filter.php');
 <body>
     <h1>Création de compte</h1>
     <h2>VOS IDENTIFIANTS :</h2>
- 
-    <form action="client.php" method="post">
+
+    <?php echo $error_msg ?>
+
+    <form method="POST" action="">
 
         <div>
-            <label for="email" class="id" ><i class="vid">*</i>Email :</label>
-            <input id="email" name="email" size="50" placeholder="Votre email" required />
+            <label for="email" class="id"><i class="vid">*</i>Email :</label>
+            <input type="email" id="email" name="email" size="50" placeholder="Votre email" required />
         </div>
 
         <div>
@@ -73,13 +72,13 @@ require('filter.php');
 
         <br>
 
-        <button type="submit" class="bouton" type="submit">Créez un compte</a></button>
+        <button type="submit" class="bouton" name="ok">Créez un compte</a></button>
     </form>
     <br>
     <br>
 
-  
-    
+
+
 </body>
 
 </html>

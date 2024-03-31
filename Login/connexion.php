@@ -1,4 +1,7 @@
- <? require('bdd.php') ?>
+<?php
+require('bdd.php');
+require('filtre_connexion.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,9 +19,9 @@
 
         <h1>IDENTIFIEZ-VOUS :</h1>
 
-        <h2>Déjà client ?</h2>
+        <?php echo $error_msg; ?>
 
-        <form action="test.php" method="post">
+        <form method="POST" action="">
 
             <div class="container">
                 <label class="id"> </label>
@@ -26,28 +29,17 @@
             </div>
 
             <div class="container">
-
                 <label class="id"> </label>
                 <input type="password" id="pass" name="mdp" minlength="8" size="50" placeholder="Votre mot de passe" required />
-
-
             </div>
             <br>
-            <button class="bouton" type="submit">CONNEXION</button>
-
-
-
-
-
+            <button class="bouton" type="submit" name="ok">CONNEXION</button>
 
         </form>
+
         <h2>NOUVEAU CLIENT ?</h2>
         <button class="bouton" type="submit"><a href="inscription.php">Créez un compte</a></button>
     </div>
-
-   
-
-</body>
 
 </body>
 
