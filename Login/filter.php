@@ -31,8 +31,24 @@ function inscription($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePost
         $codePostal_nettoye = filterchar($codePostal);
         $telephone_nettoye = filterchar($telephone);
     } else {
-        echo "<p>Erreur  </p>";
+       
     }
+     $login=$email_nettoye;
+    
+    $requete = "SELECT * FROM client WHERE mel = '$login'";
+    $resultat = $bdd->query($requete);
+    $ligne = $resultat->fetch();
+    $existe=$ligne['mel'];
+    
+    if($existe==$login){
+        echo "L'adresse mail existe déjà.";
+    echo "<meta http-equiv='refresh' content='5;url=inscription.php'>";
+    exit;
+
+ 
+     
+    
+    }  else{
 
     if (
         !empty($email_nettoye) && !empty($mdp_nettoye) && !empty($civilite_nettoye)  && !empty($prenom_nettoye)
@@ -53,12 +69,13 @@ function inscription($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePost
 
         echo "<p>Merci de votre inscription   $prenom_nettoye !</p>";
 
-        
     }else{
         echo "<p> Erreur de votre inscription </p>";
     }
 }
 ?>
+
+
 
 <?php 
 
@@ -75,6 +92,8 @@ function connexion($email ,$mdp) {
     else { 
 
            }
+        }
+
 
 }
 

@@ -1,4 +1,7 @@
+<?php 
+require('filter.php');
 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -12,10 +15,11 @@
 <body>
     <h1>Création de compte</h1>
     <h2>VOS IDENTIFIANTS :</h2>
+ 
     <form action="client.php" method="post">
 
         <div>
-            <label for="email" class="id"><i class="vid">*</i>Email :</label>
+            <label for="email" class="id" ><i class="vid">*</i>Email :</label>
             <input id="email" name="email" size="50" placeholder="Votre email" required />
         </div>
 
@@ -74,7 +78,7 @@
     <br>
     <br>
 
-
+  
     
 </body>
 

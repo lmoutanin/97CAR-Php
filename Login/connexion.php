@@ -18,7 +18,7 @@
 
         <h2>Déjà client ?</h2>
 
-        <form action="login.php" method="post">
+        <form action="test.php" method="post">
 
             <div class="container">
                 <label class="id"> </label>
