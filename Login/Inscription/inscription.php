@@ -1,11 +1,11 @@
 <?php require('filtre_inscription.php') ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <title>Inscription</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="../Style/style.css" rel="stylesheet">
     <meta charset="UTF-8" />
 </head>
 

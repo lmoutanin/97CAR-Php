@@ -19,23 +19,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //envoyer une rêquete dans la table acheteur pour verifier la presence mel et du mot passe .Si c'est dernier sont égal alors l'utilisateur existe 
 
+            $token = bin2hex(random_bytes(32)); // Générer un token aléatoire
+
+            $req = $bdd->prepare("SELECT * FROM client WHERE mel = :email AND mdp = :mdp"); // Préparer la requête SQL pour récupérer les informations du client
+            $req->execute(array('email' => $email_nettoye, 'mdp' => $mdp_nettoye)); // Exécuter la requête en utilisant les valeurs nettoyées de l'email et du mot de passe
+            $rep = $req->fetch(); // Récupérer la ligne résultante de la requête
+
+            // Vérifier si le client est trouvé dans la base de données, puis le rediriger vers la page compte.php
+            if ($rep !== false) {
+
+                //   mettre à jour le token du client
+                $update_req = $bdd->prepare("UPDATE client SET token = :token WHERE mel = :email AND mdp = :mdp");
+                $update_req->execute(array('token' => $token, 'email' => $email_nettoye, 'mdp' => $mdp_nettoye)); //   mise à jour avec le nouveau token
+
+                setcookie("token", $token, time() + 3600); // Définir le cookie token pour une heure
+                setcookie("email", $email_nettoye, time() + 3600);
 
 
-            $req = $bdd->prepare("SELECT * FROM client WHERE mel = :email AND mdp = :mdp");
-            $req->execute(array('email' => $email_nettoye, 'mdp' => $mdp_nettoye));
-            $client = $req->fetch();
 
-            //Regarde si il trouve le client dans le base de donnée puis l'envoyer vers la page compte.php
-            if ($client) {
-
-                header("Location: compte.php");
+                header("Location: client.php"); // Rediriger vers la page du compte
                 exit();
-
-                //Sinon il affiche  Email ou mot de passe incorrect !   
             } else {
-
-                $error_msg = "<p>Email ou mot de passe incorrect !</p>";
+                $error_msg = "<p>Email ou mot de passe incorrect !</p>"; // Afficher un message d'erreur si les identifiants sont incorrects
             }
+
+
 
             //Sinon Email invalide !
         } else {
