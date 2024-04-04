@@ -36,8 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 setcookie("email", $email_nettoye, time() + 3600);
 
 
-                header("Location: compte.php"); // Rediriger vers la page du compte
-                exit;  
+
+                header("Location: client.php"); // Rediriger vers la page du compte
+                exit();
+              
             } else {
                 $error_msg = "<p>Email ou mot de passe incorrect !</p>"; // Afficher un message d'erreur si les identifiants sont incorrects
             }
