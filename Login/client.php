@@ -3,16 +3,17 @@
 require('bdd.php');
  
 $deconnexion=3600;
-$email = $_COOKIE['email'];
-$token = $_COOKIE['token'];
+session_name('ma_session');
+session_start();
+$email=$_SESSION['email'];
+$token=$_SESSION['token'];
 
 if ($token) {
 
    $req = $bdd->prepare("SELECT * FROM client WHERE mel = '$email' AND token = '$token'");
    $req->execute(array('email' => $email, 'token' => $token));
    $rep = $req->fetch();
-      echo "Vous êtes connecté {$rep['prenom']}";
-
+       
    if ($rep['prenom'] != false) {
 
       

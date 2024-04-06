@@ -32,9 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $update_req = $bdd->prepare("UPDATE client SET token = :token WHERE mel = :email AND mdp = :mdp");
                 $update_req->execute(array('token' => $token, 'email' => $email_nettoye, 'mdp' => $mdp_nettoye)); //   mise à jour avec le nouveau token
 
-                setcookie("token", $token, time() + 3600); // Définir le cookie token pour une heure
-                setcookie("email", $email_nettoye, time() + 3600);
+                
+                 
 
+                session_name('ma_session');
+                session_start();
+                $_SESSION['token'] = $token;
+                $_SESSION['email'] = $email_nettoye;
 
 
                 header("Location: client.php"); // Rediriger vers la page du compte

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formulaire de connexion en HTML & CSS - Frenchcoder</title>
+    <title>Inscription  97CAR</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
@@ -37,14 +37,14 @@
 
             <div class="radio">
 
-                <input type="radio" id="monsieur" name="civilite" value="monsieur" checked />
+                <input type="radio" id="monsieur" name="civilite" value="Monsieur" checked />
                 <label for="Individual">Monsieur</label>
             </div>
 
 
             <div class="radio">
 
-                <input type="radio" id="madame" name="civilite" value="madame" />
+                <input type="radio" id="madame" name="civilite" value="Madame" />
                 <label for="Professional">Madame</label>
             </div>
         </div>

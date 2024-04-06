@@ -10,7 +10,7 @@ require('filtre_connexion.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Formulaire de connexion en HTML & CSS - Frenchcoder</title>
+  <title>Connexion 97CAR </title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
