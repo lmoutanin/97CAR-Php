@@ -2,44 +2,35 @@
 require('filtre_connexion.php');
 ?>
 
+ 
+</html>
+
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link href="Style/style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulaire de connexion en HTML & CSS - Frenchcoder</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
-
 <body>
-
-    <div class="container">
-
-        <h1>IDENTIFIEZ-VOUS :</h1>
-
-        <?php echo $error_msg; ?>
-
-        <form method="POST" action="">
-
-            <div class="container">
-                <label class="id"> </label>
-                <input id="email" name="email" size="50" placeholder="Votre email" required />
-            </div>
-
-            <div class="container">
-                <label class="id"> </label>
-                <input type="password" id="pass" name="mdp" minlength="8" size="50" placeholder="Votre mot de passe" required />
-            </div>
-            <br>
-            <button class="bouton" type="submit" name="ok">CONNEXION</button>
-
-        </form>
-
-        <h2>NOUVEAU CLIENT ?</h2>
-        <button class="bouton" type="submit"><a href="inscription.php">Créez un compte</a></button>
+<form method="POST" action="">
+     
+    <h1>Connectez-vous</h1>
+     
+    <?php echo $error_msg; ?>
+    <p class="choose-email">Déjà client ?</p>
+    
+    <div class="inputs">
+    <input type="email" id="email" name="email"   placeholder="Votre email" required />
+    <input type="password" id="pass" name="mdp" minlength="8"   placeholder="Votre mot de passe" required />
     </div>
-
+    <div align="center">
+    <p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <a href="../inscription/inscription.php"><span> crée</span></a> un.</p>
+    
+      <button type="submit">CONNEXION</button>
+    </div>
+  </form>
 </body>
-
 </html>

@@ -96,7 +96,7 @@
         <hr>
         <p class="inscription">Vous avez déjà un  <span>compte</span>?   <a href="../login/login.php"><span>Connectez-vous</span></a>  </p>
         <div align="center">
-            <button type="submit" class="bouton" name="ok">S'INSCRIRE</a></button>
+            <button type="submit" class="bouton" name="ok">Créez votre compte</a></button>
         </div>
     </form>
 </body>

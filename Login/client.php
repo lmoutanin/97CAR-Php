@@ -11,6 +11,7 @@ if ($token) {
    $req = $bdd->prepare("SELECT * FROM client WHERE mel = '$email' AND token = '$token'");
    $req->execute(array('email' => $email, 'token' => $token));
    $rep = $req->fetch();
+      echo "Vous êtes connecté {$rep['prenom']}";
 
    if ($rep['prenom'] != false) {
 
