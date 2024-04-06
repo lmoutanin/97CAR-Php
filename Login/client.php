@@ -14,7 +14,7 @@ if ($token) {
 
    if ($rep['prenom'] != false) {
 
-      echo $rep['prenom'];
+      
      
       header("Refresh:$deconnexion ; url=login.php");
    }else {

@@ -1,4 +1,4 @@
-<?php require('../bdd.php');
+<?php require('bdd.php');
 
 $error_msg = "";
 
@@ -41,10 +41,10 @@ if (isset($_POST['ok'])) {
 
                 // envoyer dans la base donnée une requête pour ajoute les valeurs  suivantes dans la table acheteur 
                 $req = $bdd->prepare("INSERT INTO client (id_client,mel,token,mdp,civilite,prenom,nom,adresse,code_postal,ville,telephone) VALUES(0,:mel,:token,:mdp,:civilite,:prenom,:nom,:adresse,:code_postal,:ville,:telephone)");
-                $req->execute(array('mel' => $email_nettoye, ':token' => '1', 'mdp' => $mdp_nettoye, 'civilite' => $civilite_nettoye, 'prenom' => $prenom_nettoye, 'nom' => $nom_nettoye, 'adresse' =>  $adresse_nettoye, 'code_postal' => $codePostal_nettoye, 'ville' => $ville_nettoye, 'telephone' => $telephone_nettoye));
+                $req->execute(array('mel' => $email_nettoye, ':token' => '', 'mdp' => $mdp_nettoye, 'civilite' => $civilite_nettoye, 'prenom' => $prenom_nettoye, 'nom' => $nom_nettoye, 'adresse' =>  $adresse_nettoye, 'code_postal' => $codePostal_nettoye, 'ville' => $ville_nettoye, 'telephone' => $telephone_nettoye));
                 $connexion = true;
 
-                header("Location: clientin-inscrit.php");
+                header("Location: client-inscrit.php");
                 exit();
 
 
