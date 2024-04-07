@@ -88,7 +88,7 @@ hr {
 }
 
 .name div {
-  display: flex;
+   
   flex-direction: column;
   background-color: #f5f5f5;
   padding: 2px 70px;
@@ -102,6 +102,7 @@ hr {
 }
 
 .radio{
+ 
 cursor: pointer;
 display: inline-block;
 line-height: 1.5em;

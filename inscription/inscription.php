@@ -25,27 +25,27 @@
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Votre email" required />
 
-            <label for="mdp"> Mot de passe</label>
+            <label for="password"> Mot de passe</label>
             <input type="password" id="pass" name="mdp" minlength="8" placeholder="Votre mot de passe" required />
         </div>
 
         <hr>
 
         <p class="choose-email">Informations personnelles</p>
-        <label for="">Civilité </label><br>
+        <label for="civilite">Civilité </label><br>
         <div class="name">
 
             <div class="radio">
-
-                <input type="radio" id="monsieur" name="civilite" value="Monsieur" checked />
-                <label for="Individual">Monsieur</label>
+ 
+   <input type="radio" id="monsieur" name="civilite" value="Monsieur" checked />  
+                <label for="civilite">Monsieur</label>
             </div>
 
 
             <div class="radio">
 
                 <input type="radio" id="madame" name="civilite" value="Madame" />
-                <label for="Professional">Madame</label>
+                <label for="civilite">Madame</label>
             </div>
         </div>
 
@@ -73,7 +73,7 @@
             </div>
 
             <div>
-                <label for="codePostal"> Code postal :</label>
+                <label for="codePostal"> Code postal </label>
                 <input type="text" id="codePostal" name="codePostal" pattern="[0-9]{5}" size="30" placeholder="Votre code postal" required />
             </div>
 
@@ -93,8 +93,8 @@
             </div>
 
         </div>
-        <hr>
-        <p class="inscription">Vous avez déjà un  <span>compte</span>?   <a href="../login/login.php"><span>Connectez-vous</span></a>  </p>
+         <hr>
+        <p class="inscription">Vous avez déjà un  <span>compte </span> ?   <a href="../login/login.php"><span>Connectez-vous</span></a>  </p>
         <div align="center">
             <button type="submit" class="bouton" name="ok">Créez votre compte</a></button>
         </div>

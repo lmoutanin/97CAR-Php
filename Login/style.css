@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-body{
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
   display: flex;
-  justify-content:center;
-  flex-direction: columns;
+  justify-content: center;
+  
   align-items: center;
   background-color: #f5f5f5;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 form {
   margin-top: 20px;
@@ -14,59 +14,133 @@ form {
   border-radius: 10px;
   min-width: 300px;
 }
-form h1{
+form h1 {
   color: #eb7371;
-  text-align:center;
-}
-form .social-media{
-  margin-top: -10px;
-  display: flex;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-form .social-media p{
-  padding: 5px;
-  width: 20px;
-  margin-left: 10px;
-  border-radius: 100%;
-  border: 1px solid #545454;
   text-align: center;
-  cursor:pointer;
-  color: #545454;
 }
-form p.choose-email{
-  text-align:center;
+ 
+
+form p.choose-email {
+  text-align: center;
 }
 form .inputs {
   display: flex;
   flex-direction: column;
 }
-form .inputs input[type='email'], input[type='password']{
+form .inputs input {
   padding: 15px;
-  border:none;
+  border: none;
   border-radius: 5px;
-  background-color:#f2f2f2;
-  outline:none;
+  background-color: #f2f2f2;
+  outline: none;
   margin-bottom: 15px;
 }
-form p.inscription{
+form p.inscription {
   font-size: 14px;
   margin-bottom: 20px;
   color: #878787;
+  text-align: center;
 }
-form p.inscription span{
+form p.inscription span {
   color: #eb7371;
 }
-form button{
+form button {
   padding: 15px 25px;
   border-radius: 5px;
-  border:none;
+  border: none;
   font-size: 15px;
   color: #fff;
   background-color: #eb7371;
-  outline:none;
-  cursor:pointer;
+  outline: none;
+  cursor: pointer;
 }
-a {
+hr {
+  margin: 10px 0;
+  background-color: #ccc;
+  border: 0;
+  height: 1px;
+  width: 100%;
+}
+
+.name-field div {
+  display: flex;
+  flex-direction: column;
+}
+.name-field {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.name div {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  padding: 2px 70px;
+   
+}
+.name {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.radio{
+  display: block;
+cursor: pointer;
+display: inline-block;
+line-height: 1.5em;
+margin: 0 10px 10px 0;
+padding: 5px 20px 4px 34px;
+position: relative; } 
+
+form .name-field input {
+  padding: 15px ;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  outline: none;
+  margin-bottom: 5px 10px  ;
+}
+a{
   text-decoration: none;
+}
+/* menu */
+ul {
+  list-style-type: none;
+  margin: 30px;
+  padding: 10;
+  width: 180px;
+  background-color: #f1f1f1;
+  border: 1px solid #555;
+  font-size:large;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li {
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+  
 }

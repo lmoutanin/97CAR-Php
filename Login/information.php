@@ -1,10 +1,11 @@
 <?php
 require('client.php');
+require('menu.php');
+nombre(1);
 
 $prenom = $rep['prenom'];
 $nom = $rep['nom'];
 $email = $rep['mel'];
-$password = $rep['mdp'];
 $adresse = $rep['adresse'];
 $codePostal = $rep['code_postal'];
 $ville = $rep['ville'];
@@ -21,7 +22,7 @@ $civilite = $rep['civilite'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Informations personnelles</title>
-    <link rel="stylesheet" href="../inscription/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
 
@@ -30,12 +31,12 @@ $civilite = $rep['civilite'];
     <form method="POST" action="">
 
         <h1>Informations personnelles</h1>
-
+<hr>
         <div class="name-field">
 
             <div>
                 <label for="civilite">Civilité</label>
-                <input type="text" id="civilite" size="70" name="civilite" placeholder="Votre Civilite" value=" <?php echo $civilite; ?>" required />
+                <input type="text" id="civilite" size="70" readonly="true" name="civilite" placeholder="Votre Civilite" value=" <?php echo $civilite; ?>" required />
             </div>
 
         </div>
@@ -43,12 +44,12 @@ $civilite = $rep['civilite'];
 
             <div>
                 <label for="nom">Nom </label>
-                <input type="text" id="nom" name="nom" minlength="2" maxlength="50" size="30" placeholder="Votre nom" value=" <?php echo $nom; ?>" required />
+                <input type="text" id="nom" name="nom" minlength="2" maxlength="50" size="30" placeholder="Votre nom" readonly="true" value=" <?php echo $nom; ?>" required />
             </div>
 
             <div>
                 <label for="prenom"> Prénom </label>
-                <input type="text" id="prenom" name="prenom" minlength="2" maxlength="50" size="30" placeholder="Votre prénom" value=" <?php echo $prenom; ?>" required />
+                <input type="text" id="prenom" name="prenom" minlength="2" maxlength="50" size="30" placeholder="Votre prénom"  readonly="true" value=" <?php echo $prenom; ?>" required />
             </div>
 
         </div>
@@ -61,7 +62,7 @@ $civilite = $rep['civilite'];
             </div>
 
             <div>
-                <label for="codePostal"> Code postal :</label>
+                <label for="codePostal"> Code postal </label>
                 <input type="text" id="codePostal" name="codePostal" pattern="[0-9]{5}" size="30" placeholder="Votre code postal" value=" <?php echo $codePostal; ?>" required />
             </div>
 
@@ -96,7 +97,7 @@ $civilite = $rep['civilite'];
             </div>
 
         </div>
-
+<br>
         <div align="center">
             <button type="submit" class="bouton" name="ok">Créez votre compte</a></button>
         </div>
