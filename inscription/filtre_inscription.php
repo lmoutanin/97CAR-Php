@@ -1,4 +1,6 @@
 <?php require('bdd.php');
+ 
+    require 'Client.php';
 
 $error_msg = "";
 
@@ -17,22 +19,16 @@ if (isset($_POST['ok'])) {
 
     //  verifier si les champs email , mdp ,civilite ,prenom ,nom ,adresse , codePostal ,ville et telephone  ne sont pas vide
     if (!empty($email) && !empty($mdp) && !empty($civilite)  &&  !empty($prenom) &&  !empty($nom)   &&  !empty($adresse)   &&  !empty($codePostal)   &&  !empty($ville) &&  !empty($telephone)) {
+        
+        $cree=new Client($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePostal, $ville, $telephone);
+        $mel=$cree->get_email();
 
-        $email_nettoye = filter_var($email, FILTER_SANITIZE_EMAIL);
-        $mdp_nettoye = htmlspecialchars($mdp, ENT_QUOTES, 'UTF-8');
-        $civilite_nettoye = htmlspecialchars($civilite, ENT_QUOTES, 'UTF-8');
-        $prenom_nettoye = htmlspecialchars($prenom, ENT_QUOTES, 'UTF-8');
-        $nom_nettoye = htmlspecialchars($nom, ENT_QUOTES, 'UTF-8');
-        $adresse_nettoye = htmlspecialchars($adresse, ENT_QUOTES, 'UTF-8');
-        $codePostal_nettoye = htmlspecialchars($codePostal, ENT_QUOTES, 'UTF-8');
-        $ville_nettoye = htmlspecialchars($ville, ENT_QUOTES, 'UTF-8');
-        $telephone_nettoye = htmlspecialchars($telephone, ENT_QUOTES, 'UTF-8');
 
         //verifier si l'email à bien était netroyer 
-        if (filter_var($email_nettoye, FILTER_VALIDATE_EMAIL)) {
+        if (filter_var($mel, FILTER_VALIDATE_EMAIL)) {
 
             $req = $bdd->prepare("SELECT * FROM client WHERE mel = :email");
-            $req->execute(array('email' => $email_nettoye));
+            $req->execute(array('email' => $mel));
             $client = $req->fetch();
 
 
@@ -41,7 +37,7 @@ if (isset($_POST['ok'])) {
 
                 // envoyer dans la base donnée une requête pour ajoute les valeurs  suivantes dans la table acheteur 
                 $req = $bdd->prepare("INSERT INTO client (id_client,mel,token,mdp,civilite,prenom,nom,adresse,code_postal,ville,telephone) VALUES(0,:mel,:token,:mdp,:civilite,:prenom,:nom,:adresse,:code_postal,:ville,:telephone)");
-                $req->execute(array('mel' => $email_nettoye, ':token' => '', 'mdp' => $mdp_nettoye, 'civilite' => $civilite_nettoye, 'prenom' => $prenom_nettoye, 'nom' => $nom_nettoye, 'adresse' =>  $adresse_nettoye, 'code_postal' => $codePostal_nettoye, 'ville' => $ville_nettoye, 'telephone' => $telephone_nettoye));
+                $req->execute(array('mel' => $mel, ':token' => '', 'mdp' => $cree->get_mdp(), 'civilite' => $cree->get_civilite(), 'prenom' => $cree->get_prenom(), 'nom' => $cree->get_nom(), 'adresse' =>  $cree->get_adresse(), 'code_postal' => $cree->get_codePostal(), 'ville' => $cree->get_ville(), 'telephone' => $cree->get_telephone()));
                 $connexion = true;
 
                 header("Location: client-inscrit.php");
