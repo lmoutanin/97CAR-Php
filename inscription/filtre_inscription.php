@@ -1,6 +1,6 @@
-<?php require('bdd.php');
- 
-    require 'Client.php';
+<?php
+require('bdd.php');
+require('Client.php');
 
 $error_msg = "";
 
@@ -19,9 +19,9 @@ if (isset($_POST['ok'])) {
 
     //  verifier si les champs email , mdp ,civilite ,prenom ,nom ,adresse , codePostal ,ville et telephone  ne sont pas vide
     if (!empty($email) && !empty($mdp) && !empty($civilite)  &&  !empty($prenom) &&  !empty($nom)   &&  !empty($adresse)   &&  !empty($codePostal)   &&  !empty($ville) &&  !empty($telephone)) {
-        
-        $cree=new Client($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePostal, $ville, $telephone);
-        $mel=$cree->get_email();
+
+        $cree = new Client($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePostal, $ville, $telephone);
+        $mel = $cree->get_email();
 
 
         //verifier si l'email à bien était netroyer 

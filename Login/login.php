@@ -33,4 +33,3 @@ require('filtre_connexion.php');
     </div>
   </form>
 </body>
-</html>

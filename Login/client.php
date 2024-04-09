@@ -2,7 +2,7 @@
 
 require('bdd.php');
  
-$deconnexion=3600;
+ 
 session_name('ma_session');
 session_start();
 $email=$_SESSION['email'];
@@ -15,10 +15,11 @@ if ($token) {
    $rep = $req->fetch();
        
    if ($rep['prenom'] != false) {
-
+      $temp=2;
       
-     
-      header("Refresh:$deconnexion ; url=login.php");
+      header("Refresh:$temp ; url=information.php");
+   
+      
    }else {
  
       header("Refresh:0; url=login.php");

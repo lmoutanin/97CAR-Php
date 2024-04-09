@@ -1,6 +1,10 @@
 <?php
 require('client.php');
 require('menu.php');
+session_name('ma_session');
+session_start();
+$email=$_SESSION['email'];
+$token=$_SESSION['token'];
 nombre(1);
 
 $prenom = $rep['prenom'];
