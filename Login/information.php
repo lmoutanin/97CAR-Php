@@ -1,22 +1,23 @@
 <?php
-require('client.php');
+require('Client.php');
+require('auth.php');
 require('menu.php');
+nombre(1);
+ 
+
 session_name('ma_session');
 session_start();
 $email=$_SESSION['email'];
 $token=$_SESSION['token'];
-nombre(1);
+$_SESSION['client'] =$client;
+ 
 
-$prenom = $rep['prenom'];
-$nom = $rep['nom'];
-$email = $rep['mel'];
-$adresse = $rep['adresse'];
-$codePostal = $rep['code_postal'];
-$ville = $rep['ville'];
-$telephone = $rep['telephone'];
-$civilite = $rep['civilite'];
+  
 
+ 
+ 
 
+ 
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +32,10 @@ $civilite = $rep['civilite'];
 </head>
 
 <body>
-
+  <div class="formulaire">     
     <form method="POST" action="">
-
+        <?php  echo ' <p> le prenom ' .$client->get_prenom().'</p> '; ?>
+ 
         <h1>Informations personnelles</h1>
 <hr>
         <div class="name-field">
@@ -106,4 +108,5 @@ $civilite = $rep['civilite'];
             <button type="submit" class="bouton" name="ok">Créez votre compte</a></button>
         </div>
     </form>
+    </div>
 </body>

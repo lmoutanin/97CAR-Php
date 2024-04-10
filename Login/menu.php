@@ -3,7 +3,7 @@
 
 function nombre($a) {
 
-    require('client.php');
+    require('auth.php');
     $prenom = $rep['prenom'];
     $nom = $rep['nom'];
     
@@ -31,6 +31,7 @@ function nombre($a) {
  
 
 echo '
+ 
 <ul>
     <li><strong><p>Bonjour</p><p>'. $nom."  ". $prenom .'</p> </strong>
      <button class="button-66" role="button"><strong> Déconnexion</strong</button></li>
@@ -39,6 +40,7 @@ echo '
     <li><a class="' . $trois . '" href="page2.php">Contact</a></li>
     <li><a class="' . $quatre . '" href="page3.php">About</a></li>
 </ul>
+ 
 ';
 } 
  

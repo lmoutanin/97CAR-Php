@@ -13,6 +13,7 @@ form {
   padding: 40px 60px;
   border-radius: 10px;
   min-width: 300px;
+  position: static;
 }
 form h1 {
   color: #eb7371;
