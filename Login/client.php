@@ -15,15 +15,15 @@ class  Client
     public function __construct($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePostal, $ville, $telephone)
     {
 
-       $email =filter_var($email, FILTER_SANITIZE_EMAIL);
-       $mdp=$this->filtre($mdp);
-       $civilite=$this->filtre($civilite);
-       $prenom=$this->filtre($prenom);
-       $nom=$this->filtre($nom);
-       $adresse=$this->filtre($adresse);
-       $codePostal=$this->filtre($codePostal);
-       $ville=$this->filtre($ville);
-       $telephone=$this->filtre($telephone);
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $mdp = $this->filtre($mdp);
+        $civilite = $this->filtre($civilite);
+        $prenom = $this->filtre($prenom);
+        $nom = $this->filtre($nom);
+        $adresse = $this->filtre($adresse);
+        $codePostal = $this->filtre($codePostal);
+        $ville = $this->filtre($ville);
+        $telephone = $this->filtre($telephone);
 
         $this->email = $email;
         $this->mdp = $mdp;
@@ -36,7 +36,8 @@ class  Client
         $this->telephone = $telephone;
     }
 
-    public function filtre ($a){
+    public function filtre($a)
+    {
         $a_nettoye = htmlspecialchars($a, ENT_QUOTES, 'UTF-8');
         return  $a_nettoye;
     }
@@ -57,13 +58,13 @@ class  Client
 
     public function get_mdp()
     {
-        
+
         return $this->mdp;
     }
 
     public function set_mdp($mdp)
     {
-        $mdp=$this->filtre($mdp);
+        $mdp = $this->filtre($mdp);
         $this->mdp = $mdp;
     }
 
@@ -74,7 +75,7 @@ class  Client
 
     public function set_civilite($civilite)
     {
-        $civilite=$this->filtre($civilite);
+        $civilite = $this->filtre($civilite);
         $this->civilite = $civilite;
     }
 
@@ -85,7 +86,7 @@ class  Client
 
     public function set_prenom($prenom)
     {
-        $prenom=$this->filtre($prenom);
+        $prenom = $this->filtre($prenom);
         $this->prenom = $prenom;
     }
 
@@ -96,7 +97,7 @@ class  Client
 
     public function set_nom($nom)
     {
-        $nom=$this->filtre($nom);
+        $nom = $this->filtre($nom);
         $this->nom = $nom;
     }
 
@@ -107,10 +108,10 @@ class  Client
 
     public function set_adresse($adresse)
     {
-        $adresse=$this->filtre($adresse);
+        $adresse = $this->filtre($adresse);
         $this->adresse = $adresse;
     }
-    
+
     public function get_codePostal()
     {
         return $this->codePostal;
@@ -118,8 +119,8 @@ class  Client
 
     public function set_codePostal($codePostal)
     {
-        $codePostal=$this->filtre($codePostal);
-        $this->codePostal=$codePostal;
+        $codePostal = $this->filtre($codePostal);
+        $this->codePostal = $codePostal;
     }
 
     public function get_ville()
@@ -127,10 +128,10 @@ class  Client
         return $this->ville;
     }
 
-    public function set_ville ($ville)
+    public function set_ville($ville)
     {
-        $ville=$this->filtre($ville);
-         $this->ville=$ville;
+        $ville = $this->filtre($ville);
+        $this->ville = $ville;
     }
 
     public  function get_telephone()
@@ -140,8 +141,7 @@ class  Client
 
     public function set_telephone($telephone)
     {
-        $telephone=$this->filtre($telephone);
-        $this->telephone=$telephone;
+        $telephone = $this->filtre($telephone);
+        $this->telephone = $telephone;
     }
 }
-?>

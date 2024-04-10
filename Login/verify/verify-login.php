@@ -1,5 +1,5 @@
 <?php
-require('Client.php');
+require('./Client.php');
 require('bdd.php');
 
 $error_msg = "";
@@ -33,18 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $update_req = $bdd->prepare("UPDATE client SET token = :token WHERE mel = :email AND mdp = :mdp");
                 $update_req->execute(array('token' => $token, 'email' => $email_nettoye, 'mdp' => $mdp_nettoye)); //   mise à jour avec le nouveau token
 
-                 
-                 
-
                 session_name('ma_session');
                 session_start();
                 $_SESSION['token'] = $token;
                 $_SESSION['email'] = $email_nettoye;
-                
-                  
 
-
-                header("Location: information.php"); // Rediriger vers la page du compte
+                header("Location: ./information.php"); // Rediriger vers la page du compte
                 exit();
             } else {
                 $error_msg = "<p>Email ou mot de passe incorrect !</p>"; // Afficher un message d'erreur si les identifiants sont incorrects
@@ -62,4 +56,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_msg = "<p>Veuillez remplir tous les champs !</p>";
     }
 }
-
