@@ -1,6 +1,7 @@
 <?php
+
 session_start();
-require('Client.php');
+require('class/Client.php');
 require('verify/restricted-access.php');
 require('verify/menu.php');
 nombre(1);

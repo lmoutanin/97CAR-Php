@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['prenom'] = $rep['prenom'];
 
 
-                header("Location: ./information.php"); // Rediriger vers la page du compte
+                header("Location: ./mes-information.php"); // Rediriger vers la page du compte
                 exit();
             } else {
                 $error_msg = "<p>Email ou mot de passe incorrect !</p>"; // Afficher un message d'erreur si les identifiants sont incorrects
