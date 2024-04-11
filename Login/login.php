@@ -14,21 +14,25 @@
 </head>
 
 <body>
-  <form method="POST" action="">
+  <div class="formulaire">
+    <form method="POST" action="">
 
-    <h1>Connectez-vous</h1>
+      <h1>Connectez-vous</h1>
 
-    <?php echo $error_msg; ?>
-    <p class="choose-email">Déjà client ?</p>
+      <?php echo $error_msg; ?>
+      <p class="choose-email">Déjà client ?</p>
 
-    <div class="inputs">
-      <input type="email" id="email" name="email" placeholder="Votre email" required />
-      <input type="password" id="pass" name="mdp" minlength="8" placeholder="Votre mot de passe" required />
-    </div>
-    <div align="center">
-      <p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <a href="../inscription/inscription.php"><span> crée</span></a> un.</p>
+      <div class="inputs">
+        <input type="email" id="email" name="email" placeholder="Votre email" required />
+        <input type="password" id="pass" name="mdp" minlength="8" placeholder="Votre mot de passe" required />
+      </div>
+      <div align="center">
+        <p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <a href="../inscription/inscription.php"><span> crée</span></a> un.</p>
 
-      <button type="submit">CONNEXION</button>
-    </div>
-  </form>
+        <button type="submit">CONNEXION</button>
+      </div>
+    </form>
+  </div>
 </body>
+
+</html>

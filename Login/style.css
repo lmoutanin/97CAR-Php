@@ -2,24 +2,17 @@
 body {
   display: flex;
   justify-content: center;
-  
+
   align-items: center;
   background-color: #f5f5f5;
   font-family: "Roboto", sans-serif;
 }
 form {
-  margin-top: 20px;
-  background-color: #fff;
-  padding: 40px 60px;
-  border-radius: 10px;
-  min-width: 300px;
-  border: 5px solid #ffffff;
 }
 form h1 {
   color: #eb7371;
   text-align: center;
 }
- 
 
 form p.choose-email {
   text-align: center;
@@ -79,7 +72,6 @@ hr {
   flex-direction: column;
   background-color: #f5f5f5;
   padding: 2px 70px;
-   
 }
 .name {
   display: flex;
@@ -88,27 +80,28 @@ hr {
   padding: 5px;
 }
 
-.radio{
+.radio {
   display: block;
-cursor: pointer;
-display: inline-block;
-line-height: 1.5em;
-margin: 0 10px 10px 0;
-padding: 5px 20px 4px 34px;
-position: relative; } 
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.5em;
+  margin: 0 10px 10px 0;
+  padding: 5px 20px 4px 34px;
+  position: relative;
+}
 
 form .name-field input {
-  padding: 15px ;
+  padding: 15px;
   border: none;
   border-radius: 5px;
   background-color: #f2f2f2;
   outline: none;
-  margin-bottom: 5px 10px  ;
+  margin-bottom: 5px 10px;
 }
-a{
+a {
   text-decoration: none;
 }
- 
+
 /*     Menu verticale       */
 ul {
   list-style-type: none;
@@ -122,7 +115,7 @@ ul {
 li a {
   display: block;
   color: #000;
-  padding: 8px 16px;
+  padding: 8px 5px;
   text-decoration: none;
 }
 
@@ -136,7 +129,7 @@ li:last-child {
 }
 
 li a.active {
-  background-color: #272A35;
+  background-color: #272a35;
   color: white;
 }
 
@@ -145,19 +138,22 @@ li a:hover:not(.active) {
   color: white;
 }
 /* bouton */
- .button-66 {
-  background-color: #E82D2E;
+.button-66 {
+  background-color: #e82d2e;
   border-radius: 4px;
   border: 0;
-  box-shadow: rgba(1,60,136,.5) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+  box-shadow: rgba(1, 60, 136, 0.5) 0 -1px 3px 0 inset,
+    rgba(0, 44, 97, 0.1) 0 3px 6px 0;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inherit;
-  font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: "Space Grotesk", -apple-system, system-ui, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-size: 12px;
   font-weight: 700;
-  
+
   margin: 10px;
 
   min-width: 120px;
@@ -168,11 +164,11 @@ li a:hover:not(.active) {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .button-66:hover {
-  background-color: #E50815;
+  background-color: #e50815;
   transform: translateY(-2px);
 }
 
@@ -182,3 +178,13 @@ li a:hover:not(.active) {
     min-width: 150px;
   }
 }
+.formulaire {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 40px 60px;
+  border-radius: 10px;
+  min-width: 300px;
+  border: 5px solid #ffffff;
+}
+
+ 

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inscription  97CAR</title>
+    <title>Inscription 97CAR</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
@@ -36,8 +36,8 @@
         <div class="name">
 
             <div class="radio">
- 
-   <input type="radio" id="monsieur" name="civilite" value="Monsieur" checked />  
+
+                <input type="radio" id="monsieur" name="civilite" value="Monsieur" checked />
                 <label for="civilite">Monsieur</label>
             </div>
 
@@ -93,10 +93,12 @@
             </div>
 
         </div>
-         <hr>
-        <p class="inscription">Vous avez déjà un  <span>compte </span> ?   <a href="../login/login.php"><span>Connectez-vous</span></a>  </p>
+        <hr>
+        <p class="inscription">Vous avez déjà un <span>compte </span> ? <a href="../login/login.php"><span>Connectez-vous</span></a> </p>
         <div align="center">
             <button type="submit" class="bouton" name="ok">Créez votre compte</a></button>
         </div>
     </form>
 </body>
+
+</html>

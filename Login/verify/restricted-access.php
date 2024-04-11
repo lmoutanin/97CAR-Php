@@ -1,7 +1,6 @@
 <?php
 require('bdd.php');
 
-session_name('ma_session');
 session_start();
 $email = $_SESSION['email'];
 $token = $_SESSION['token'];
@@ -13,19 +12,12 @@ if ($token) {
     $rep = $req->fetch();
 
     if ($rep['prenom'] != false) {
+       
 
-         
     } else {
 
         header("Refresh:0; url=./login.php");
     }
 } else {
     header("Refresh:0; url=./login.php");
-}
-
-if (isset($_POST['deco'])) {
-    session_destroy();
-    
-   
-
 }
