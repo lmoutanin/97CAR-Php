@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['email'] = $email_nettoye;
                 $_SESSION['nom'] = $rep['nom'];
                 $_SESSION['prenom'] = $rep['prenom'];
+                $_SESSION['id'] = $rep['Id_client'];
 
 
                 header("Location: ./mes-information.php"); // Rediriger vers la page du compte

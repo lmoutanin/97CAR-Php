@@ -24,7 +24,7 @@ if (isset($_POST['ok'])) {
         $mel = $cree->get_email();
 
 
-        //verifier si l'email à bien était netroyer 
+        //verifier si l'email à bien était nettoyer 
         if (filter_var($mel, FILTER_VALIDATE_EMAIL)) {
 
             $req = $bdd->prepare("SELECT * FROM client WHERE mel = :email");

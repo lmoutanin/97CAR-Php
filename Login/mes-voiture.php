@@ -76,10 +76,12 @@ nombre(2);
             <div align="center">
                 <button type="submit" class="bouton" name="ok">CRÉER </a></button>
             </div>
-
+            
         </form>
-
-
+        <div align="center">
+           <?php echo  "Ajout de la {$voiture->get_marque()} à {$voiture->get_modele()}" ?>
+        </div>
+         
     </div>
 </body>
 
