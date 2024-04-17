@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+<div class="formulaire">
     <form method="POST" action="">
 
         <h1>INSCRIPTION</h1>
@@ -96,9 +96,10 @@
         <hr>
         <p class="inscription">Vous avez déjà un <span>compte </span> ? <a href="../login/login.php"><span>Connectez-vous</span></a> </p>
         <div align="center">
-            <button type="submit" class="bouton" name="ok">Créez votre compte</a></button>
+            <button type="submit" class="bouton" name="ok"><strong>Créez votre compte</strong></button>
         </div>
     </form>
+    </div>
 </body>
 
 </html>

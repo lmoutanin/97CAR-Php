@@ -23,12 +23,12 @@ nombre(2);
 
 <body>
     <div class="formulaire ">
-        <form method="POST" action="">
+        <form method="POST" action="mes-voiture.php">
 
             <h1>AJOUTER UNE VOITURE </h1>
             <hr>
 
-            <?php echo $error_msg ?>
+           
 
             <div class="name-field">
 
@@ -69,19 +69,20 @@ nombre(2);
 
                 <div>
                     <label for="kilometrage"> Kilometrage </label>
-                    <input type="tel" id="kilometrage" name="kilometrage" placeholder="Votre kilometrage" size="30" required />
+                    <input type="tel" id="kilometrage" name="kilometrage"  pattern="[0-9]{6}" placeholder="Votre kilometrage" size="30" required />
                 </div>
 
             </div>
             </br>
 
             <div align="center">
-                <button type="submit" class="bouton" name="ok">CRÉER </a></button>
+                <button type="submit" class="bouton" name="ok"><strong>Enregistre</strong>  </button>
             </div>
 
         </form>
         <div align="center">
             <?php echo $msg_ins;  ?>
+            <?php echo $error_msg ?>
         </div>
 
     </div>
@@ -93,6 +94,8 @@ nombre(2);
          
 
         <table>
+
+            <thead>
             <tr>
                 <th>MARQUE</th>
                 <th>MODÉLE</th>
@@ -101,18 +104,21 @@ nombre(2);
                 <th>IMMATRICULATION</th>
 
             </tr>
-            <?php foreach ($repondres as $repondre) {
-                echo '
+            </thead> 
 
- <tr>
+            <?php foreach ($repondres as $repondre) {
+                echo ' 
+    <tbody>
+    <tr>
+
      <td> ' . $repondre['marque'] . ' </td>
      <td> ' . $repondre['modele'] . ' </td>
      <td> ' . $repondre['annee'] . ' </td>
      <td> ' . $repondre['kilometrage'] . ' </td>
      <td> ' . $repondre['immatriculation'] . ' </td>
-     
-      
- </tr>';
+        
+     </tr>
+     </tbody>';
             }
             ?>
         </table>

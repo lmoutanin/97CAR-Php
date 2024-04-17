@@ -2,39 +2,18 @@
 body {
   display: flex;
   justify-content: center;
-  flex-direction: columns;
+
   align-items: center;
   background-color: #f5f5f5;
   font-family: "Roboto", sans-serif;
 }
 form {
-  margin-top: 20px;
-  background-color: #fff;
-  padding: 40px 60px;
-  border-radius: 10px;
-  min-width: 300px;
-  position: static;
 }
-form h1 {
+form h1,h1 {
   color: #eb7371;
   text-align: center;
 }
-form .social-media {
-  margin-top: -10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-form .social-media p {
-  padding: 5px;
-  width: 20px;
-  margin-left: 10px;
-  border-radius: 100%;
-  border: 1px solid #545454;
-  text-align: center;
-  cursor: pointer;
-  color: #545454;
-}
+
 form p.choose-email {
   text-align: center;
 }
@@ -89,11 +68,10 @@ hr {
 }
 
 .name div {
-   
+  display: flex;
   flex-direction: column;
   background-color: #f5f5f5;
   padding: 2px 70px;
-   
 }
 .name {
   display: flex;
@@ -102,23 +80,223 @@ hr {
   padding: 5px;
 }
 
-.radio{
- 
-cursor: pointer;
-display: inline-block;
-line-height: 1.5em;
-margin: 0 10px 10px 0;
-padding: 5px 20px 4px 34px;
-position: relative; } 
+.radio {
+  display: block;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.5em;
+  margin: 0 10px 10px 0;
+  padding: 5px 20px 4px 34px;
+  position: relative;
+}
 
 form .name-field input {
-  padding: 15px ;
+  padding: 15px;
   border: none;
   border-radius: 5px;
   background-color: #f2f2f2;
   outline: none;
-  margin-bottom: 5px 10px  ;
+  margin-bottom: 5px 10px;
 }
-a{
+a {
   text-decoration: none;
+}
+
+/*     Menu verticale       */
+ul {
+  list-style-type: none;
+  margin: 30px;
+  padding: 10px;
+  width: 200px;
+  background-color: #f1f1f1;
+  border-collapse: collapse;
+
+  box-shadow: 0 5px 50px rgba(0,0,0,0.15);
+
+  cursor: pointer;
+
+  border: 2px solid #eb7371;
+
+  border-radius: 10px;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 5px;
+  text-decoration: none;
+}
+
+li {
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li a.active {
+  background-color: #272a35;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+/* bouton */
+.button-66 {
+  background-color: #e82d2e;
+  border-radius: 4px;
+  border: 0;
+  box-shadow: rgba(1, 60, 136, 0.5) 0 -1px 3px 0 inset,
+    rgba(0, 44, 97, 0.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk", -apple-system, system-ui, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-size: 12px;
+  font-weight: 700;
+
+  margin: 10px;
+
+  min-width: 120px;
+  padding: 10px 50px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.button-66:hover {
+  background-color: #e50815;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-66 {
+    padding: 16px 44px;
+    min-width: 150px;
+  }
+}
+.formulaire {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 40px 60px;
+  border-radius: 10px;
+  min-width: 300px;
+  
+  border: 2px solid  #eb7371;
+  box-shadow: 0 5px 50px rgba(0,0,0,0.15);
+}
+.imma {
+  margin:0 65px;
+}
+ 
+ 
+/*  deuxieme formulaire */
+.formul{
+  position:absolute;
+  top:550px;
+   
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 40px 60px;
+    border-radius: 10px;
+   
+    
+    margin-bottom: 40px;
+    border-left-width: 30px;
+  width: 500px;
+  left: 760px;
+  padding-right: 106px;
+  }
+  
+  .formul  {
+
+    border-collapse: collapse;
+
+    box-shadow: 0 5px 50px rgba(0,0,0,0.15);
+
+    cursor: pointer;
+
+    margin: 0px auto;
+
+    border: 2px solid #eb7371;
+
+}
+
+
+
+thead tr {
+
+    background-color:   #eb7371;
+
+    color: #fff;
+
+    text-align: left;
+
+}
+
+
+
+th, td {
+
+  padding: 15px 8px;
+
+    text-align: center;
+
+}
+
+
+
+tbody tr, td, th {
+
+    border: 1px solid #ddd;
+
+}
+
+
+
+tbody tr:nth-child(even){
+
+    background-color: #f3f3f3;
+
+}
+
+
+
+@media screen and (max-width: 550px) {
+
+  body {
+
+    align-items: flex-start;
+
+  }
+
+  .table-style  {
+
+    width: 100%;
+
+    margin: 0px;
+
+    font-size: 10px;
+
+  }
+
+  th, td {
+
+    padding: 10px 7px;
+
+}
+
+
+
 }

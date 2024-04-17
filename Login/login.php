@@ -29,10 +29,10 @@
       <div align="center">
         <p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <a href="../inscription/inscription.php"><span> crée</span></a> un.</p>
 
-        <button type="submit">CONNEXION</button>
+        <button type="submit"><strong>Connexion</strong></button>
       </div>
     </form>
   </div>
 </body>
-
+ 
 </html>

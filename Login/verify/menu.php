@@ -33,7 +33,7 @@ function nombre($a)
     echo '
     <form class="formule"  method="post">
 <ul>
-    <li><strong><p>Bonjour</p><p>' . $nom . "  " . $prenom . '</p> </strong>
+    <li><strong><p>Bonjour</p></strong> <em>' . $nom . "  " . $prenom . '</em>  
  
      <button class="button-66"   type="submit" class="bouton" name="déconnexion"  ><strong>  Déconnexion </strong></button></li>
     

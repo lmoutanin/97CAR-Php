@@ -106,7 +106,7 @@ $client = new Client($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePost
             </div>
             <br>
             <div align="center">
-                <button type="submit" class="bouton" name="ok">Créez votre compte</a></button>
+                <button type="submit" class="bouton" name="ok"><strong>Modifier</strong></button>
             </div>
         </form>
     </div>
