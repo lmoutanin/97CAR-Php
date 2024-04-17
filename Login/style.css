@@ -9,7 +9,7 @@ body {
 }
 form {
 }
-form h1 {
+form h1,h1 {
   color: #eb7371;
   text-align: center;
 }
@@ -219,3 +219,20 @@ td {
 td:last-of-type {
   text-align: center;
 }
+
+.formul{
+  position:absolute;
+  top:550px;
+   
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 40px 60px;
+    border-radius: 10px;
+   
+    border: 5px solid #ffffff;
+    margin-bottom: 40px;
+    border-left-width: 30px;
+  width: 500px;
+  left: 760px;
+  padding-right: 106px;
+  }

@@ -1,13 +1,11 @@
 <?php
 session_start();
+require('class/Voiture.php');
+require('verify/verify-voiture.php');
 require('verify/restricted-access.php');
 require('verify/menu.php');
 nombre(2);
 
-$id = $_SESSION['id'];
-$requete = $bdd->prepare("SELECT * FROM voiture WHERE Id_client = :Id_client");
-$requete->execute(array(':Id_client' =>$id));
-$repondres = $requete->fetchAll();
  
 
 ?>
@@ -25,40 +23,101 @@ $repondres = $requete->fetchAll();
 
 <body>
     <div class="formulaire ">
+        <form method="POST" action="">
 
+            <h1>AJOUTER UNE VOITURE </h1>
+            <hr>
 
-        <table>
+            <?php echo $error_msg ?>
 
-            <?php foreach ($repondres as $repondre) {
-                echo '
-        <tr>
-            <th>MARQUE</th>
-            <th>MODÉLE</th>
-            <th>ANNÉE</th>
-            <th>KILOMETRATE</th>
-            <th>IMMATRICULATION</th>
-            
-        </tr>
-        <tr>
-            <td> '.$repondre['marque'].' </td>
-            <td> '.$repondre['modele'].' </td>
-            <td> '.$repondre['annee'].' </td>
-            <td> '.$repondre['kilometrage'].' </td>
-            <td> '.$repondre['immatriculation'].' </td>
-            
-             
-        </tr>';
-            }
-            ?>
-        </table>
+            <div class="name-field">
 
+                <div>
+                    <label for="annee"> Année Modèle</label>
+                    <input type="date" id="start" name="annee" min="2000-01-01" max="<?php echo date('Y-m-d'); ?>" required />
 
+                </div>
 
+            </div>
 
+            <div class="name-field">
+
+                <div>
+                    <label for="marque"> Marque </label>
+                    <input type="text" id="marque" name="marque" minlength="2" maxlength="100" size="30" placeholder="Votre marque" required />
+                </div>
+
+                <div class="imma">
+                    <label for="imma">Immatriculation </label>
+                    <label">
+
+                        <input name="imma1" id="imma" type="text" pattern="[a-zA-Z0-9]{2}"   placeholder="XX" size="2" required />-
+                        <input name="imma2" id="imma" type="text" pattern="[a-zA-Z0-9]{3}"   placeholder="XXX" size="3" required />-
+                        <input name="imma3" id="imma" type="text" pattern="[a-zA-Z0-9]{2}"   placeholder="XX" size="2" required />
+
+                        </label>
+                </div>
+
+            </div>
+
+            <div class="name-field">
+
+                <div>
+                    <label for="modele"> Modele </label>
+                    <input type="text" id="modele" name="modele" minlength="2" maxlength="50" size="30" placeholder="Votre modele" required />
+                </div>
+
+                <div>
+                    <label for="kilometrage"> Kilometrage </label>
+                    <input type="tel" id="kilometrage" name="kilometrage" placeholder="Votre kilometrage" size="30" required />
+                </div>
+
+            </div>
+            </br>
+
+            <div align="center">
+                <button type="submit" class="bouton" name="ok">CRÉER </a></button>
+            </div>
+
+        </form>
+        <div align="center">
+            <?php echo $msg_ins;  ?>
+        </div>
 
     </div>
 
 
+    <br>
+    <div class="formul ">
+        <h1>MES VOITURES </h1>
+         
+
+        <table>
+            <tr>
+                <th>MARQUE</th>
+                <th>MODÉLE</th>
+                <th>ANNÉE</th>
+                <th>KILOMETRATE</th>
+                <th>IMMATRICULATION</th>
+
+            </tr>
+            <?php foreach ($repondres as $repondre) {
+                echo '
+
+ <tr>
+     <td> ' . $repondre['marque'] . ' </td>
+     <td> ' . $repondre['modele'] . ' </td>
+     <td> ' . $repondre['annee'] . ' </td>
+     <td> ' . $repondre['kilometrage'] . ' </td>
+     <td> ' . $repondre['immatriculation'] . ' </td>
+     
+      
+ </tr>';
+            }
+            ?>
+        </table>
+
+    </div>
 
 
 </body>
