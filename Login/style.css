@@ -7,8 +7,7 @@ body {
   background-color: #f5f5f5;
   font-family: "Roboto", sans-serif;
 }
-form {
-}
+ 
 form h1,h1 {
   color: #eb7371;
   text-align: center;
@@ -216,7 +215,7 @@ li a:hover:not(.active) {
     border-left-width: 30px;
   width: 500px;
   left: 760px;
-  padding-right: 106px;
+  padding-right:130px;
   }
   
   .formul  {
@@ -230,6 +229,7 @@ li a:hover:not(.active) {
     margin: 0px auto;
 
     border: 2px solid #eb7371;
+    
 
 }
 
@@ -300,3 +300,17 @@ tbody tr:nth-child(even){
 
 
 }
+ 
+  .formul1  {
+
+    border-collapse: collapse;
+ 
+    cursor: pointer;
+
+    margin: 0px auto;
+
+ 
+    
+
+}
+

@@ -1,5 +1,7 @@
 <?php
-require('bdd.php');
+ 
+ require('bdd.php');
+ 
 
 $error_msg = "";
 
@@ -21,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $token = bin2hex(random_bytes(32)); // Générer un token aléatoire
 
-            $req = $bdd->prepare("SELECT * FROM client WHERE mel = :email AND mdp = :mdp"); // Préparer la requête SQL pour récupérer les informations du client
+            $req = $bdd->prepare("SELECT * FROM login WHERE mel = :email AND mdp = :mdp"); // Préparer la requête SQL pour récupérer les informations du client
             $req->execute(array('email' => $email_nettoye, 'mdp' => $mdp_nettoye)); // Exécuter la requête en utilisant les valeurs nettoyées de l'email et du mot de passe
             $rep = $req->fetch(); // Récupérer la ligne résultante de la requête
 
@@ -29,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($rep !== false) {
 
                 //   mettre à jour le token du client
-                $update_req = $bdd->prepare("UPDATE client SET token = :token WHERE mel = :email AND mdp = :mdp");
+                $update_req = $bdd->prepare("UPDATE login SET token = :token WHERE mel = :email AND mdp = :mdp");
                 $update_req->execute(array('token' => $token, 'email' => $email_nettoye, 'mdp' => $mdp_nettoye)); //   mise à jour avec le nouveau token
 
 
@@ -41,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['id'] = $rep['Id_client'];
 
 
-                header("Location: ./mes-information.php"); // Rediriger vers la page du compte
+                header("Location: ./add-proprietaire.php"); // Rediriger vers la page du compte
                 exit();
             } else {
                 $error_msg = "<p>Email ou mot de passe incorrect !</p>"; // Afficher un message d'erreur si les identifiants sont incorrects

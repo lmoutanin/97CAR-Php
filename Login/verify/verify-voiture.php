@@ -1,13 +1,15 @@
 <?php
 require('bdd.php');
+require('verify/restricted-access.php');
+ 
 session_start();
 
 $msg_ins = "";
 $error_msg = "";
 
-$id = $_SESSION['id'];
-$requete = $bdd->prepare("SELECT * FROM voiture WHERE Id_client = :Id_client");
-$requete->execute(array(':Id_client' => $id));
+ 
+$requete = $bdd->query("SELECT * FROM voiture ");
+ 
 $repondres = $requete->fetchAll();
 
 

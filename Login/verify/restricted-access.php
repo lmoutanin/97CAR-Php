@@ -1,4 +1,5 @@
 <?php
+ 
 require('bdd.php');
 
 session_start();
@@ -7,7 +8,7 @@ $token = $_SESSION['token'];
 
 if ($token) {
 
-    $req = $bdd->prepare("SELECT * FROM client WHERE mel = '$email' AND token = '$token'");
+    $req = $bdd->prepare("SELECT * FROM login WHERE mel = '$email' AND token = '$token'");
     $req->execute(array('email' => $email, 'token' => $token));
     $rep = $req->fetch();
 

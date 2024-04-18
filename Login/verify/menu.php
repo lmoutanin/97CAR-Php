@@ -1,15 +1,16 @@
 <?php
  
-require('restricted-access.php');
+ require('restricted-access.php');
+
 
 function nombre($a)
 {
-   session_start();
+  
+    session_start();
     require('restricted-access.php');
 
     $prenom=$_SESSION['prenom'];
     $nom=$_SESSION['nom'];
-
    
 
     $un = '';
@@ -29,6 +30,12 @@ function nombre($a)
     if ($a == 4) {
         $quatre = 'active';
     }
+    if ($a == 5 ) {
+        $cinq = 'active';
+    }
+    if ($a == 6) {
+        $six = 'active';
+    }
 
     echo '
     <form class="formule"  method="post">
@@ -37,10 +44,13 @@ function nombre($a)
  
      <button class="button-66"   type="submit" class="bouton" name="déconnexion"  ><strong>  Déconnexion </strong></button></li>
     
-    <li><a class="' . $un . '" href="mes-information.php">Mes informations</a></li>
-    <li><a class="' . $deux . '" href="mes-voiture.php">Mes voitures</a></li>
-    <li><a class="' . $trois . '" href="reparation.php">Mes réparations</a></li>
-    <li><a class="' . $quatre . '" href="facture.php">Mes factures</a></li>
+    <li><a class="' . $un . '" href="add-proprietaire.php">Ajoute Propriétaire </a></li>
+    <li><a class="' . $deux . '" href="add-voiture.php">Ajoute Voiture</a></li>
+    <li><a class="' . $trois . '" href="add-facture.php">Ajoute Facture </a></li>
+    <li><a class="' . $quatre . '" href="proprietaire.php">  Propriétaire</a></li>
+    <li><a class="' . $cinq . '" href="voiture.php">   Voiture</a></li>
+    <li><a class="' . $six . '" href="facture.php">  Facture</a></li>
+    
 </ul>
 </form>
 ';

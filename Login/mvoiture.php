@@ -89,14 +89,17 @@ nombre(2);
 
 
     <br>
-    <div class="formul ">
-        <h1>MES VOITURES </h1>
-         
+    
 
-        <table>
+<div class="formul">  
+    <table  class="formul1"  >
 
-            <thead>
+
+
+        <thead>
+
             <tr>
+
                 <th>MARQUE</th>
                 <th>MODÉLE</th>
                 <th>ANNÉE</th>
@@ -104,11 +107,18 @@ nombre(2);
                 <th>IMMATRICULATION</th>
 
             </tr>
-            </thead> 
 
-            <?php foreach ($repondres as $repondre) {
+        </thead>
+
+        
+
+
+
+        <tbody>
+
+        <?php foreach ($repondres as $repondre) {
                 echo ' 
-    <tbody>
+     
     <tr>
 
      <td> ' . $repondre['marque'] . ' </td>
@@ -117,13 +127,17 @@ nombre(2);
      <td> ' . $repondre['kilometrage'] . ' </td>
      <td> ' . $repondre['immatriculation'] . ' </td>
         
-     </tr>
-     </tbody>';
+     </tr>';
             }
             ?>
-        </table>
+            
 
-    </div>
+        </tbody>
+
+
+
+    </table>
+    
 
 
 </body>
