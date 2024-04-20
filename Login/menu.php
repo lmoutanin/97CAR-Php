@@ -2,7 +2,7 @@
         <ul>
             <li>
                 <a href="#" class="logo">
-                    <img src="https://i.ibb.co/VM7wMjg/Logo-97-CAR-White.png" alt="">
+                    <img src="image/Logo_97CAR_White.png" alt="">
                     <span class="nav-item">97 Car</span>
                 </a>
             </li>
@@ -15,11 +15,11 @@
                 <span class="nav-item">Client</span>
             </a></li>
             <li><a href="voiture.php">
-                <i class="fas fa-wallet"></i>
+                <i class="fas fa-car"></i>
                 <span class="nav-item">Voiture</span>
             </a></li>
             <li><a href="facture.php">
-                <i class="fas fa-chart-bar"></i>
+            <i class="fas fa-chart-bar"></i>
                 <span class="nav-item">Facture</span>
             </a></li>
             <li><a href="#">

@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                
 
-                header("Location: ./add-proprietaire.php"); // Rediriger vers la page du compte
+                header("Location: ./home.php"); // Rediriger vers la page du compte
                 exit();
             } else {
                 $error_msg = "<p>Email ou mot de passe incorrect !</p>"; // Afficher un message d'erreur si les identifiants sont incorrects

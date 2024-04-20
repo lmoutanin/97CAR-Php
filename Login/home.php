@@ -21,7 +21,7 @@ $id = $_GET['id'];
 
 <body>
 
-<div class="formulaire">
+<div class="formul">
   
     <div class="card-container">
 
@@ -39,7 +39,7 @@ $id = $_GET['id'];
             <div class="card-content">
                 <h3> Client</h3>
                  
-                <a href="proprietaire.php" class="btn">consulter</a>
+                <a href="client.php" class="btn">consulter</a>
             </div>
         </div>
 
