@@ -1,10 +1,10 @@
 <?php
 session_start();
-require('class/Voiture.php');
-require('verify/verify-voiture.php');
-require('verify/restricted-access.php');
-require('verify/menu.php');
-nombre(2);
+
+
+require('../verify/restricted-access.php');
+require('../verify/menu.php');
+nombre(3);
 
  
 
@@ -16,8 +16,8 @@ nombre(2);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Voitures</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ajoute Voiture</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
 
@@ -25,7 +25,7 @@ nombre(2);
     <div class="formulaire ">
         <form method="POST" action="mes-voiture.php">
 
-            <h1>AJOUTER UNE VOITURE </h1>
+            <h1>AJOUTER UNE FACTURE</h1>
             <hr>
 
            
@@ -35,6 +35,12 @@ nombre(2);
                 <div>
                     <label for="annee"> Année Modèle</label>
                     <input type="date" id="start" name="annee" min="2000-01-01" max="<?php echo date('Y-m-d'); ?>" required />
+
+                </div>
+
+                <div>
+                    <label for="annee">Email du proprietaire </label>
+                    <input type="email" id="email" name="email" maxlength="50" size="30" placeholder="Votre email" required />
 
                 </div>
 
@@ -76,7 +82,7 @@ nombre(2);
             </br>
 
             <div align="center">
-                <button type="submit" class="bouton" name="ok"><strong>Enregistre</strong>  </button>
+            <button type="submit" class="bouton" name="ok">Crée une facture </button>
             </div>
 
         </form>
@@ -90,54 +96,7 @@ nombre(2);
 
     <br>
     
-
-<div class="formul">  
-    <table  class="formul1"  >
-
-
-
-        <thead>
-
-            <tr>
-
-                <th>MARQUE</th>
-                <th>MODÉLE</th>
-                <th>ANNÉE</th>
-                <th>KILOMETRATE</th>
-                <th>IMMATRICULATION</th>
-
-            </tr>
-
-        </thead>
-
-        
-
-
-
-        <tbody>
-
-        <?php foreach ($repondres as $repondre) {
-                echo ' 
-     
-    <tr>
-
-     <td> ' . $repondre['marque'] . ' </td>
-     <td> ' . $repondre['modele'] . ' </td>
-     <td> ' . $repondre['annee'] . ' </td>
-     <td> ' . $repondre['kilometrage'] . ' </td>
-     <td> ' . $repondre['immatriculation'] . ' </td>
-        
-     </tr>';
-            }
-            ?>
-            
-
-        </tbody>
-
-
-
-    </table>
-    
+ 
 
 
 </body>

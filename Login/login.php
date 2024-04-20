@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Connexion 97CAR </title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
 
@@ -27,7 +27,7 @@
         <input type="password" id="pass" name="mdp" minlength="8" placeholder="Votre mot de passe" required />
       </div>
       <div align="center">
-        <p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <a href="../inscription/inscription.php"><span> crée</span></a> un.</p>
+        
 
         <button type="submit"><strong>Connexion</strong></button>
       </div>

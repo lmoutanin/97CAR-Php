@@ -26,7 +26,7 @@ if (isset($_POST['ok'])) {
     //  verifier si les champs marque,modele,kilometrage,immatriculation et année  ne sont pas vide
     if (!empty($marque) && !empty($modele) && !empty($kilometrage) && !empty($imma) && !empty($annee)) {
 
-        $voiture = new Voiture($marque, $imma, $modele, $kilometrage, $annee, $id);
+        $voiture = new Voiture($marque, $imma, $modele, $kilometrage, $annee, $id,0);
         $req = $bdd->prepare("SELECT * FROM voiture WHERE immatriculation = :immatriculation");
         $req->execute(array('immatriculation' => $voiture->get_immatriculation()));
         $immatriculation = $req->fetch();
@@ -38,7 +38,7 @@ if (isset($_POST['ok'])) {
             $req = $bdd->prepare("INSERT INTO voiture (Id_voiture,annee,marque,kilometrage,modele,immatriculation,Id_client  ) VALUES(0,:annee,:marque,:kilometrage,:modele,:immatriculation,:Id_client)");
             $req->execute(array('annee' => $voiture->get_annee(), ':marque' => $voiture->get_marque(), ':kilometrage' => $voiture->get_kilometrage(), ':modele' => $voiture->get_modele(), ':immatriculation' => $voiture->get_immatriculation(), ':annee' => $voiture->get_annee(), ':Id_client' => $voiture->get_id_client()));
 
-            header("Location: mes-voiture.php");
+          
             $msg_ins = "Ajout de la {$voiture->get_marque()} à {$voiture->get_modele()} .";
             exit();
           

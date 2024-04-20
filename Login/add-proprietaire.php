@@ -2,6 +2,7 @@
 
 <?php 
 session_start();
+require('verify/verify-proprietaire.php');
 require('verify/restricted-access.php');
 require('verify/menu.php'); 
 nombre(1);
@@ -14,7 +15,7 @@ nombre(1);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ajoute proprietaire</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
 
@@ -23,22 +24,15 @@ nombre(1);
     <form method="POST" action="">
 
         <h1>AJOUTER UN PROPRIÉTAIRE</h1>
-       
-
-       <hr>
       
-
-        
-        <?php echo $error_msg ?>
+       <hr>
         
         <div class="inputs">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Votre email" required />
  
         </div>
-
-
-
+  
         <div class="name-field">
 
             <div>
@@ -87,6 +81,11 @@ nombre(1);
             <button type="submit" class="bouton" name="ok">Crée un propriétaire </button>
         </div>
     </form>
+    <div align="center">
+            <?php echo $msg_ins;  ?>
+            <?php echo $error_msg ?>
+        </div>
+
     </div>
 </body>
 

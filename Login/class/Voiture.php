@@ -8,8 +8,9 @@ class Voiture
     private $kilometrage;
     private $annee;
     private $id_client;
+    private $id_voiture;
 
-public function __construct($marque,$immatriculation,$modele,$kilometrage,$annee,$id_client)
+public function __construct($marque,$immatriculation,$modele,$kilometrage,$annee,$id_client,$id_voiture)
  {
     $marque = $this->filtre($marque);
     $immatriculation = $this->filtre($immatriculation);
@@ -17,6 +18,7 @@ public function __construct($marque,$immatriculation,$modele,$kilometrage,$annee
     $kilometrage = $this->filtre($kilometrage);
     $annee = $this->filtre($annee);
     $id_client = $this->filtre($id_client);
+    $id_voiture = $this->filtre($id_voiture);
 
 
     $this->marque=$marque;
@@ -25,6 +27,7 @@ public function __construct($marque,$immatriculation,$modele,$kilometrage,$annee
     $this->kilometrage=$kilometrage;
     $this->annee=$annee;
     $this->id_client=$id_client;
+    $this->id_voiture=$id_voiture;
 
 }
 
@@ -100,5 +103,17 @@ public function set_id_client($id_client)
 {
     $id_client = $this->filtre($id_client);
     $this->id_client =$id_client;
+}
+
+
+public function get_id_voiture()
+{
+    return $this->id_voiture;
+}
+
+public function set_id_voiture($id_voiture)
+{
+    $id_voiture = $this->filtre($id_voiture);
+    $this->id_voiture =$id_voiture;
 }
  }

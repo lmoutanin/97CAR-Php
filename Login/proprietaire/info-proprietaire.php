@@ -1,25 +1,29 @@
 <?php
+ 
+include('../bdd.php');
+require('../class/Client.php');
+require('../verify/menu.php');
 
-session_start();
-require('class/Client.php');
-require('verify/restricted-access.php');
-require('verify/menu.php');
-nombre(1);
+$id=$_GET['id'] ;
+$requete = $bdd->prepare("SELECT * FROM client WHERE Id_client=:id");
+$requete->execute(array('id' => $id));
+ 
+$repondres = $requete->fetch();
+ 
 
-$email = $rep['mel'];
-$mdp = $rep[''];
-$civilite = $rep['civilite'];
-$prenom = $rep['prenom'];
-$nom = $rep['nom'];
-$adresse = $rep['adresse'];
-$codePostal = $rep['code_postal'];
-$ville = $rep['ville'];
-$telephone = $rep['telephone'];
-$civilite = $rep['civilite'];
+$email = $repondres['mel'];
+$prenom = $repondres['prenom'];
+$nom = $repondres['nom'];
+$adresse = $repondres['adresse'];
+$codePostal = $repondres['code_postal'];
+$ville = $repondres['ville'];
+$telephone = $repondres['telephone'];
+$civilite = $repondres['civilite'];
 
-$client = new Client($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePostal, $ville, $telephone);
+$client = new Client($email,$prenom,$nom,$adresse,$codePostal,$ville,$telephone,$id);
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +32,7 @@ $client = new Client($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePost
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mes Informations </title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
 
@@ -39,14 +43,7 @@ $client = new Client($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePost
 
             <h1>Informations <?php echo $client->get_nom() . " " . $client->get_prenom(); ?> </h1>
             <hr>
-            <div class="name-field">
-
-                <div>
-                    <label for="civilite">Civilité</label>
-                    <input type="text" id="civilite" size="70" readonly="true" name="civilite" placeholder="Votre Civilite" value="<?php echo $client->get_civilite(); ?>" required />
-                </div>
-
-            </div>
+            
             <div class="name-field">
 
                 <div>
@@ -91,17 +88,13 @@ $client = new Client($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePost
             </div>
 
 
-            <div class="name-field">
+            <div class="name-field"  >
 
-                <div>
+                <div   >
                     <label for="email">Email</label>
                     <input type="email" id="email" size="30" name="email" placeholder="Votre email" value="<?php echo $client->get_email(); ?>" required />
                 </div>
-
-                <div>
-                    <label for="mdp"> Mot de passe</label>
-                    <input type="password" id="pass" size="30" name="mdp" minlength="8" placeholder="Votre mot de passe" required />
-                </div>
+ 
 
             </div>
             <br>

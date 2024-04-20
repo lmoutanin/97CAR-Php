@@ -45,11 +45,9 @@ function nombre($a)
      <button class="button-66"   type="submit" class="bouton" name="déconnexion"  ><strong>  Déconnexion </strong></button></li>
     
     <li><a class="' . $un . '" href="add-proprietaire.php">Ajoute Propriétaire </a></li>
-    <li><a class="' . $deux . '" href="add-voiture.php">Ajoute Voiture</a></li>
-    <li><a class="' . $trois . '" href="add-facture.php">Ajoute Facture </a></li>
-    <li><a class="' . $quatre . '" href="proprietaire.php">  Propriétaire</a></li>
-    <li><a class="' . $cinq . '" href="voiture.php">   Voiture</a></li>
-    <li><a class="' . $six . '" href="facture.php">  Facture</a></li>
+    <li><a class="' . $deux . '" href="proprietaire.php">  Propriétaire</a></li>
+    <li><a class="' . $trois . '" href="voiture.php">   Voiture</a></li>
+    <li><a class="' . $quatre. '" href="facture.php">  Facture</a></li>
     
 </ul>
 </form>

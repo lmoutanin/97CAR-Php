@@ -3,37 +3,34 @@ class  Client
 {
 
     private $email;
-    private $mdp;
-    private $civilite;
     private $prenom;
     private $nom;
     private $adresse;
     private $codePostal;
     private $ville;
     private $telephone;
+    private $id_client;
 
-    public function __construct($email, $mdp, $civilite, $prenom, $nom, $adresse, $codePostal, $ville, $telephone)
+    public function __construct($email, $prenom, $nom, $adresse, $codePostal, $ville, $telephone, $id_client)
     {
 
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        $mdp = $this->filtre($mdp);
-        $civilite = $this->filtre($civilite);
         $prenom = $this->filtre($prenom);
         $nom = $this->filtre($nom);
         $adresse = $this->filtre($adresse);
-        $codePostal = $this->filtre($codePostal);
+        
         $ville = $this->filtre($ville);
         $telephone = $this->filtre($telephone);
+        $id_client= $this->filtre($id_client);
 
         $this->email = $email;
-        $this->mdp = $mdp;
-        $this->civilite = $civilite;
         $this->prenom = $prenom;
         $this->nom = $nom;
         $this->adresse = $adresse;
         $this->codePostal = $codePostal;
         $this->ville = $ville;
         $this->telephone = $telephone;
+        $this->id_client = $id_client;
     }
 
     public function filtre($a)
@@ -53,30 +50,6 @@ class  Client
     {
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
         $this->email = $email;
-    }
-
-
-    public function get_mdp()
-    {
-
-        return $this->mdp;
-    }
-
-    public function set_mdp($mdp)
-    {
-        $mdp = $this->filtre($mdp);
-        $this->mdp = $mdp;
-    }
-
-    public function get_civilite()
-    {
-        return $this->civilite;
-    }
-
-    public function set_civilite($civilite)
-    {
-        $civilite = $this->filtre($civilite);
-        $this->civilite = $civilite;
     }
 
     public function get_prenom()
@@ -143,5 +116,16 @@ class  Client
     {
         $telephone = $this->filtre($telephone);
         $this->telephone = $telephone;
+    }
+
+    public function get_id_client()
+    {
+        return $this->id_client;
+    }
+
+    public function set_id_client($id_client)
+    {
+        $id_client = $this->filtre($id_client);
+        $this->id_client = $id_client;
     }
 }
