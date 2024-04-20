@@ -38,10 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 session_start();
                 $_SESSION['token'] = $token;
                 $_SESSION['email'] = $email_nettoye;
-                $_SESSION['nom'] = $rep['nom'];
-                $_SESSION['prenom'] = $rep['prenom'];
-                $_SESSION['id'] = $rep['Id_client'];
-
+                
+               
 
                 header("Location: ./add-proprietaire.php"); // Rediriger vers la page du compte
                 exit();

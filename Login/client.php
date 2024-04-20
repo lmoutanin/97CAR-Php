@@ -1,11 +1,10 @@
 <?php
 session_start();
-require('class/Client.php');
 require('verify/restricted-access.php');
-require('verify/menu.php');
-nombre(2);
-$requete = $bdd->query("SELECT * FROM client ");
-$repondres = $requete->fetchAll();
+require('class/Client.php');
+require('menu.php');
+ 
+ 
 
 
 ?>
@@ -48,7 +47,7 @@ $repondres = $requete->fetchAll();
 
                 <tbody>
 
-                    <?php foreach ($repondres as $repondre) {
+                    <?php foreach ($rps as $repondre) {
                         $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
                     ?>
 

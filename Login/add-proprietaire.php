@@ -3,9 +3,9 @@
 <?php 
 session_start();
 require('verify/verify-proprietaire.php');
-require('verify/restricted-access.php');
-require('verify/menu.php'); 
-nombre(1);
+ 
+require('menu.php');
+ 
 
 ?>
 <!DOCTYPE html>

@@ -1,11 +1,13 @@
 <?php
 session_start();
-require('class/Voiture.php');
-require('verify/verify-voiture.php');
+
+
 require('verify/restricted-access.php');
-require('verify/menu.php');
-nombre(2);
+require('menu.php');
+nombre(3);
+
  
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +17,7 @@ nombre(2);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajoute Voiture</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
 
@@ -23,9 +25,11 @@ nombre(2);
     <div class="formulaire ">
         <form method="POST" action="mes-voiture.php">
 
-            <h1>Ajout d'une voiture   </h1>
+            <h1>AJOUTER UNE FACTURE</h1>
             <hr>
-  
+
+           
+
             <div class="name-field">
 
                 <div>
@@ -34,7 +38,12 @@ nombre(2);
 
                 </div>
 
-               
+                <div>
+                    <label for="annee">Email du proprietaire </label>
+                    <input type="email" id="email" name="email" maxlength="50" size="30" placeholder="Votre email" required />
+
+                </div>
+
             </div>
 
             <div class="name-field">
@@ -73,7 +82,7 @@ nombre(2);
             </br>
 
             <div align="center">
-            <button type="submit" class="bouton" name="ok">Crée une voiture </button>
+            <button type="submit" class="bouton" name="ok">Crée une facture </button>
             </div>
 
         </form>

@@ -95,7 +95,7 @@ form .name-field input {
   border-radius: 5px;
   background-color: #f2f2f2;
   outline: none;
-  margin-bottom: 5px 10px;
+  margin-right: 11px;
 }
 a {
 
@@ -103,90 +103,7 @@ a {
   text-decoration: none;
 }
 
-/*     Menu verticale       */
-ul {
-  list-style-type: none;
-  margin: 30px;
-  padding: 10px;
-  width: 200px;
-  background-color: #f1f1f1;
-  border-collapse: collapse;
-
-  box-shadow: 0 5px 50px rgba(0,0,0,0.15);
-
-  cursor: pointer;
-
-  border: 2px solid #eb7371;
-
-  border-radius: 10px;
-}
-
-li a {
-  display: block;
-  color: #000;
-  padding: 8px 5px;
-  text-decoration: none;
-}
-
-li {
-  text-align: center;
-  border-bottom: 1px solid #555;
-}
-
-li:last-child {
-  border-bottom: none;
-}
-
-li a.active {
-  background-color: #272a35;
-  color: white;
-}
-
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-/* bouton */
-.button-66 {
-  background-color: #e82d2e;
-  border-radius: 4px;
-  border: 0;
-  box-shadow: rgba(1, 60, 136, 0.5) 0 -1px 3px 0 inset,
-    rgba(0, 44, 97, 0.1) 0 3px 6px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inherit;
-  font-family: "Space Grotesk", -apple-system, system-ui, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
-  font-size: 12px;
-  font-weight: 700;
-
-  margin: 10px;
-
-  min-width: 120px;
-  padding: 10px 50px;
-  position: relative;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.button-66:hover {
-  background-color: #e50815;
-  transform: translateY(-2px);
-}
-
-@media (min-width: 768px) {
-  .button-66 {
-    padding: 16px 44px;
-    min-width: 150px;
-  }
-}
+ 
 .formulaire {
   margin-top: 20px;
   background-color: #fff;
@@ -315,4 +232,83 @@ tbody tr:nth-child(even){
     
 
 }
+ 
 
+/** menu vertical**/
+ 
+*{
+    margin:0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+
+}
+ 
+nav {
+    position:absolute;
+    top:0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #fff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow:0 20px 35px  rgba(0, 0, 0, 0.1) ;
+}
+.logo{
+    text-align: center;
+    display: flex;
+    transition:all 0.5s ease ;
+    margin: 10px 0 0 10px;
+}
+
+.logo img {
+    width:60px;
+    height: 60px;
+    border-radius: 50%;
+
+}
+.logo span {
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+a {
+    position:relative;
+    color:rgb(85, 83, 83);
+    font-size: 14px;
+    display:table;
+    width: 300px;
+    padding: 10px;
+
+}
+.fas{
+    position:relative;
+    width: 70px;
+    height: 40px;
+    top:14px;
+    font-size: 20px;
+    text-align: center;
+}
+.nav-item{
+    position:relative;
+    top:12px;
+    margin-left: 10px;
+}
+a:hover{
+    background: #eee;
+}
+nav:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+}
+.logout{
+    position: absolute;
+    bottom: 0;
+}

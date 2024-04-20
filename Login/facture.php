@@ -1,8 +1,8 @@
 <?php
 session_start();
 require('verify/restricted-access.php');
-require('verify/menu.php');
-nombre(4);
+require('menu.php');
+ 
 $requete = $bdd->query("SELECT * FROM client ");
 $repondres = $requete->fetchAll();
 

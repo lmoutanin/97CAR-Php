@@ -2,13 +2,8 @@
 session_start();
 require('class/Voiture.php');
 require('verify/restricted-access.php');
-require('verify/menu.php');
-nombre(3);
-
-$requete = $bdd->query("SELECT * FROM voiture ");
-$repondres = $requete->fetchAll();
-
-
+require('menu.php');
+ 
 ?>
 
 <!DOCTYPE html>

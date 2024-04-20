@@ -1,8 +1,8 @@
 <?php
  
-include('../bdd.php');
-require('../class/Client.php');
-require('../verify/menu.php');
+include('bdd.php');
+require('class/Client.php');
+require('menu.php');
 
 $id=$_GET['id'] ;
 $requete = $bdd->prepare("SELECT * FROM client WHERE Id_client=:id");

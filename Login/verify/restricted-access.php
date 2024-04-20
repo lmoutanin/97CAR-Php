@@ -1,24 +1,20 @@
 <?php
- 
+ session_start();
+
 require('bdd.php');
 
-session_start();
 $email = $_SESSION['email'];
 $token = $_SESSION['token'];
 
 if ($token) {
 
-    $req = $bdd->prepare("SELECT * FROM login WHERE mel = '$email' AND token = '$token'");
-    $req->execute(array('email' => $email, 'token' => $token));
-    $rep = $req->fetch();
+    $requete = $bdd->query("SELECT * FROM client");
+    $rps = $requete->fetchAll();
 
-    if ($rep['prenom'] != false) {
-       
+    $requete = $bdd->query("SELECT * FROM voiture ");
+    $repondres = $requete->fetchAll();
 
-    } else {
-
-        header("Refresh:0; url=./login.php");
-    }
+   
 } else {
     header("Refresh:0; url=./login.php");
 }
