@@ -4,12 +4,12 @@ body {
   justify-content: center;
 
   align-items: center;
-  background-color: #f5f5f5;
+  background: #f5f5f5;
   font-family: "Roboto", sans-serif;
 }
  
 form h1,h1 {
-  color: #333333;
+  color:#343947;
   text-align: center;
 }
 
@@ -24,7 +24,7 @@ form .inputs input {
   padding: 15px;
   border: none;
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #b9b9b970;
   outline: none;
   margin-bottom: 15px;
 }
@@ -35,7 +35,7 @@ form p.inscription {
   text-align: center;
 }
 form p.inscription span {
-  color: #333333;
+  color:#343947;
 }
 form button {
   padding: 15px 25px;
@@ -43,7 +43,7 @@ form button {
   border: none;
   font-size: 15px;
   color: #fff;
-  background-color: #333333;
+  background-color:#343947;
   outline: none;
   cursor: pointer;
 }
@@ -93,7 +93,7 @@ form .name-field input {
   padding: 15px;
   border: none;
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color:#f5f5f5;
   outline: none;
   margin-right: 11px;
 }
@@ -110,9 +110,7 @@ a {
   padding: 40px 60px;
   border-radius: 10px;
   min-width: 300px;
-  
-  border: 2px solid  #333333;
-  box-shadow: 0 5px 50px rgba(0,0,0,0.15);
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.30);
 }
 .imma {
   margin:0 65px;
@@ -147,7 +145,7 @@ a {
 
     margin: 0px auto;
 
-    border: 2px solid #333333;
+    border: 2px solid#343947;
     
 
 }
@@ -156,7 +154,7 @@ a {
 
 thead tr {
 
-    background-color:   #333333;
+    background-color:  #343947;
 
     color: #fff;
 

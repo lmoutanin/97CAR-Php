@@ -1,13 +1,9 @@
-
-
 <?php 
 session_start();
 require('verify/verify-proprietaire.php');
- 
 require('menu.php');
- 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +22,10 @@ require('menu.php');
         <h1>AJOUTER UN PROPRIÉTAIRE</h1>
       
        <hr>
-        
+       <div align="center">
+            <?php echo $msg_ins;  ?>
+            <?php echo $error_msg ?>
+        </div>
         <div class="inputs">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Votre email" required />
@@ -81,10 +80,7 @@ require('menu.php');
             <button type="submit" class="bouton" name="ok">Crée un propriétaire </button>
         </div>
     </form>
-    <div align="center">
-            <?php echo $msg_ins;  ?>
-            <?php echo $error_msg ?>
-        </div>
+    
 
     </div>
 </body>

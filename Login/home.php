@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require('verify/restricted-access.php');
 require('menu.php');
 $id = $_GET['id'];
@@ -26,7 +26,7 @@ $id = $_GET['id'];
     <div class="card-container">
 
         <div class="card">
-            <img src="image/utilisateur.png">
+            <img src="image/ajouter-un-ami.png">
             <div class="card-content">
                 <h3>Ajout Client</h3>
              
@@ -35,7 +35,7 @@ $id = $_GET['id'];
         </div>
 
         <div class="card">
-            <img src="image/personne.png">
+            <img src="image/utilisateur(2).png">
             <div class="card-content">
                 <h3> Client</h3>
                  
@@ -44,7 +44,7 @@ $id = $_GET['id'];
         </div>
 
         <div class="card">
-            <img src="image/panneau-de-signalisation.png">
+            <img src="image/auto(1).png">
             <div class="card-content">
                 <h3> Voiture</h3>
                 
@@ -54,7 +54,7 @@ $id = $_GET['id'];
          
 
             <div class="card">
-                <img src="image/facture-dachat.png">
+                <img src="image/facture-dachat(1).png">
                 <div class="card-content">
                     <h3> Facture</h3>
                    

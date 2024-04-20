@@ -7,11 +7,11 @@
 
     }
     .card{
-    width: 325px;
+    width: 250px;
     background-color: #f0f0f0;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.30);
     margin: 20px;
     }
     .card img {
@@ -33,7 +33,7 @@
 .card-content .btn{
     display: inline-block;
     padding: 8px 16px;
-    background-color: #333;
+    background-color:#343947;
     text-decoration: none;
     border-radius: 4px;
     margin-top: 16px;
@@ -53,7 +53,7 @@
 
 }
 body{
-    background: #f5f5f5;
+    background: #dddddd;
 }
 nav {
     position: fixed;
@@ -124,11 +124,11 @@ nav:hover{
 
 .formul{
     position:absolute;
-    top:150px;
+    top:30px;
+   
      
        
-      background-color: #fff;
-      padding: 40px 60px;
+      
       border-radius: 10px;
      
       
@@ -136,84 +136,24 @@ nav:hover{
       /*! border-left-width: 30px; */
     /*! width: 500px; */
     left: 300px;
-    padding-right: 40px 60px;
+    
     }
     
     .formul  {
   
       border-collapse: collapse;
   
-      box-shadow: 0 5px 50px rgba(0,0,0,0.15);
+       
   
       cursor: pointer;
   
       margin: 0px auto;
   
-      border: 2px solid #333333;
       
+      padding: 20px 300px 110px;
   
   }
   
-  
-  
-  thead tr {
-  
-      background-color:   #333333;
-  
-      color: #fff;
-  
-      text-align: left;
-  
-  }
-  
-  
-  
-  th, td {
-  
-    padding: 15px 8px;
-  
-      text-align: center;
-  
-  }
-  
-  
-  
-  tbody tr, td, th {
-  
-      border: 1px solid #ddd;
-  
-  }
-  
-  
-  
-  tbody tr:nth-child(even){
-  
-      background-color: #f3f3f3;
-  
-  }
-  
-  
-  
-  @media screen and (max-width: 550px) {
-  
-    body {
-  
-      align-items: flex-start;
-  
-    }
-  
-    .table-style  {
-  
-      width: 100%;
-  
-      margin: 0px;
-  
-      font-size: 10px;
-  
-    }
-  
-    th, td {
-  
-      padding: 10px 7px;
-  
-  } }
+   h3{
+    color: #343947;
+   }

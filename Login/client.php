@@ -53,14 +53,14 @@ require('menu.php');
 
                         <tr>
                       
-                        <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">   <?php echo $client->get_id_client(); ?></a> </td>
-                         <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">   <?php echo $client->get_nom(); ?></a> </td>
-                         <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_prenom(); ?></a> </td>
-                         <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_telephone(); ?></a> </td>
-                         <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_email(); ?></a> </td>
-                         <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_ville(); ?></a></td>
-                         <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_adresse(); ?></a></td>
-                         <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_codePostal(); ?></a> </td>
+                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">   <?php echo $client->get_id_client(); ?></a> </td>
+                         <td onclick="location.href='menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">   <?php echo $client->get_nom(); ?></a> </td>
+                         <td onclick="location.href='menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_prenom(); ?></a> </td>
+                         <td onclick="location.href='menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_telephone(); ?></a> </td>
+                         <td onclick="location.href='menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_email(); ?></a> </td>
+                         <td onclick="location.href='menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_ville(); ?></a></td>
+                         <td onclick="location.href='menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_adresse(); ?></a></td>
+                         <td onclick="location.href='menu-proprietaire.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_codePostal(); ?></a> </td>
                         </tr>
                     <?php  } ?>
 

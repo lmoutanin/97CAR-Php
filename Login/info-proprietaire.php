@@ -1,26 +1,16 @@
 <?php
- 
-include('bdd.php');
+ session_start();
+include('verify/bdd.php');
 require('class/Client.php');
 require('menu.php');
 
-$id=$_GET['id'] ;
-$requete = $bdd->prepare("SELECT * FROM client WHERE Id_client=:id");
-$requete->execute(array('id' => $id));
+$id = $_SESSION['id'];
  
-$repondres = $requete->fetch();
+$req = $bdd->prepare("SELECT * FROM client WHERE Id_client = :id");
+$req->execute(array('id' => $id ));
+$repondre = $req->fetch();
  
-
-$email = $repondres['mel'];
-$prenom = $repondres['prenom'];
-$nom = $repondres['nom'];
-$adresse = $repondres['adresse'];
-$codePostal = $repondres['code_postal'];
-$ville = $repondres['ville'];
-$telephone = $repondres['telephone'];
-$civilite = $repondres['civilite'];
-
-$client = new Client($email,$prenom,$nom,$adresse,$codePostal,$ville,$telephone,$id);
+$client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
 
 ?>
 
@@ -32,7 +22,7 @@ $client = new Client($email,$prenom,$nom,$adresse,$codePostal,$ville,$telephone,
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mes Informations </title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
 

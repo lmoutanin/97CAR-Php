@@ -1,10 +1,8 @@
 <?php
 session_start();
-
-
 require('verify/restricted-access.php');
 require('menu.php');
-nombre(3);
+
 
  
 

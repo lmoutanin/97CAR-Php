@@ -49,15 +49,15 @@ require('menu.php');
 
 
                     <tr>
-                        <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo  $voiture->get_id_client(); ?> </td>
+                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo  $voiture->get_id_client(); ?> </td>
 
-                        <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_id_voiture(); ?></td>
-                        <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_marque(); ?></td>
-                        <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_modele(); ?></td>
+                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_id_voiture(); ?></td>
+                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_marque(); ?></td>
+                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_modele(); ?></td>
 
-                        <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_annee(); ?></td>
-                        <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_kilometrage(); ?></td>
-                        <td onclick="location.href='proprietaire/menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_immatriculation(); ?></td>
+                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_annee(); ?></td>
+                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_kilometrage(); ?></td>
+                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_immatriculation(); ?></td>
 
 
 
