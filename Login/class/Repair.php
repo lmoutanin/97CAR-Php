@@ -1,119 +1,90 @@
 <?php
 
-class Voiture 
- {
-    private $marque;
-    private $immatriculation;
-    private $modele;
-    private $kilometrage;
-    private $annee;
-    private $id_client;
-    private $id_voiture;
+class Repair
+{
 
-public function __construct($marque,$immatriculation,$modele,$kilometrage,$annee,$id_client,$id_voiture)
- {
-    $marque = $this->filtre($marque);
-    $immatriculation = $this->filtre($immatriculation);
-    $modele = $this->filtre($modele);
-    $kilometrage = $this->filtre($kilometrage);
-    $annee = $this->filtre($annee);
-    $id_client = $this->filtre($id_client);
-    $id_voiture = $this->filtre($id_voiture);
+    private $date;
+    private $cout;
+    private $quantite;
+    private $description;
+    private $id;
 
 
-    $this->marque=$marque;
-    $this->immatriculation=$immatriculation;
-    $this->modele=$modele;
-    $this->kilometrage=$kilometrage;
-    $this->annee=$annee;
-    $this->id_client=$id_client;
-    $this->id_voiture=$id_voiture;
+    public function __construct($date, $cout, $quantite, $description,$id)
+    {
+        $this->date = $this->filtre($date);
+        $this->cout = $this->filtre($cout);
+        $this->quantite = $this->filtre($quantite);
+        $this->description = $this->filtre($description);
+        $this->id = $this->filtre($id);
 
-}
+        $this->date = $date;
+        $this->cout = $cout;
+        $this->quantite = $quantite;
+        $this->description = $description;
+        $this->id = $id;
+    }
+
+    public function filtre($a)
+    {
+        $a_nettoye = htmlspecialchars($a, ENT_QUOTES, 'UTF-8');
+        return  $a_nettoye;
+    }
+
+    public function get_date()
+    {
+        return $this->date;
+    }
+
+    public function set_date($date)
+    {
+        $date = $this->filtre($date);
+        $this->date = $date;
+    }
+
+    public function get_cout()
+    {
+        return $this->cout;
+    }
+
+    public function set_cout($cout)
+    {
+        $cout = $this->filtre($cout);
+        $this->cout = $cout;
+    }
+
+    public function get_quantite()
+    {
+        return $this->quantite;
+    }
+
+    public function set_quantite($quantite)
+    {
+        $quantite = $this->filtre($quantite);
+        $this->quantite = $quantite;
+    }
+
+    public function get_description()
+    {
+        return $this->description;
+    }
+
+    public function set_description($description)
+    {
+        $description = $this->filtre($description);
+        $this->description = $description;
+    }
+
+    public function get_id()
+    {
+        return $this->id;
+    }
+
+    public function set_id($id)
+    {
+        $id = $this->filtre($id);
+        $this->id = $id;
+    }
 
  
-public function filtre($a)
-{
-    $a_nettoye = htmlspecialchars($a, ENT_QUOTES, 'UTF-8');
-    return  $a_nettoye;
 }
-
-
-public function get_marque()
-{
-    return $this->marque;
-}
-
-public function set_marque($marque)
-{
-   $marque = $this->filtre($marque);
-    $this->marque = $marque;
-}
-
-public function get_immatriculation()
-{
-    return $this->immatriculation;
-}
-
-public function set_immatriculation($immatriculation)
-{
-    $immatriculation = $this->filtre($immatriculation);
-    $this->immatriculation = $immatriculation;
-}
-
-public function get_modele()
-{
-    return $this->modele;
-}
-
-public function set_modele($modele)
-{
-   $modele = $this->filtre($modele);
-    $this->modele = $modele;
-}
-
-public function get_kilometrage()
-{
-    return $this->kilometrage;
-}
-
-public function set_kilometrage($kilometrage)
-{
-   $kilometrage = $this->filtre($kilometrage);
-    $this->kilometrage = $kilometrage;
-}
-
-public function get_annee()
-{
-    return $this->annee;
-}
-
-public function set_annee($annee)
-{
-   $annee = $this->filtre($annee);
-    $this->annee = $annee;
-}
-
-public function get_id_client()
-{
-    return $this->id_client;
-}
-
-public function set_id_client($id_client)
-{
-    $id_client = $this->filtre($id_client);
-    $this->id_client =$id_client;
-}
-
-
-public function get_id_voiture()
-{
-    return $this->id_voiture;
-}
-
-public function set_id_voiture($id_voiture)
-{
-    $id_voiture = $this->filtre($id_voiture);
-    $this->id_voiture =$id_voiture;
-}
- }

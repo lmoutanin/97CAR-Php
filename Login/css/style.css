@@ -339,10 +339,7 @@ input {
   font-size: 1em;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
+
 
 /* Chrome */
 input::-webkit-inner-spin-button,

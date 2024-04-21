@@ -1,6 +1,7 @@
 <?php
 session_start();
-require('verify/restricted-access.php');
+
+require('verify/verify-add-repair.php');
 require('menu.php');
 
 $nom = $_SESSION['nom'];
@@ -22,7 +23,7 @@ $prenom = $_SESSION['prenom'];
 
 <div class="formulaire ">
 
-    <form method="POST" action="mes-voiture.php">
+    <form method="POST" action="">
 
         <h1>Ajout Réparation</h1>
         <hr>
@@ -40,39 +41,34 @@ $prenom = $_SESSION['prenom'];
                 <div class="groupe">
                     <label>Date</label>
                     <input type="date" id="date" name="date" min="2000-01-01" max="<?php echo date('Y-m-d'); ?>" required />
-                     
+
                 </div>
                 <div class="groupe">
                     <label>Coût</label>
-                    <input type="tel" id="cout" name="cout"  pattern="[0-9]" placeholder="Coût unitaire" size="30"  autocomplete="off" required />
-                     
+                    <input type="number" id="cout" name="cout" pattern="[0-9]" placeholder="Coût unitaire" size="30" autocomplete="off" required />
+
                 </div>
                 <div class="groupe">
                     <label>Quantité</label>
-                    <input type="tel" id="quantite" name="quantite"  pattern="[0-9]" placeholder="Quantite" size="30"  autocomplete="off" required />
-                     
+                    <input type="number" id="quantite" name="quantite" pattern="[0-9]" placeholder="Quantite" size="30" autocomplete="off" required />
+
                 </div>
             </div>
 
             <div class="droite">
                 <div class="groupe">
                     <label>Description</label>
-                    <textarea placeholder="Saisissez ici..."></textarea>
+                    <input type="text" id="description" name="description" placeholder="Saisissez ici..."></input>
                 </div>
             </div>
         </div>
-
-
-
-
-
 
         <div class="pied-formulaire" align="center">
             <button type="submit" class="bouton" name="ok">Réparer </button>
         </div>
 
 
-
+</form>
 
 </div>
 
