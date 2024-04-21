@@ -1,9 +1,19 @@
 <?php
 session_start();
 require('class/Voiture.php');
-require('verify/restricted-access.php');
+require('verify/bdd.php');
 require('menu.php');
+$id=$_SESSION['id'];
+$nom=$_SESSION['nom'];
+$prenom=$_SESSION['prenom'];
  
+if($id){
+    $req = $bdd->prepare("SELECT * FROM voiture WHERE Id_client = :id");
+    $req->execute(array('id' => $id ));
+    $repondres = $req->fetchAll();
+     
+    
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +31,8 @@ require('menu.php');
     <div class="formulaire ">
 
 
-        <h1> Liste des Voitures </h1><br>
+        <h1>   <?php echo 'Liste des Voitures de '.$nom.' '.$prenom; ?> </h1>
+        <br>
  
         <table class="formul1">
 
@@ -49,15 +60,15 @@ require('menu.php');
 
 
                     <tr>
-                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo  $voiture->get_id_client(); ?> </td>
+                    <td>  <?php echo  $voiture->get_id_client(); ?> </td>
 
-                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_id_voiture(); ?></td>
-                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_marque(); ?></td>
-                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_modele(); ?></td>
+                    <td>   <?php echo $voiture->get_id_voiture(); ?></td>
+                    <td>     <?php echo $voiture->get_marque(); ?></td>
+                    <td>    <?php echo $voiture->get_modele(); ?></td>
 
-                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_annee(); ?></td>
-                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_kilometrage(); ?></td>
-                        <td onclick="location.href='menu-proprietaire.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_immatriculation(); ?></td>
+                    <td>    <?php echo $voiture->get_annee(); ?></td>
+                    <td>   <?php echo $voiture->get_kilometrage(); ?></td>
+                    <td>    <?php echo $voiture->get_immatriculation(); ?></td>
 
 
 

@@ -25,7 +25,7 @@ require('menu.php');
     <div class="formulaire ">
         
 
-            <h1> Liste des propriétaire </h1>
+            <h1> Liste des propriétaires </h1><br>
 
             <table class="formul1">
 

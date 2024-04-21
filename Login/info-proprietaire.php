@@ -1,14 +1,18 @@
 <?php
  session_start();
-include('verify/bdd.php');
+ 
+ require('verify/restricted-access.php');
 require('class/Client.php');
 require('menu.php');
-
-$id = $_SESSION['id'];
+$id=$_SESSION['id'];
  
-$req = $bdd->prepare("SELECT * FROM client WHERE Id_client = :id");
-$req->execute(array('id' => $id ));
-$repondre = $req->fetch();
+if($id){
+    $req = $bdd->prepare("SELECT * FROM client WHERE Id_client = :id");
+    $req->execute(array('id' => $id ));
+    $repondre = $req->fetch();
+     
+    
+    }
  
 $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
 

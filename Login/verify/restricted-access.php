@@ -16,5 +16,5 @@ if ($token) {
 
    
 } else {
-    header("Refresh:0; url=./login.php");
+    header("Refresh:0.001; url=./login.php");
 }
