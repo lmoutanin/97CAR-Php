@@ -1,6 +1,6 @@
 <?php
  
- 
+  
 $serverName = "localhost";
 $dataName = "bdd_97car";
 $username = "root";

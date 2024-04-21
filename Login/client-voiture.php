@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('verify/restricted-access.php');
 require('class/Voiture.php');
 require('verify/bdd.php');
 require('menu.php');

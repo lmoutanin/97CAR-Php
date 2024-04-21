@@ -1,5 +1,6 @@
 <?php
 session_start();
+ 
 require('verify/restricted-access.php');
 require('class/Client.php');
 require('menu.php');

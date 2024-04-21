@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('bdd.php');
+require('verify/restricted-access.php');
 require('class/Client.php');
 
  
