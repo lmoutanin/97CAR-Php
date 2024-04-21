@@ -22,15 +22,14 @@
 
 
  <!DOCTYPE html>
- <html lang="en">
+ <html lang="fr">
 
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Menu-proprietaire </title>
+     <title><?php echo'Client '. $nom.' '.$prenom;  ?> </title>
      <link rel="stylesheet" href="css/card.css">
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
  </head>
 
  <body>
@@ -38,15 +37,15 @@
 
      <div class="formul">
         
-     <h1  align="center" ><?php echo $nom.' '.$prenom;  ?></h1>
+     <h1  align="center" ><?php echo'Client '. $nom.' '.$prenom;  ?></h1><br>
          <div class="card-container">
                 
              <div class="card">
-                 <img src="image/utilisateur(2).png">
+                 <img src="image/utilisateur.png">
                  <div class="card-content">
                      <h3> Informaration</h3>
                      
-                     <a href="info-proprietaire.php" class="btn">consulter</a>
+                     <a href="client.php" class="btn">consulter</a>
                  </div>
              </div>
 
@@ -86,7 +85,7 @@
                      <div class="card-content">
                          <h3> Ajout Voiture</h3>
                        
-                         <a href="" class="btn">consulter</a>
+                         <a href="add-voiture.php" class="btn">consulter</a>
                      </div>
                  </div>
 

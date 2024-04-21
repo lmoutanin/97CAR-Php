@@ -8,15 +8,14 @@ $id = $_GET['id'];
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menu-proprietaire </title>
+    <title>Accueil</title>
     <link rel="stylesheet" href="css/card.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -26,20 +25,20 @@ $id = $_GET['id'];
     <div class="card-container">
 
         <div class="card">
-            <img src="image/ajouter-un-ami.png">
+            <img src="image/utilisateur(2).png">
             <div class="card-content">
                 <h3>Ajout Client</h3>
              
-                <a href="add-proprietaire.php" class="btn">consulter</a>
+                <a href="add-client.php" class="btn">consulter</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="image/utilisateur(2).png">
+            <img src="image/carnet-dadresses.png">
             <div class="card-content">
                 <h3> Client</h3>
                  
-                <a href="client.php" class="btn">consulter</a>
+                <a href="list-client.php" class="btn">consulter</a>
             </div>
         </div>
 
@@ -48,7 +47,7 @@ $id = $_GET['id'];
             <div class="card-content">
                 <h3> Voiture</h3>
                 
-                <a href="voiture.php" class="btn">consulter</a>
+                <a href="list-voiture.php" class="btn">consulter</a>
             </div>
         </div>
          
@@ -58,7 +57,7 @@ $id = $_GET['id'];
                 <div class="card-content">
                     <h3> Facture</h3>
                    
-                    <a href="facture.php" class="btn">consulter</a>
+                    <a href="list-facture.php" class="btn">consulter</a>
                 </div>
             </div>
 

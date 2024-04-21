@@ -1,20 +1,19 @@
 <?php
-require('bdd.php');
-require('verify/restricted-access.php');
- 
 session_start();
+require('bdd.php');
+require('class/Voiture.php');
+  
 
 $msg_ins = "";
 $error_msg = "";
 
  
-$requete = $bdd->query("SELECT * FROM voiture ");
  
-$repondres = $requete->fetchAll();
-
-
 //verifier si on à bien appuyer sur le bouton ok 
 if (isset($_POST['ok'])) {
+
+
+
 
     $marque = $_POST['marque'];
     $modele = $_POST['modele'];
@@ -24,7 +23,7 @@ if (isset($_POST['ok'])) {
     $id = $_SESSION['id'];
 
     //  verifier si les champs marque,modele,kilometrage,immatriculation et année  ne sont pas vide
-    if (!empty($marque) && !empty($modele) && !empty($kilometrage) && !empty($imma) && !empty($annee)) {
+    if (!empty($marque) && !empty($modele) && !empty($kilometrage) && !empty($imma) && !empty($annee) && !empty($id)) {
 
         $voiture = new Voiture($marque, $imma, $modele, $kilometrage, $annee, $id,0);
         $req = $bdd->prepare("SELECT * FROM voiture WHERE immatriculation = :immatriculation");
@@ -40,7 +39,7 @@ if (isset($_POST['ok'])) {
 
           
             $msg_ins = "Ajout de la {$voiture->get_marque()} à {$voiture->get_modele()} .";
-            exit();
+            
           
              //Sinon affiche immatriculation  n'est pas disponible.
         } else {

@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 body {
   display: flex;
   justify-content: center;
 
   align-items: center;
   background: #f5f5f5;
-  font-family: "Roboto", sans-serif;
+  font-family:"Poppins",sans-serif ;
 }
  
 form h1,h1 {
-  color:#343947;
+  color:#1e1e1e;
   text-align: center;
 }
 
@@ -24,7 +24,7 @@ form .inputs input {
   padding: 15px;
   border: none;
   border-radius: 5px;
-  background-color: #b9b9b970;
+  background-color: #6E8494;
   outline: none;
   margin-bottom: 15px;
 }
@@ -93,9 +93,10 @@ form .name-field input {
   padding: 15px;
   border: none;
   border-radius: 5px;
-  background-color:#f5f5f5;
+ background-color: #6E8494;
   outline: none;
   margin-right: 11px;
+   
 }
 a {
 
@@ -105,7 +106,7 @@ a {
 
  
 .formulaire {
-  margin-top: 20px;
+  margin-top: 30px;
   background-color: #fff;
   padding: 40px 60px;
   border-radius: 10px;
@@ -154,11 +155,11 @@ a {
 
 thead tr {
 
-    background-color:  #343947;
+  background-color: #555353;
 
-    color: #fff;
+  color:#fff;
 
-    text-align: left;
+  text-align: left;
 
 }
 
@@ -176,15 +177,16 @@ th, td {
 
 tbody tr, td, th {
 
-    border: 1px solid #ddd;
+    border: 2px solid #000;
 
 }
 
 
 
+
 tbody tr:nth-child(even){
 
-    background-color: #f3f3f3;
+  background-color: #092e4996;
 
 }
 
@@ -286,13 +288,13 @@ a {
     padding: 10px;
 
 }
-.fas{
-    position:relative;
-    width: 70px;
-    height: 40px;
-    top:14px;
-    font-size: 20px;
-    text-align: center;
+.fa-solid{
+  position:relative;
+  width: 70px;
+  height: 40px;
+  top:14px;
+  font-size: 20px;
+  text-align: center;
 }
 .nav-item{
     position:relative;
@@ -309,4 +311,37 @@ nav:hover{
 .logout{
     position: absolute;
     bottom: 0;
+}
+
+
+.name-fields {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+form .name-fields input {
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6E8494;
+  outline: none;
+   
+}
+.name-fields div {
+  display: flex;
+  flex-direction: column;
+}
+ 
+::placeholder {
+  color: white;
+  font-size: 1.1em;
+}
+input:focus{
+  color: #ffffff;
+}
+input {
+  color: #ffffff;
+  font-size: 1em;
 }

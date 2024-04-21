@@ -1,19 +1,9 @@
 <?php
 session_start();
 require('class/Voiture.php');
-require('verify/bdd.php');
+require('verify/restricted-access.php');
 require('menu.php');
-$id=$_SESSION['id'];
-$nom=$_SESSION['nom'];
-$prenom=$_SESSION['prenom'];
  
-if($id){
-    $req = $bdd->prepare("SELECT * FROM voiture WHERE Id_client = :id");
-    $req->execute(array('id' => $id ));
-    $repondres = $req->fetchAll();
-     
-    
-    }
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +12,7 @@ if($id){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo'Voiture de '. $nom.' '.$prenom;  ?></title>
+    <title>Liste des voitures </title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -31,8 +21,7 @@ if($id){
     <div class="formulaire ">
 
 
-        <h1>   <?php echo 'Liste des voitures de '.$nom.' '.$prenom; ?> </h1>
-        <br>
+        <h1> Liste des voitures </h1><br>
  
         <table class="formul1">
 
@@ -60,15 +49,15 @@ if($id){
 
 
                     <tr>
-                    <td>  <?php echo  $voiture->get_id_client(); ?> </td>
+                        <td onclick="location.href='home-client.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo  $voiture->get_id_client(); ?> </td>
 
-                    <td>   <?php echo $voiture->get_id_voiture(); ?></td>
-                    <td>     <?php echo $voiture->get_marque(); ?></td>
-                    <td>    <?php echo $voiture->get_modele(); ?></td>
+                        <td onclick="location.href='home-client.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_id_voiture(); ?></td>
+                        <td onclick="location.href='home-client.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_marque(); ?></td>
+                        <td onclick="location.href='home-client.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_modele(); ?></td>
 
-                    <td>    <?php echo $voiture->get_annee(); ?></td>
-                    <td>   <?php echo $voiture->get_kilometrage(); ?></td>
-                    <td>    <?php echo $voiture->get_immatriculation(); ?></td>
+                        <td onclick="location.href='home-client.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_annee(); ?></td>
+                        <td onclick="location.href='home-client.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_kilometrage(); ?></td>
+                        <td onclick="location.href='home-client.php?id=<?php echo $voiture->get_id_client(); ?>'"> <?php echo $voiture->get_immatriculation(); ?></td>
 
 
 

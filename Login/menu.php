@@ -7,29 +7,43 @@
                 </a>
             </li>
             <li><a href="home.php">
-                <i class="fas fa-home"></i>
-                <span class="nav-item">Home</span>
+            <i class="fa-solid fa-house"></i>
+                <span class="nav-item">Accueil</span>
             </a></li>
-            <li><a href="client.php">
-                <i class="fas fa-user"></i>
+
+            <li><a href="add-client.php">
+            <i class="fa-solid fa-user-plus"></i>
+                <span class="nav-item">Ajout Client</span>
+            </a></li>
+ 
+            <li><a href="list-client.php">
+            <i class="fa-solid fa-address-book"></i>
                 <span class="nav-item">Client</span>
             </a></li>
-            <li><a href="voiture.php">
-                <i class="fas fa-car"></i>
+            <li><a href="list-voiture.php">
+            <i class="fa-solid fa-car"></i>
                 <span class="nav-item">Voiture</span>
             </a></li>
-            <li><a href="facture.php">
-            <i class="fas fa-chart-bar"></i>
+
+            <li><a href="list-repair.php">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span class="nav-item">Réparation</span>
+            </a></li>
+
+            <li><a href="list-facture.php">
+            <i class="fa-solid fa-file-invoice"></i>
                 <span class="nav-item">Facture</span>
             </a></li>
+
+ 
             <li><a href="#">
-                <i class="fas fa-cog"></i>
+            <i class="fa-solid fa-gear"></i>
                 <span class="nav-item">Paramètre</span>
             </a></li>
             
             <li><a href="logout.php" class="logout">
-                <i class="fas fa-sign-out-alt"></i>
-                <span class="nav-item">Log out</span>
+            <i class="fa-solid fa-power-off"></i>
+                <span class="nav-item">Déconnexion</span>
             </a></li>
              
         </ul>

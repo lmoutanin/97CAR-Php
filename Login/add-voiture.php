@@ -1,32 +1,39 @@
 <?php
 session_start();
-require('class/Voiture.php');
-require('verify/verify-voiture.php');
-require('verify/restricted-access.php');
+require('verify/verify-add-voiture.php');
 require('menu.php');
+
+$nom=$_SESSION['nom'];
+$prenom=$_SESSION['prenom'];
  
  
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajoute Voiture</title>
+    <title><?php echo "Ajout d'une voiture à {$nom} {$prenom}" ?> </title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <div class="formulaire ">
-        <form method="POST" action="mes-voiture.php">
 
-            <h1>Ajout d'une voiture   </h1>
+        <form method="POST" action="">
+
+            <h1><?php echo "Ajout d'une voiture à {$nom} {$prenom}" ?>   </h1>
             <hr>
+            <div align="center">
+            <?php echo "<strong>{$msg_ins} </strong>";  ?>
+            <?php  echo "<strong>{$error_msg} </strong>";  ?>
+        </div>
+        <br>
   
-            <div class="name-field">
+            <div class="name-fields">
 
                 <div>
                     <label for="annee"> Année Modèle</label>
@@ -37,7 +44,7 @@ require('menu.php');
                
             </div>
 
-            <div class="name-field">
+            <div class="name-fields">
 
                 <div>
                     <label for="marque"> Marque </label>
@@ -57,7 +64,7 @@ require('menu.php');
 
             </div>
 
-            <div class="name-field">
+            <div class="name-fields">
 
                 <div>
                     <label for="modele"> Modele </label>
@@ -70,17 +77,15 @@ require('menu.php');
                 </div>
 
             </div>
-            </br>
-
+           
+          
+<br>
             <div align="center">
             <button type="submit" class="bouton" name="ok">Crée une voiture </button>
             </div>
 
         </form>
-        <div align="center">
-            <?php echo $msg_ins;  ?>
-            <?php echo $error_msg ?>
-        </div>
+        
 
     </div>
 
