@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('verify/verify-add-voiture.php');
+require('verify/restricted-access.php');
 require('menu.php');
 
 $nom=$_SESSION['nom'];
@@ -33,13 +33,16 @@ $prenom=$_SESSION['prenom'];
         </div>
         <br>
   
-            <div class="name-fields">
+            <div class="name-field">
 
-                <div>
-                    <label for="annee"> Année Modèle</label>
-                    <input type="date" id="start" name="annee" min="2000-01-01" max="<?php echo date('Y-m-d'); ?>" required />
 
-                </div>
+            <div class="groupe">
+                        <label>Date</label>
+                        <input type="date" id="annee" name="annee" min="2000-01-01" max="<?php echo date('Y-m-d'); ?>" required />
+                         
+                    </div>
+
+                 
 
                
             </div>
@@ -48,16 +51,16 @@ $prenom=$_SESSION['prenom'];
 
                 <div>
                     <label for="marque"> Marque </label>
-                    <input type="text" id="marque" name="marque" minlength="2" maxlength="100" size="30" placeholder="Votre marque" required />
+                    <input type="text" id="marque" name="marque" minlength="2" maxlength="100" size="30" placeholder="Votre marque"  autocomplete="off" required />
                 </div>
 
                 <div class="imma">
                     <label for="imma">Immatriculation </label>
                     <label">
 
-                        <input name="imma1" id="imma" type="text" pattern="[a-zA-Z0-9]{2}"   placeholder="XX" size="2" required />-
-                        <input name="imma2" id="imma" type="text" pattern="[a-zA-Z0-9]{3}"   placeholder="XXX" size="3" required />-
-                        <input name="imma3" id="imma" type="text" pattern="[a-zA-Z0-9]{2}"   placeholder="XX" size="2" required />
+                        <input name="imma1" id="imma" type="text" pattern="[a-zA-Z0-9]{2}"   placeholder="XX" size="2"  autocomplete="off" required />-
+                        <input name="imma2" id="imma" type="text" pattern="[a-zA-Z0-9]{3}"   placeholder="XXX" size="3"  autocomplete="off" required />-
+                        <input name="imma3" id="imma" type="text" pattern="[a-zA-Z0-9]{2}"   placeholder="XX" size="2"  autocomplete="off" required />
 
                         </label>
                 </div>
@@ -68,12 +71,12 @@ $prenom=$_SESSION['prenom'];
 
                 <div>
                     <label for="modele"> Modele </label>
-                    <input type="text" id="modele" name="modele" minlength="2" maxlength="50" size="30" placeholder="Votre modele" required />
+                    <input type="text" id="modele" name="modele" minlength="2" maxlength="50" size="30" placeholder="Votre modele"  autocomplete="off" required />
                 </div>
 
                 <div>
                     <label for="kilometrage"> Kilometrage </label>
-                    <input type="tel" id="kilometrage" name="kilometrage"  pattern="[0-9]{6}" placeholder="Votre kilometrage" size="30" required />
+                    <input type="tel" id="kilometrage" name="kilometrage"  pattern="[0-9]" placeholder="Votre kilometrage" size="30"  autocomplete="off" required />
                 </div>
 
             </div>

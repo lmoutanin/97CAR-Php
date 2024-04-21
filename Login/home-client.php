@@ -94,7 +94,7 @@
                      <div class="card-content">
                          <h3>Réparation </h3>
                           
-                         <a href="" class="btn">consulter</a>
+                         <a href="add-repair.php" class="btn">consulter</a>
                      </div>
                  </div>
 

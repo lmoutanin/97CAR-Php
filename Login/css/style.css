@@ -21,7 +21,7 @@ form .inputs {
   flex-direction: column;
 }
 form .inputs input {
-  padding: 15px;
+  padding: 10px 5px 10px 10px;
   border: none;
   border-radius: 5px;
   background-color: #6E8494;
@@ -79,21 +79,14 @@ hr {
   padding: 5px;
 }
 
-.radio {
-  display: block;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1.5em;
-  margin: 0 10px 10px 0;
-  padding: 5px 20px 4px 34px;
-  position: relative;
-}
+ 
 
 form .name-field input {
-  padding: 15px;
+  padding: 10px 5px 10px 10px;
   border: none;
   border-radius: 5px;
- background-color: #6E8494;
+  border: 1px solid #f1f1f1;
+ 
   outline: none;
   margin-right: 11px;
    
@@ -318,14 +311,14 @@ nav:hover{
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 5px;
+  padding: 10px;
 }
 
 form .name-fields input {
-  padding: 15px;
+  padding: 10px 5px 10px 10px;
   border: none;
   border-radius: 5px;
-  background-color: #6E8494;
+  border: 1px solid #f1f1f1;
   outline: none;
    
 }
@@ -335,13 +328,95 @@ form .name-fields input {
 }
  
 ::placeholder {
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 1.1em;
 }
 input:focus{
-  color: #ffffff;
+  color: #000000;
 }
 input {
-  color: #ffffff;
+  color: #030202;
   font-size: 1em;
 }
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Chrome */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+-webkit-appearance: none;
+margin:0;
+}
+
+/* Opéra*/
+input::-o-inner-spin-button,
+input::-o-outer-spin-button { 
+-o-appearance: none;
+margin:0
+}
+ 
+.names-fields {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+.names-fields div {
+  display: flex;
+  flex-direction: column;
+}
+form .names-fields input {
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+ background-color: #6E8494;
+  outline: none;
+  margin-right: 11px;
+   
+}
+
+
+
+
+
+form .corps-formulaire {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+form .corps-formulaire .groupe {
+  position: relative; /* Pour mettre positionner l’élément dans le flux normal de la page */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+form .corps-formulaire .gauche .groupe input {
+  margin-top: 5px;
+  padding: 10px 5px 10px 10px;
+  border: 1px solid #f1f1f1;
+  outline-color: #747cdf;
+  border-radius: 5px;
+}
+ 
+form .corps-formulaire .droite {
+  margin-left: 40px;
+}
+form .corps-formulaire .droite .groupe {
+  height: 100%;
+}
+form .corps-formulaire .droite .groupe textarea {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f1f1f1;
+ 
+  outline: none;
+  border-radius: 5px;
+  resize: none;
+  height: 72%;
+}
+
+
+ 

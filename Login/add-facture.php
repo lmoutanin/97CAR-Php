@@ -1,5 +1,6 @@
 <?php
 session_start();
+ 
 require('verify/restricted-access.php');
 require('menu.php');
 
@@ -32,7 +33,7 @@ require('menu.php');
 
                 <div>
                     <label for="annee"> Année Modèle</label>
-                    <input type="date" id="start" name="annee" min="2000-01-01" max="<?php echo date('Y-m-d'); ?>" required />
+                    <input type="date" id="annee" name="annee" min="2000-01-01" max="<?php echo date('Y-m-d'); ?>" required />
 
                 </div>
 

@@ -2,35 +2,24 @@
 class  Client
 {
 
-    private $email;
-    private $prenom;
-    private $nom;
-    private $adresse;
-    private $codePostal;
-    private $ville;
-    private $telephone;
-    private $id_client;
+    private $date;
+    private $cout;
+    private $quantite;
+    private $description;
 
-    public function __construct($email, $prenom, $nom, $adresse, $codePostal, $ville, $telephone, $id_client)
+
+    public function __construct($date, $cout, $quantite, $description)
     {
+        $date = $this->filtre($date);
+        $cout = $this->filtre($cout);
+        $quantite = $this->filtre($quantite);
+        $description = $this->filtre($description);
 
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        $prenom = $this->filtre($prenom);
-        $nom = $this->filtre($nom);
-        $adresse = $this->filtre($adresse);
-        
-        $ville = $this->filtre($ville);
-        $telephone = $this->filtre($telephone);
-        $id_client= $this->filtre($id_client);
 
-        $this->email = $email;
-        $this->prenom = $prenom;
-        $this->nom = $nom;
-        $this->adresse = $adresse;
-        $this->codePostal = $codePostal;
-        $this->ville = $ville;
-        $this->telephone = $telephone;
-        $this->id_client = $id_client;
+        $this->date = $date;
+        $this->cout = $cout;
+        $this->quantite = $quantite;
+        $this->description = $description;
     }
 
     public function filtre($a)
@@ -39,93 +28,47 @@ class  Client
         return  $a_nettoye;
     }
 
-
-
-    public function get_email()
+    public function get_date()
     {
-        return $this->email;
+        return $this->date;
     }
 
-    public function set_email($email)
+    public function set_date($date)
     {
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        $this->email = $email;
+        $date = $this->filtre($date);
+        $this->date = $date;
     }
 
-    public function get_prenom()
+    public function get_cout()
     {
-        return $this->prenom;
+        return $this->cout;
     }
 
-    public function set_prenom($prenom)
+    public function set_cout($cout)
     {
-        $prenom = $this->filtre($prenom);
-        $this->prenom = $prenom;
+        $cout = $this->filtre($cout);
+        $this->cout = $cout;
     }
 
-    public function get_nom()
+    public function get_quantite()
     {
-        return $this->nom;
+        return $this->quantite;
     }
 
-    public function set_nom($nom)
+    public function set_quantite($quantite)
     {
-        $nom = $this->filtre($nom);
-        $this->nom = $nom;
+        $quantite = $this->filtre($quantite);
+        $this->quantite = $quantite;
     }
 
-    public function get_adresse()
+    public function get_description()
     {
-        return $this->adresse;
+        return $this->description;
     }
 
-    public function set_adresse($adresse)
+    public function set_description($description)
     {
-        $adresse = $this->filtre($adresse);
-        $this->adresse = $adresse;
-    }
-
-    public function get_codePostal()
-    {
-        return $this->codePostal;
-    }
-
-    public function set_codePostal($codePostal)
-    {
-        $codePostal = $this->filtre($codePostal);
-        $this->codePostal = $codePostal;
-    }
-
-    public function get_ville()
-    {
-        return $this->ville;
-    }
-
-    public function set_ville($ville)
-    {
-        $ville = $this->filtre($ville);
-        $this->ville = $ville;
-    }
-
-    public  function get_telephone()
-    {
-        return $this->telephone;
-    }
-
-    public function set_telephone($telephone)
-    {
-        $telephone = $this->filtre($telephone);
-        $this->telephone = $telephone;
-    }
-
-    public function get_id_client()
-    {
-        return $this->id_client;
-    }
-
-    public function set_id_client($id_client)
-    {
-        $id_client = $this->filtre($id_client);
-        $this->id_client = $id_client;
+        $description = $this->filtre($description);
+        $this->description = $description;
     }
 }
