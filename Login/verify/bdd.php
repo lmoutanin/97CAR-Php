@@ -3,8 +3,8 @@
   
 $serverName = "localhost";
 $dataName = "bdd_97car";
-$username = "root";
-$password = "root";
+$username = "luc";
+$password = "a";
 
 try {
     $bdd = new PDO("mysql:host=$serverName;dbname=$dataName;charset=utf8", "$username", "$password", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

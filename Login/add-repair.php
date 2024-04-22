@@ -45,12 +45,12 @@ $prenom = $_SESSION['prenom'];
                 </div>
                 <div class="groupe">
                     <label>Coût</label>
-                    <input type="number" id="cout" name="cout" pattern="[0-9]" placeholder="Coût unitaire" size="30" autocomplete="off" required />
+                    <input type="number" id="cout" name="cout"   placeholder="Coût unitaire" size="30" autocomplete="off" required />
 
                 </div>
                 <div class="groupe">
                     <label>Quantité</label>
-                    <input type="number" id="quantite" name="quantite" pattern="[0-9]" placeholder="Quantite" size="30" autocomplete="off" required />
+                    <input type="number" id="quantite" name="quantite"  placeholder="Quantite" size="30" autocomplete="off" required />
 
                 </div>
             </div>
