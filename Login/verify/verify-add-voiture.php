@@ -3,6 +3,7 @@ session_start();
 require('bdd.php');
 require('class/Voiture.php');
 require('verify/restricted-access.php');
+ 
   
 
 $msg_ins = "";
