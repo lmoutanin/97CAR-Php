@@ -7,6 +7,7 @@ require('menu.php');
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 
+$_SESSION['id-voiture'] = $_GET['id'];
 
 ?>
 
@@ -53,12 +54,17 @@ $prenom = $_SESSION['prenom'];
                     <input type="number" id="quantite" name="quantite"  placeholder="Quantite" size="30" autocomplete="off" required />
 
                 </div>
-            </div>
+                
 
+
+                 
+            </div>
+ 
             <div class="droite">
                 <div class="groupe">
                     <label>Description</label>
-                    <input type="text" id="description" name="description" placeholder="Saisissez ici..."></input>
+                    <textarea type="text" id="description" name="description" placeholder="Saisissez ici..."></textarea>
+                    
                 </div>
             </div>
         </div>

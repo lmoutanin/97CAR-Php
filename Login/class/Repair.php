@@ -3,24 +3,24 @@
 class Repair
 {
 
-    private $date;
+   
     private $cout;
     private $quantite;
     private $description;
     private $id;
 
 
-    public function __construct($date, $cout, $quantite, $description,$id)
+    public function __construct( $cout, $quantite, $description,$id)
     {
          
 
-        $date = $this->filtre($date);
+        
         $cout= $this->filtre($cout);
         $quantite = $this->filtre($quantite);
         $description = $this->filtre($description);
         $id = $this->filtre($id);  
     
-        $this->date=$date;
+         
         $this->cout=$cout;
         $this->quantite=$quantite;
         $this->description=$description;
@@ -34,16 +34,7 @@ class Repair
         return  $a_nettoye;
     }
 
-    public function get_date()
-{
-    return $this->date;
-}
-
-public function set_date($date)
-{
-   $date = $this->filtre($date);
-    $this->date = $date;
-}
+     
 
 public function get_cout()
 {
@@ -53,7 +44,7 @@ public function get_cout()
 public function set_cout($cout)
 {
    $cout = $this->filtre($cout);
-    $this->date = $cout;
+    $this->cout = $cout;
 }
 
 

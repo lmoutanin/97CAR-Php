@@ -3,7 +3,6 @@ session_start();
 require('bdd.php');
 require('class/Voiture.php');
 require('verify/restricted-access.php');
- 
   
 
 $msg_ins = "";
@@ -22,7 +21,7 @@ if (isset($_POST['ok'])) {
     $kilometrage = $_POST['kilometrage'];
     $imma = $_POST['imma1'] . '-' . $_POST['imma2'] . '-' . $_POST['imma3'];
     $annee = date('Y', strtotime($_POST['annee']));
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id-client'];
 
     //  verifier si les champs marque,modele,kilometrage,immatriculation et année  ne sont pas vide
     if (!empty($marque) && !empty($modele) && !empty($kilometrage) && !empty($imma) && !empty($annee) && !empty($id)) {
@@ -39,7 +38,13 @@ if (isset($_POST['ok'])) {
             $req = $bdd->prepare("INSERT INTO voiture (Id_voiture,annee,marque,kilometrage,modele,immatriculation,Id_client  ) VALUES(0,:annee,:marque,:kilometrage,:modele,:immatriculation,:Id_client)");
             $req->execute(array('annee' => $voiture->get_annee(), ':marque' => $voiture->get_marque(), ':kilometrage' => $voiture->get_kilometrage(), ':modele' => $voiture->get_modele(), ':immatriculation' => $voiture->get_immatriculation(), ':annee' => $voiture->get_annee(), ':Id_client' => $voiture->get_id_client()));
 
-          
+            $requete->bindParam( 1 , $repair->get_id());
+            exit;
+              
+
+
+
+
             $msg_ins = "Ajout de la {$voiture->get_marque()} à {$voiture->get_modele()} .";
             
           

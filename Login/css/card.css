@@ -24,7 +24,7 @@ body{
 
     }
     .card{
-        width: 230px;
+        width: 300px;
         background-color: #fff;
         border-radius: 8px;
         overflow: hidden;
@@ -163,4 +163,6 @@ nav:hover{
   
    h3{
     color:#1e1e1e;
+    text-align: center;
+    align-items: center;
    }

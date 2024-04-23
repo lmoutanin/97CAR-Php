@@ -27,16 +27,32 @@ $id = $_GET['id'];
         <div class="card">
             <img src="image/utilisateur(2).png">
             <div class="card-content">
-                <h3>Ajout Client</h3>
+                <h3 align="center">+ Client</h3>
              
                 <a href="add-client.php" class="btn">consulter</a>
             </div>
         </div>
 
+        
+  
+        <div class="card">
+            <img src="image/reparation.png">
+            <div class="card-content">
+                <h3 align="center"> + Réparation</h3>
+                 
+                <a href="add-repair.php" class="btn">consulter</a>
+            </div>
+        </div>
+
+ 
+
+
+
+
         <div class="card">
             <img src="image/carnet-dadresses.png">
             <div class="card-content">
-                <h3> Client</h3>
+                <h3 align="center">  Client</h3>
                  
                 <a href="list-client.php" class="btn">consulter</a>
             </div>
@@ -45,7 +61,7 @@ $id = $_GET['id'];
         <div class="card">
             <img src="image/auto(1).png">
             <div class="card-content">
-                <h3> Voiture</h3>
+                <h3 align="center"> Voiture</h3>
                 
                 <a href="list-voiture.php" class="btn">consulter</a>
             </div>
@@ -55,7 +71,7 @@ $id = $_GET['id'];
             <div class="card">
                 <img src="image/facture-dachat(1).png">
                 <div class="card-content">
-                    <h3> Facture</h3>
+                    <h3 align="center"> Facture</h3>
                    
                     <a href="list-facture.php" class="btn">consulter</a>
                 </div>

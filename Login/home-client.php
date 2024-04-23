@@ -4,7 +4,7 @@
     require('verify/restricted-access.php');
     require('menu.php');
 
-    $_SESSION['id'] = $_GET['id'];
+    $_SESSION['id-client'] = $_GET['id'];
     $id= $_GET['id'];
     
     if($id){
@@ -89,14 +89,7 @@
                      </div>
                  </div>
 
-                 <div class="card">
-                     <img src="image/reparation.png">
-                     <div class="card-content">
-                         <h3>Réparation </h3>
-                          
-                         <a href="add-repair.php" class="btn">consulter</a>
-                     </div>
-                 </div>
+               
 
              </div>
              </div>

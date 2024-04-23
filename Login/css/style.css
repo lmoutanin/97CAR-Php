@@ -415,5 +415,20 @@ form .corps-formulaire .droite .groupe textarea {
   height: 72%;
 }
 
-
- 
+form .corps-formulaire .gauche .groupe select {
+  margin-top: 5px;
+  background-color: #ffffff;
+  padding: 10px 5px 10px 10px;
+  border: 1px solid #f1f1f1;
+  outline-color: #747cdf;
+  border-radius: 5px;
+}
+ td .fa-solid{
+color: #050505;
+  position:relative;
+  width: 70px;
+  height: 40px;
+  top:14px;
+  font-size: 30px;
+  text-align: center;
+ }
