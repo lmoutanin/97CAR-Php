@@ -40,7 +40,7 @@ if (isset($_POST['ok'])) {
             if (!$client) {
 
                 // envoyer dans la base donnée une requête pour ajoute les valeurs  suivantes dans la table acheteur 
-                $req = $bdd->prepare("INSERT INTO client (id_client,mel,prenom,nom,adresse,code_postal,ville,telephone) VALUES(0,:mel,:prenom,:nom,:adresse,:code_postal,:ville,:telephone)");
+                $req = $bdd->prepare("INSERT INTO client (mel,prenom,nom,adresse,code_postal,ville,telephone) VALUES(:mel,:prenom,:nom,:adresse,:code_postal,:ville,:telephone)");
                 $req->execute(array('mel' => $cree->get_email(),'prenom' => $cree->get_prenom(), 'nom' => $cree->get_nom(), 'adresse' =>  $cree->get_adresse(), 'code_postal' => $cree->get_codePostal(), 'ville' => $cree->get_ville(), 'telephone' => $cree->get_telephone()));
                 
                 $msg_ins = "Ajout du Client {$cree->get_nom()}  {$cree->get_prenom()}  ";

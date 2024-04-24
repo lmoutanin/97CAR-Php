@@ -15,14 +15,13 @@ if (isset($_POST['ok'])) {
 
 
 
-
     $marque = $_POST['marque'];
     $modele = $_POST['modele'];
     $kilometrage = $_POST['kilometrage'];
     $imma = $_POST['imma1'] . '-' . $_POST['imma2'] . '-' . $_POST['imma3'];
     $annee = date('Y', strtotime($_POST['annee']));
     $id = $_SESSION['id-client'];
-
+echo $annee;
     //  verifier si les champs marque,modele,kilometrage,immatriculation et année  ne sont pas vide
     if (!empty($marque) && !empty($modele) && !empty($kilometrage) && !empty($imma) && !empty($annee) && !empty($id)) {
 
@@ -35,15 +34,10 @@ if (isset($_POST['ok'])) {
         if (!$immatriculation) {
 
              // envoyer dans la base donnée une requête pour ajoute les valeurs  suivantes dans la table voiture
-            $req = $bdd->prepare("INSERT INTO voiture (Id_voiture,annee,marque,kilometrage,modele,immatriculation,Id_client  ) VALUES(0,:annee,:marque,:kilometrage,:modele,:immatriculation,:Id_client)");
-            $req->execute(array('annee' => $voiture->get_annee(), ':marque' => $voiture->get_marque(), ':kilometrage' => $voiture->get_kilometrage(), ':modele' => $voiture->get_modele(), ':immatriculation' => $voiture->get_immatriculation(), ':annee' => $voiture->get_annee(), ':Id_client' => $voiture->get_id_client()));
+             $req = $bdd->prepare("INSERT INTO voiture (Id_voiture,annee,marque,kilometrage,modele,immatriculation,Id_client  ) VALUES(0,:annee,:marque,:kilometrage,:modele,:immatriculation,:Id_client)");
+             $req->execute(array('annee' => $voiture->get_annee(), ':marque' => $voiture->get_marque(), ':kilometrage' => $voiture->get_kilometrage(), ':modele' => $voiture->get_modele(), ':immatriculation' => $voiture->get_immatriculation(), ':Id_client' => $voiture->get_id_client()));
 
-            $requete->bindParam( 1 , $repair->get_id());
-            exit;
-              
-
-
-
+ 
 
             $msg_ins = "Ajout de la {$voiture->get_marque()} à {$voiture->get_modele()} .";
             

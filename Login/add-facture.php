@@ -34,48 +34,11 @@ require('menu.php');
 
                 </div>
 
-                <div>
-                    <label for="annee">Email du proprietaire </label>
-                    <input type="email" id="email" name="email" maxlength="50" size="30" placeholder="Votre email" required />
 
-                </div>
+  
 
             </div>
-
-            <div class="name-field">
-
-                <div>
-                    <label for="marque"> Marque </label>
-                    <input type="text" id="marque" name="marque" minlength="2" maxlength="100" size="30" placeholder="Votre marque" required />
-                </div>
-
-                <div class="imma">
-                    <label for="imma">Immatriculation </label>
-                    <label">
-
-                        <input name="imma1" id="imma" type="text" pattern="[a-zA-Z0-9]{2}"   placeholder="XX" size="2" required />-
-                        <input name="imma2" id="imma" type="text" pattern="[a-zA-Z0-9]{3}"   placeholder="XXX" size="3" required />-
-                        <input name="imma3" id="imma" type="text" pattern="[a-zA-Z0-9]{2}"   placeholder="XX" size="2" required />
-
-                        </label>
-                </div>
-
-            </div>
-
-            <div class="name-field">
-
-                <div>
-                    <label for="modele"> Modele </label>
-                    <input type="text" id="modele" name="modele" minlength="2" maxlength="50" size="30" placeholder="Votre modele" required />
-                </div>
-
-                <div>
-                    <label for="kilometrage"> Kilometrage </label>
-                    <input type="tel" id="kilometrage" name="kilometrage"  pattern="[0-9]{6}" placeholder="Votre kilometrage" size="30" required />
-                </div>
-
-            </div>
-            </br>
+ 
 
             <div align="center">
             <button type="submit" class="bouton" name="ok">Crée une facture </button>

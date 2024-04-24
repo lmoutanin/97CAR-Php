@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('verify/verify-add-voiture.php');
 require('verify/restricted-access.php');
 require('menu.php');
 
@@ -76,7 +77,7 @@ $prenom=$_SESSION['prenom'];
 
                 <div>
                     <label for="kilometrage"> Kilometrage </label>
-                    <input type="tel" id="kilometrage" name="kilometrage"  pattern="[0-9]" placeholder="Votre kilometrage" size="30"  autocomplete="off" required />
+                    <input type="number" id="kilometrage" name="kilometrage"  pattern="[0-9]" placeholder="Votre kilometrage" size="30"  autocomplete="off" required />
                 </div>
 
             </div>
