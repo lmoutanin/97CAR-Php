@@ -1,7 +1,7 @@
 <?php
  session_start();
   
-require('verify/edit.php');
+ 
 require('verify/restricted-access.php');
 require('class/Client.php');
 require('menu.php');
@@ -98,9 +98,7 @@ echo $error_msg ;
 
             </div>
             <br>
-            <div align="center">
-                <button type="submit" class="bouton" name="ok"><strong>Modifier</strong></button>
-            </div>
+            
         </form>
     </div>
 </body>
