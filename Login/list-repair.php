@@ -1,6 +1,6 @@
 <?php
 session_start();
- 
+require('class/Repair.php');
 require('verify/restricted-access.php');
 require('menu.php');
   
@@ -29,14 +29,10 @@ require('menu.php');
                 <thead>
 
 
-                    <th>ID</th>
-                    <th>NOM</th>
-                    <th>PRÉNOM</th>
-                    <th>TÉLÉPHONE</th>
-                    <th>EMAIL</th>
-                    <th>VILLE</th>
-                    <th>ADRESSE</th>
-                    <th>CODE POSTAL</th>
+                    <th>Description</th>
+                    <th>Coût unitaire</th>
+                    <th>Quantité</th>
+                     
 
                     </tr>
 
@@ -44,20 +40,18 @@ require('menu.php');
 
                 <tbody>
 
-                    <?php foreach ($repondres as $repondre) {
-                        $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
+                    <?php foreach ($rpts as $rpt) {
+                      $repair = new Repair($rpt['cout'],$rpt['quantite'],$rpt['descriptions'],$rpt['id'])
                     ?>
 
                         <tr>
                       
                         
-                         <td onclick="location.href='home-client.php?id=<?php echo $client->get_id_client(); ?>'">   <?php echo $client->get_nom(); ?></a> </td>
-                         <td onclick="location.href='home-client.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_prenom(); ?></a> </td>
-                         <td onclick="location.href='home-client.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_telephone(); ?></a> </td>
-                         <td onclick="location.href='home-client.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_email(); ?></a> </td>
-                         <td onclick="location.href='home-client.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_ville(); ?></a></td>
-                         <td onclick="location.href='home-client.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_adresse(); ?></a></td>
-                         <td onclick="location.href='home-client.php?id=<?php echo $client->get_id_client(); ?>'">  <?php echo $client->get_codePostal(); ?></a> </td>
+                        <td>  <?php echo $repair->get_description(); ?></td>
+                        <td>  <?php echo $repair->get_cout() ?></td>
+                        <td>  <?php echo $repair->get_quantite() ?></td>
+                        
+                         
                         </tr>
                     <?php  } ?>
 

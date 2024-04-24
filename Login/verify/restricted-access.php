@@ -14,6 +14,9 @@ if ($token) {
     $requete = $bdd->query("SELECT * FROM voiture ");
     $repondres = $requete->fetchAll();
 
+    $requete = $bdd->query("SELECT * FROM reparation ");
+    $rpts = $requete->fetchAll();
+
    
 } else {
     header("Refresh:0.001; url=./login.php");

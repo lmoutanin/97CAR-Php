@@ -16,7 +16,7 @@ $prenom=$_SESSION['prenom'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo "Ajout d'une voiture à {$nom} {$prenom}" ?> </title>
+    <title><?php echo "Créer une  voiture à {$nom} {$prenom}" ?> </title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -26,7 +26,7 @@ $prenom=$_SESSION['prenom'];
 
         <form method="POST" action="">
 
-            <h1><?php echo "Ajout d'une voiture à {$nom} {$prenom}" ?>   </h1>
+            <h1><?php echo "Créer une voiture à {$nom} {$prenom}" ?>   </h1>
             <hr>
             <div align="center">
             <?php echo "<strong>{$msg_ins} </strong>";  ?>

@@ -35,12 +35,12 @@ if (isset($_POST['ok'])) {
 
 
         if($requete->execute()){
-            echo "Nouvel enregistrement inséré avec succès.";
+            $msg_ins = "Ajout de la réparation .";
             } else{
             echo "Erreur : Impossible d'exécuter la requête.";
             }
  
-        $msg_ins = "Ajout de la réparation .";
+        
     } else {
         $error_msg = "Merci de remplir les champs qui manquent.";
     }

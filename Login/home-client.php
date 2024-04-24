@@ -43,7 +43,7 @@
              <div class="card">
                  <img src="image/utilisateur.png">
                  <div class="card-content">
-                     <h3> Informaration</h3>
+                     <h3> Information</h3>
                      
                      <a href="client.php" class="btn">consulter</a>
                  </div>
@@ -83,12 +83,13 @@
                  <div class="card">
                      <img src="image/de-location.png">
                      <div class="card-content">
-                         <h3> Ajout Voiture</h3>
+                         <h3>+ Voiture</h3>
                        
                          <a href="add-voiture.php" class="btn">consulter</a>
                      </div>
                  </div>
 
+                 
                
 
              </div>

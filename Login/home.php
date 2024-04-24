@@ -76,6 +76,14 @@ $id = $_GET['id'];
                     <a href="list-facture.php" class="btn">consulter</a>
                 </div>
             </div>
+            <div class="card">
+                <img src="image/entretien.png">
+                <div class="card-content">
+                    <h3 align="center">Réparation</h3>
+                   
+                    <a href="list-repair.php" class="btn">consulter</a>
+                </div>
+            </div>
 
 
         </div>

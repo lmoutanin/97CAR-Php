@@ -13,12 +13,12 @@
 
             <li><a href="add-client.php">
             <i class="fa-solid fa-user-plus"></i>
-                <span class="nav-item">Ajout Client</span>
+                <span class="nav-item">+ Client</span>
             </a></li>
 
-            <li><a href="add-client.php">
+            <li><a href="add-repair.php">
             <i class="fa-solid fa-hammer"></i>
-                <span class="nav-item">Ajout Réparation</span>
+                <span class="nav-item">+ Réparation</span>
             </a></li>
  
             <li><a href="list-client.php">
