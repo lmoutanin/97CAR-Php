@@ -21,7 +21,7 @@ if (isset($_POST['ok'])) {
     $imma = $_POST['imma1'] . '-' . $_POST['imma2'] . '-' . $_POST['imma3'];
     $annee = date('Y', strtotime($_POST['annee']));
     $id = $_SESSION['id-client'];
-echo $annee;
+ 
     //  verifier si les champs marque,modele,kilometrage,immatriculation et année  ne sont pas vide
     if (!empty($marque) && !empty($modele) && !empty($kilometrage) && !empty($imma) && !empty($annee) && !empty($id)) {
 

@@ -1,10 +1,11 @@
 <?php
  session_start();
- 
- require('verify/restricted-access.php');
+  
+require('verify/edit.php');
+require('verify/restricted-access.php');
 require('class/Client.php');
 require('menu.php');
-$id=$_SESSION['id'];
+$id=$_SESSION['id-client'];
  
 if($id){
     $req = $bdd->prepare("SELECT * FROM client WHERE Id_client = :id");
@@ -13,10 +14,9 @@ if($id){
     $_SESSION['nom'] =  $repondre['nom'];
     $_SESSION['prenom']= $repondre['prenom'];
      
-    
+    $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
     }
  
-$client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
 
 ?>
 
@@ -38,6 +38,10 @@ $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $r
 
 
             <h1>Information <?php echo $client->get_nom() . " " . $client->get_prenom(); ?> </h1>
+           <?php 
+echo $msg_ins ;
+echo $error_msg ;
+           ?>
             <hr>
             
             <div class="name-field">
