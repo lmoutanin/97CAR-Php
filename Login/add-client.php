@@ -3,6 +3,7 @@ session_start();
 
 require('verify/verify-proprietaire.php');
 require('menu.php');
+
 ?>
 
 <!DOCTYPE html>

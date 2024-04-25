@@ -432,3 +432,33 @@ color: #050505;
   font-size: 30px;
   text-align: center;
  }
+ .name-field s{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+
+.name-fieldsss {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+form .name-fieldsss input {
+  padding: 0px 5px 10px 10px;
+  border: none;
+  border-radius: 5px;
+  
+  outline: none;
+   
+}
+.name-fieldsss div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+ 
