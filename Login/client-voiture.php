@@ -48,8 +48,7 @@ if($id){
                     <th>KILOMETRATE</th>
                     <th>IMMATRICULATION</th>
                     <th>FACTURE</th>
-                    <th>MODIFIER</th>
-                    <th>SUPPRIMER</th>
+                  
 
                 </tr>
 
@@ -75,8 +74,7 @@ if($id){
                     <td>    <?php echo $voiture->get_immatriculation(); ?></td>
                      
                     <td  onclick="location.href='add-facture.php?id=<?php echo $voiture->get_id_voiture();?>'" > <i class="fa-solid fa-car-rear"></i> </td>
-                    <td  onclick="location.href='add-facture.php?id=<?php echo $voiture->get_id_voiture(); ?>'" > <i class="fa-solid fa-toolbox"></i></td>
-                    <td onClick="return confirm('Etes-vous sûr que vous voulez supprimer <?php echo $voiture->get_marque().' '.$voiture->get_modele()  ?>  ?')"   href='delete.php?id=$id' type='button' class='btn btn-danger' ?><i class="fa-solid fa-trash-can"></i></td>
+                   
                     </tr>
 
 

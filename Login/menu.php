@@ -16,10 +16,7 @@
                 <span class="nav-item">+ Client</span>
             </a></li>
 
-            <li><a href="add-repair.php">
-            <i class="fa-solid fa-hammer"></i>
-                <span class="nav-item">+ Réparation</span>
-            </a></li>
+           
  
             <li><a href="list-client.php">
             <i class="fa-solid fa-address-book"></i>
