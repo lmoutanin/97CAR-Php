@@ -47,6 +47,7 @@ if($id){
                     <th>ANNÉE</th>
                     <th>KILOMETRATE</th>
                     <th>IMMATRICULATION</th>
+                    <th>+FACTURE</th>
                     <th>FACTURE</th>
                   
 
@@ -73,7 +74,8 @@ if($id){
                     <td>   <?php  echo $voiture->get_kilometrage(); ?></td>
                     <td>    <?php echo $voiture->get_immatriculation(); ?></td>
                      
-                    <td  onclick="location.href='add-facture.php?id=<?php echo $voiture->get_id_voiture();?>'" > <i class="fa-solid fa-car-rear"></i> </td>
+                    <td  onclick="location.href='add-facture.php?id=<?php echo $voiture->get_id_voiture();?>'" > <i class="fa-solid fa-file-lines"></i> </td>
+                    <td  onclick="location.href='client-facture.php?id=<?php echo $voiture->get_id_voiture();?>'" > <i class="fa-solid fa-file-invoice"></i> </td>
                    
                     </tr>
 

@@ -32,14 +32,14 @@ require('menu.php');
                 <thead>
 
 
-                    <th>ID</th>
-                    <th>NOM</th>
-                    <th>PRÉNOM</th>
-                    <th>TÉLÉPHONE</th>
-                    <th>EMAIL</th>
-                    <th>VILLE</th>
-                    <th>ADRESSE</th>
-                    <th>CODE POSTAL</th>
+                    <th>DATE</th>
+                    <th>CLIENT</th>
+                    <th>DESCRIPTION</th>
+                    <th>COUT</th>
+                    <th>VOITURE</th>
+                    
+                    <th>MONTANT</th>
+                    
 
                     </tr>
 

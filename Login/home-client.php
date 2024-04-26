@@ -75,7 +75,7 @@
                      <div class="card-content">
                          <h3>Facture</h3>
                        
-                         <a href="" class="btn">consulter</a>
+                         <a href="home-facture.php" class="btn">consulter</a>
                      </div>
                  </div>
               
