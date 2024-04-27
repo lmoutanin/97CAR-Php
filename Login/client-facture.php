@@ -1,36 +1,46 @@
 <?php
 session_start();
 
-require('menu.php');
-require('verify/bdd.php');
-require('class/Client.php');
 $id = $_SESSION['id-client'];
 $id_voiture = $_GET['id'];
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 
+require('verify/bdd.php');
+require('menu.php');
+require('class/Client.php');
+
+
 
 $req = $bdd->prepare("SELECT * FROM client WHERE Id_client = :id");
 $req->execute(array('id' => $id));
 $repondre = $req->fetch();
-$_SESSION['nom'] =  $repondre['nom'];
-$_SESSION['prenom'] = $repondre['prenom'];
 
-$client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
 
 $req = $bdd->prepare(" SELECT nom, prenom, marque, modele,date_facture,descriptions,cout,quantite,Id_facture
-FROM client 
-INNER JOIN voiture ON client.Id_client = voiture.Id_client
-INNER JOIN facture ON voiture.Id_voiture = facture.Id_voiture
-INNER JOIN reparation ON facture.Id_facture = reparation.Id_reparation
-WHERE client.Id_client = :id AND voiture.Id_voiture= :id_voiture");
+    FROM client 
+    INNER JOIN voiture ON client.Id_client = voiture.Id_client
+    INNER JOIN facture ON voiture.Id_voiture = facture.Id_voiture
+    INNER JOIN reparation ON facture.Id_facture = reparation.Id_reparation
+    WHERE client.Id_client = :id AND voiture.Id_voiture= :id_voiture");
 $req->execute(array('id' => $id, 'id_voiture' => $id_voiture));
 $repondres = $req->fetchAll();
 
-$vsql = $bdd->prepare("SELECT * FROM voiture WHERE Id_voiture = :id");
-$vsql->execute(array('id' => $id_voiture));
-$vrep = $req->fetch();
 
+$facture = $bdd->prepare("SELECT   marque, modele,date_facture,  Id_facture
+ FROM client 
+ INNER JOIN voiture ON client.Id_client = voiture.Id_client
+ INNER JOIN facture ON voiture.Id_voiture = facture.Id_voiture
+ INNER JOIN reparation ON facture.Id_facture = reparation.Id_reparation
+ WHERE client.Id_client = :id AND voiture.Id_voiture= :id_voiture;");
+$facture->execute(array('id' => $id, 'id_voiture' => $id_voiture));
+$factures = $facture->fetch();
+
+
+
+
+
+$client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
 
 
 ?>
@@ -52,28 +62,23 @@ $vrep = $req->fetch();
 
 
 
-        <div class="logos">
 
-            <img src="image/Logo_97CAR_White.png" alt=""><br>
 
-            <strong>
-                <h1>Facture </h1><br>
-            </strong>
+        <div class="clients">
+            <h2 align="center">97CAR</h2>
+            <h3>Facture :<?php echo  $factures['Id_facture'];  ?></h3><br>
 
-            </strong>
-            <br><br>
-            <h2 align="left">97 CAR</h2>
+            <h4>Le :<?php echo $factures['date_facture'];     ?> </h4>
+
             <p>69 Rue des alamandas </p>
             <p>Saint-Benoît 97470, La Réunion </p>
             <p>97car@gmail.com</p>
             <p>0262 92 96 81</p>
-
         </div>
 
-        <div class="client">
-            <strong>
 
-            </strong>
+        <div class="client">
+
             <h3><?php echo   $nom . '   ' . $prenom; ?></h3>
             <p><?php echo $client->get_adresse(); ?> </p>
             <p><?php echo $client->get_ville() . ' , ' . $client->get_codePostal(); ?> </p>
@@ -83,13 +88,6 @@ $vrep = $req->fetch();
         </div>
 
 
-
-        <div>
-
-
-
-
-        </div>
 
 
 
@@ -141,16 +139,25 @@ $vrep = $req->fetch();
 
 
 
-                <div class="table">
-                    <tr>
-                        <th colspan="3">TOTAL</th>
-                        <th> <?php echo $total; ?></th>
 
-                    </tr>
-                </div>
+              
+                    <th colspan="4"> </th>
+
+
+               
+
         </table>
 
         </tbody>
+        <br>
+
+        <div class="client">
+
+            <h4><?php echo 'TOTAL : ' . $total; ?></h3>
+        </div>
+
+
+
 
     </div>
 </body>
