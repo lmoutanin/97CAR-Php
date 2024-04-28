@@ -453,3 +453,21 @@ h2 {
   border: 1px solid;
   background: #f5f5f5;
 }
+
+.total {
+  text-align: center;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid;
+  background: #f5f5f5;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+.total {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid;
+  background: #f5f5f5;
+}

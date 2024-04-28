@@ -7,16 +7,13 @@ require('menu.php');
 require('class/Facture.php');
 require('verify/bdd.php');
 
-$token = $_SESSION['token'];
+$id = $_SESSION['id-client'];
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 
-if ($token) {
-    $req = $bdd->prepare("SELECT date_facture,marque,modele,descriptions,cout,quantite,voiture.Id_voiture,client.Id_client
-    FROM client INNER JOIN voiture ON client.Id_client = voiture.Id_client 
-    INNER JOIN facture ON voiture.Id_voiture = facture.Id_voiture 
-    INNER JOIN reparation ON facture.Id_facture = reparation.Id_reparation");
-    $req->execute();
+if ($id) {
+    $req = $bdd->prepare("SELECT date_facture,marque,modele,descriptions,cout,quantite,voiture.Id_voiture FROM client INNER JOIN voiture ON client.Id_client = voiture.Id_client INNER JOIN facture ON voiture.Id_voiture = facture.Id_voiture INNER JOIN reparation ON facture.Id_facture = reparation.Id_reparation WHERE client.Id_client =:id");
+    $req->execute(array('id' => $id));
     $fts = $req->fetchAll();
 } ?>
 
@@ -26,7 +23,7 @@ if ($token) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facture Client</title>
+    <title><?php echo 'Facture de ' . $nom . ' ' . $prenom;  ?></title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="image/Logo_97CAR_White.png" />
 
@@ -36,7 +33,7 @@ if ($token) {
 <body>
     <div class="formulaire ">
 
-        <h1 align="center">Facture Client </h1>
+        <h1 align="center"> <?php echo '  Facture de ' . $nom . ' ' . $prenom; ?> </h1>
         <br>
 
         <table class="formul1">
@@ -59,7 +56,7 @@ if ($token) {
 
                 <?php foreach ($fts as $ft) {
 
-                    $ft = new Facture($ft['Id_client'], $ft['Id_voiture'], $ft['date_facture'], $ft['marque'], $ft['modele'], $ft['cout'], $ft['quantite'], $ft['descriptions']); ?>
+                    $ft = new Facture($id, $ft['Id_voiture'], $ft['date_facture'], $ft['marque'], $ft['modele'], $ft['cout'], $ft['quantite'], $ft['descriptions']); ?>
 
                     <tr>
                         <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_date(); ?> </td>

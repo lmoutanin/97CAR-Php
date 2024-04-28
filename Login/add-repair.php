@@ -6,7 +6,6 @@ require('menu.php');
 
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
-
 $_SESSION['id-voiture'] = $_GET['id'];
 
 ?>
@@ -19,6 +18,8 @@ $_SESSION['id-voiture'] = $_GET['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer Réparation</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="image/Logo_97CAR_White.png" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -33,9 +34,6 @@ $_SESSION['id-voiture'] = $_GET['id'];
             <?php echo $error_msg ?>
         </div>
 
-
-
-
         <div class="separation"></div>
         <div class="corps-formulaire">
             <div class="gauche">
@@ -46,25 +44,22 @@ $_SESSION['id-voiture'] = $_GET['id'];
                 </div>
                 <div class="groupe">
                     <label>Coût</label>
-                    <input type="number" id="cout" name="cout"   placeholder="Coût unitaire" size="30" autocomplete="off" required />
+                    <input type="number" id="cout" name="cout" placeholder="Coût unitaire" size="30" autocomplete="off" required />
 
                 </div>
                 <div class="groupe">
                     <label>Quantité</label>
-                    <input type="number" id="quantite" name="quantite"  placeholder="Quantite" size="30" autocomplete="off" required />
+                    <input type="number" id="quantite" name="quantite" placeholder="Quantite" size="30" autocomplete="off" required />
 
                 </div>
-                
 
-
-                 
             </div>
- 
+
             <div class="droite">
                 <div class="groupe">
                     <label>Description</label>
                     <textarea type="text" id="description" name="description" placeholder="Saisissez ici..."></textarea>
-                    
+
                 </div>
             </div>
         </div>
@@ -74,16 +69,9 @@ $_SESSION['id-voiture'] = $_GET['id'];
         </div>
 
 
-</form>
+    </form>
 
 </div>
-
-
-
-
-
-
-
 
 </body>
 

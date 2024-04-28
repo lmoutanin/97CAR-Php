@@ -1,24 +1,22 @@
 <?php
- session_start();
-  
- 
+session_start();
+
 require('verify/restricted-access.php');
-require('class/Client.php');
 require('menu.php');
-$id=$_SESSION['id-client'];
- 
-if($id){
+
+require('class/Client.php');
+
+$id = $_SESSION['id-client'];
+
+if ($id) {
     $req = $bdd->prepare("SELECT * FROM client WHERE Id_client = :id");
-    $req->execute(array('id' => $id ));
+    $req->execute(array('id' => $id));
     $repondre = $req->fetch();
     $_SESSION['nom'] =  $repondre['nom'];
-    $_SESSION['prenom']= $repondre['prenom'];
-     
-    $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
-    }
- 
+    $_SESSION['prenom'] = $repondre['prenom'];
 
-?>
+    $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
+} ?>
 
 
 <!DOCTYPE html>
@@ -27,8 +25,10 @@ if($id){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo'Information'. $nom.' '.$prenom;  ?> </title>
+    <title><?php echo 'Information' . $nom . ' ' . $prenom;  ?> </title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="image/Logo_97CAR_White.png" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -36,14 +36,15 @@ if($id){
     <div class="formulaire">
         <form method="POST" action="">
 
-
+          
             <h1>Information <?php echo $client->get_nom() . " " . $client->get_prenom(); ?> </h1>
-           <?php 
-echo $msg_ins ;
-echo $error_msg ;
-           ?>
+            <?php
+            echo $msg_ins;
+            echo $error_msg;
+            ?>
+
             <hr>
-            
+
             <div class="name-field">
 
                 <div>
@@ -88,17 +89,17 @@ echo $error_msg ;
             </div>
 
 
-            <div class="name-field"  >
+            <div class="name-field">
 
-                <div   >
+                <div>
                     <label for="email">Email</label>
                     <input type="email" id="email" size="30" name="email" placeholder="Votre email" value="<?php echo $client->get_email(); ?>" required />
                 </div>
- 
+
 
             </div>
             <br>
-            
+
         </form>
     </div>
 </body>
