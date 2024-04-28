@@ -61,12 +61,12 @@ if ($id) {
                     <tr>
                         <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_date(); ?> </td>
 
-                        <td> <?php echo $ft->get_marque(); ?> </td>
-                        <td> <?php echo $ft->get_modele(); ?> </td>
-                        <td> <?php echo $ft->get_description(); ?> </td>
-                        <td> <?php echo $ft->get_quantite(); ?> </td>
-                        <td> <?php echo $ft->get_cout(); ?> </td>
-                        <td> <?php echo $ft->total(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"><?php echo $ft->get_marque(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_modele(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_description(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"><?php echo $ft->get_quantite(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"><?php echo $ft->get_cout(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"><?php echo $ft->total(); ?> </td>
                         <?php $total = $total + $ft->total(); ?>
                     </tr>
 

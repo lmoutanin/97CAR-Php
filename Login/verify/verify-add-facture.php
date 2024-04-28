@@ -1,229 +1,49 @@
 <?php
 session_start();
 require('bdd.php');
-require('class/Repair.php');
+require('class/Facture.php');
 
-
-
- 
 $msg_ins = "";
 $error_msg = "";
- 
-//verifier si on à bien appuyer sur le bouton ok 
+
+// Vérifier si on a bien appuyé sur le bouton ok 
 if (isset($_POST['ok'])) {
 
-
-    $id = 0;
     $id_client = $_SESSION['id-client'];
-    $id_voiture = $_SESSION['id-voiture'];
+    $id_voiture = $_POST['voiture'];
     $date = $_POST['date'];
 
-    $description = $_POST['description'];
-    $cout = $_POST['cout'];
-    $quantite = $_POST['quantite'];
+    $description1 = $_POST['description1'];
+    $description2 = htmlspecialchars($_POST['description2'], ENT_QUOTES, 'UTF-8');
+    $description3 = htmlspecialchars($_POST['description3'], ENT_QUOTES, 'UTF-8');
+    $description4 = htmlspecialchars($_POST['description4'], ENT_QUOTES, 'UTF-8');
+    $description5 = htmlspecialchars($_POST['description5'], ENT_QUOTES, 'UTF-8');
 
-   
- //table 1
-    if (!empty($quantite) && !empty($cout) && !empty($description)) {
+    echo var_dump($description1);
 
-        $repair = new Repair($cout, $quantite, $description, $id);
-        $requete = $bdd->prepare("INSERT INTO reparation (descriptions,cout,quantite) VALUES (?,?,?)");
+    // Vérifier si les champs requis sont remplis
+    if (!empty($id_voiture) && !empty($date) && !empty($description1)) {
 
+        $langages = array($description1, $description2, $description3, $description4, $description5);
 
-
-        $requete->bindParam(1, $repair->get_description());
-        $requete->bindParam(2, $repair->get_cout());
-        $requete->bindParam(3, $repair->get_quantite());
-        $requete->execute();
+        foreach ($langages as $langage) {
 
 
-        $id_reparation = $bdd->lastInsertId();
-        
- 
-         
-        $requete = $bdd->prepare("INSERT INTO facture (date_facture,Id_client,Id_voiture) VALUES (?,?,?)");
+            $facture = new Facture($id_client, $id_voiture, $date, 0, 0, 0, 0, $repondre['Id_reparation']);
 
+            $requete = $bdd->prepare("INSERT INTO facture (date_facture,Id_client,Id_voiture) VALUES (?,?,?)");
+            $requete->bindParam(1, $facture->get_date());
+            $requete->bindParam(2, $facture->get_id_client());
+            $requete->bindParam(3, $facture->get_id_voiture());
+            $requete->execute();
+            $id_facture = $bdd->lastInsertId();
 
-
-        $requete->bindParam(1,  $date);
-        $requete->bindParam(2, $id_client);
-        $requete->bindParam(3, $id_voiture);
-        
-        $requete->execute();
-        $id_facture = $bdd->lastInsertId();
-    
-
-        $requete = $bdd->prepare("INSERT INTO facture_reparation (Id_facture,Id_reparation) VALUES (?,?)");
-        $requete->bindParam(1,  $id_facture);
-        $requete->bindParam(2, $id_reparation);
-        $requete->execute();
-        
-         
-
-        $description = $_POST['description2'];
-        $cout = $_POST['cout2'];
-        $quantite = $_POST['quantite2'];
+            $requete = $bdd->prepare("INSERT INTO facture_reparation (Id_facture,Id_reparation) VALUES (?,?)");
+            $requete->bindParam(1,  $id_facture);
+            $requete->bindParam(2, $langage);
+            $requete->execute();
+        }
+    } else {
+        $error_msg = "Merci de remplir les champs qui manquent.";
     }
-
-    //Table 2
-    if (!empty($quantite) && !empty($cout) && !empty($description)) {
-
-        $repair = new Repair($cout, $quantite, $description, $id);
-        $requete = $bdd->prepare("INSERT INTO reparation (descriptions,cout,quantite) VALUES (?,?,?)");
-
-
-
-        $requete->bindParam(1, $repair->get_description());
-        $requete->bindParam(2, $repair->get_cout());
-        $requete->bindParam(3, $repair->get_quantite());
-        $requete->execute();
-
-
-        $id_reparation = $bdd->lastInsertId();
-        
- 
-         
-        $requete = $bdd->prepare("INSERT INTO facture (date_facture,Id_client,Id_voiture) VALUES (?,?,?)");
-
-
-
-        $requete->bindParam(1,  $date);
-        $requete->bindParam(2, $id_client);
-        $requete->bindParam(3, $id_voiture);
-        
-        $requete->execute();
-        $id_facture = $bdd->lastInsertId();
-    
-
-        $requete = $bdd->prepare("INSERT INTO facture_reparation (Id_facture,Id_reparation) VALUES (?,?)");
-        $requete->bindParam(1,  $id_facture);
-        $requete->bindParam(2, $id_reparation);
-        $requete->execute();
-        
-         
-
-        $description = $_POST['description3'];
-        $cout = $_POST['cout3'];
-        $quantite = $_POST['quantite3'];
-    }
-
-
-     //Table 3
-     if (!empty($quantite) && !empty($cout) && !empty($description)) {
-
-        $repair = new Repair($cout, $quantite, $description, $id);
-        $requete = $bdd->prepare("INSERT INTO reparation (descriptions,cout,quantite) VALUES (?,?,?)");
-
-
-
-        $requete->bindParam(1, $repair->get_description());
-        $requete->bindParam(2, $repair->get_cout());
-        $requete->bindParam(3, $repair->get_quantite());
-        $requete->execute();
-
-
-        $id_reparation = $bdd->lastInsertId();
-        
- 
-         
-        $requete = $bdd->prepare("INSERT INTO facture (date_facture,Id_client,Id_voiture) VALUES (?,?,?)");
-
-
-
-        $requete->bindParam(1,  $date);
-        $requete->bindParam(2, $id_client);
-        $requete->bindParam(3, $id_voiture);
-        
-        $requete->execute();
-        $id_facture = $bdd->lastInsertId();
-    
-
-        $requete = $bdd->prepare("INSERT INTO facture_reparation (Id_facture,Id_reparation) VALUES (?,?)");
-        $requete->bindParam(1,  $id_facture);
-        $requete->bindParam(2, $id_reparation);
-        $requete->execute();
-        
-         
-
-        $description = $_POST['description4'];
-        $cout = $_POST['cout4'];
-        $quantite = $_POST['quantite4'];
-    }
-
-    //Table 3
-    if (!empty($quantite) && !empty($cout) && !empty($description)) {
-
-        $repair = new Repair($cout, $quantite, $description, $id);
-        $requete = $bdd->prepare("INSERT INTO reparation (descriptions,cout,quantite) VALUES (?,?,?)");
-
-
-
-        $requete->bindParam(1, $repair->get_description());
-        $requete->bindParam(2, $repair->get_cout());
-        $requete->bindParam(3, $repair->get_quantite());
-        $requete->execute();
-
-
-        $id_reparation = $bdd->lastInsertId();
-        
- 
-         
-        $requete = $bdd->prepare("INSERT INTO facture (date_facture,Id_client,Id_voiture) VALUES (?,?,?)");
-
-
-
-        $requete->bindParam(1,  $date);
-        $requete->bindParam(2, $id_client);
-        $requete->bindParam(3, $id_voiture);
-        
-        $requete->execute();
-        $id_facture = $bdd->lastInsertId();
-    
-
-        $requete = $bdd->prepare("INSERT INTO facture_reparation (Id_facture,Id_reparation) VALUES (?,?)");
-        $requete->bindParam(1,  $id_facture);
-        $requete->bindParam(2, $id_reparation);
-        $requete->execute();
-        
-         
-
-        
-    }
-
-
-     
-
-
-     
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 }
-  

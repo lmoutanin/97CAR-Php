@@ -7,14 +7,15 @@ require('menu.php');
 require('class/Voiture.php');
 require('verify/bdd.php');
 
-$id = $_SESSION['id'];
+$id = $_SESSION['id-client'];
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 
 if ($id) {
     $req = $bdd->prepare("SELECT * FROM voiture WHERE Id_client = :id");
     $req->execute(array('id' => $id));
-    $repondres = $req->fetchAll(); }?>
+    $repondres = $req->fetchAll();
+} ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -60,7 +61,7 @@ if ($id) {
                     $voiture  = new Voiture($repondre['marque'], $repondre['immatriculation'], $repondre['modele'], $repondre['kilometrage'], $repondre['annee'], $repondre['Id_client'], $repondre['Id_voiture']);
 
                 ?>
- 
+
                     <tr>
                         <td> <?php echo  $voiture->get_id_client(); ?> </td>
                         <td> <?php echo $voiture->get_id_voiture(); ?></td>
@@ -74,15 +75,15 @@ if ($id) {
                         <td onclick="location.href='client-facture.php?id=<?php echo $voiture->get_id_voiture(); ?>'"> <i class="fa-solid fa-file-invoice"></i> </td>
 
                     </tr>
- 
+
                 <?php  } ?>
 
             </tbody>
- 
+
         </table>
-  
+
     </div>
- 
+
 </body>
 
 </html>

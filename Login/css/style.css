@@ -81,7 +81,7 @@ hr {
 
 form .name-field input {
   padding: 10px 5px 10px 10px;
-  border: none;
+  /*! border: none; */
   border-radius: 5px;
   border: 1px solid #f1f1f1;
 
@@ -288,10 +288,6 @@ form .name-fields input {
 input:focus {
   color: #000000;
 }
-input {
-  color: #030202;
-  font-size: 1em;
-}
 
 /* Chrome */
 input::-webkit-inner-spin-button,
@@ -428,4 +424,22 @@ p {
   padding-bottom: 10px;
   border: 1px solid;
   background: #f5f5f5;
+}
+.name-field {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+}
+select {
+  padding: 10px 5px 10px 10px;
+
+  border-radius: 5px;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  outline: none;
+  margin-right: 35px;
+}
+
+.font_moyen {
+  font-size: 15px;
 }

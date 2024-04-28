@@ -89,6 +89,16 @@
                  </div>
              </div>
 
+
+             <div class="card">
+                 <img src="image/facture-dachat.png">
+                 <div class="card-content">
+                     <h3>+ Réparation</h3>
+
+                     <a href="add-facture.php" class="btn">consulter</a>
+                 </div>
+             </div>
+
          </div>
      </div>
 

@@ -1,14 +1,22 @@
 <?php
 session_start();
 
-require('verify/verify-add-facture.php');
+
 require('menu.php');
 
-$_SESSION['id-voiture'] = $_GET['id'];
+require('verify/verify-add-facture.php');
+require('verify/bdd.php');
+require('menu.php');
+
+
+
+
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 $marque = $_SESSION['marque'];
 $modele = $_SESSION['modele'];
+$id_client = $_SESSION['id-client'];
+
 ?>
 
 <!DOCTYPE html>
@@ -37,105 +45,173 @@ $modele = $_SESSION['modele'];
                 <?php echo "<strong>{$error_msg} </strong>";  ?>
             </div>
             <br>
-            <div class="name-fieldsss">
-                <br>
 
-                <input type="text" id="proprietaire" " minlength=" 2" maxlength="50" size="30" value="<?php echo 'Propriétaire: ' . $nom . ' ' . $prenom ?>" autocomplete="off" required />
 
-                <input type="text" id="quantite" minlength="2" maxlength="50" size="20" value="<?php echo 'Marque: ' . $marque ?>" autocomplete="off" required />
-
-                <input type="text" id="cout" minlength="2" maxlength="50" size="20" value="<?php echo 'Modéle: ' . $modele; ?>" autocomplete="off" required />
-
-            </div>
 
             <br>
 
             <div class="name-field">
 
                 <div>
-
                     <label>Date</label>
                     <input type="date" id="date" name="date" min="2000-01-01" max="<?php echo date('Y-m-d'); ?>" required />
 
+
                 </div>
-                <div>
-                </div>
+
+
 
             </div>
-
-            <div class="name-field">
-                <br>
-                <div>
-                    <label for="description">Réparation</label>
-                    <input type="text" id="description" name="description" minlength="2" maxlength="50" size="30" placeholder="Type de réparation 1" autocomplete="off" required />
-                </div>
-                <div>
-                    <label for="quantite"> Quantite </label>
-                    <input type="number" id="quantite" name="quantite" minlength="2" maxlength="50" size="20" placeholder="Quantite 1" autocomplete="off" required />
-                </div>
-
-                <div>
-                    <label for="cout"> Cout </label>
-                    <input type="number" id="cout" name="cout" minlength="2" maxlength="50" size="20" placeholder="Cout unitaire 1" autocomplete="off" required />
-                </div>
-
-            </div>
-
-            <div class="name-field">
-                <br>
-                <div>
-                    <label for="description">Réparation</label>
-                    <input type="text" id="description" name="description2" minlength="2" maxlength="50" size="30" placeholder="Type de réparation 2" autocomplete="off" />
-                </div>
-                <div>
-                    <label for="quantite"> Quantite </label>
-                    <input type="number" id="quantite" name="quantite2" minlength="2" maxlength="50" size="20" placeholder="Quantite 2" autocomplete="off" />
-                </div>
-
-                <div>
-                    <label for="cout"> Cout </label>
-                    <input type="number" id="cout" name="cout2" minlength="2" maxlength="50" size="20" placeholder="Cout unitaire 2" autocomplete="off" />
-                </div>
-
-            </div>
-
-            <div class="name-field">
-                <br>
-                <div>
-                    <label for="description">Réparation</label>
-                    <input type="text" id="description" name="description3" minlength="2" maxlength="50" size="30" placeholder="Type de réparation 3" autocomplete="off" />
-                </div>
-                <div>
-                    <label for="quantite"> Quantite </label>
-                    <input type="number" id="quantite" name="quantite3" minlength="2" maxlength="50" size="20" placeholder="Quantite 3" autocomplete="off" />
-                </div>
-
-                <div>
-                    <label for="cout"> Cout </label>
-                    <input type="number" id="cout" name="cout3" minlength="2" maxlength="50" size="20" placeholder="Cout unitaire 3" autocomplete="off" />
-                </div>
-
-            </div>
-
-            <div class="name-field">
-                <br>
-                <div>
-                    <label for="description">Réparation</label>
-                    <input type="text" id="description" name="description4" minlength="2" maxlength="50" size="30" placeholder="Type de réparation 4" autocomplete="off" />
-                </div>
-                <div>
-                    <label for="quantite"> Quantite </label>
-                    <input type="number" id="quantite" name="quantite4" minlength="2" maxlength="50" size="20" placeholder="Quantite 4" autocomplete="off" />
-                </div>
-
-                <div>
-                    <label for="cout"> Cout </label>
-                    <input type="number" id="cout" name="cout4" minlength="2" maxlength="50" size="20" placeholder="Cout unitaire 4" autocomplete="off" />
-                </div>
-
-            </div>
-
             <br>
+
+            <div class="name-field">
+
+                <div class="rp">
+                    <label>Voiture </label>
+
+                    <select name="voiture" id="pet-select">
+                        <option value="">choisir</option>
+                        <?php
+                        $re = $bdd->prepare("SELECT modele,marque,Id_voiture FROM voiture WHERE Id_client= :id");
+                        $re->execute(array('id' => $id_client));
+                        $repo = $re->fetchAll();
+                        $vts = $repo;
+
+
+                        foreach ($vts as $vt) { ?>
+                            <option value="<?php echo $vt['Id_voiture'] ?>"><?php echo $vt['marque'] . ' ' . $vt['modele']; ?></option>
+
+                        <?php } ?>
+
+
+                    </select>
+
+
+                </div>
+
+                <br>
+                <div class="ds">
+                    <label for="description">Réparation 1</label>
+
+
+                    <select name="description1" id="pet-select">
+                        <option value="">choisir</option>
+                        <?php
+                        $re = $bdd->prepare("SELECT * FROM reparation ");
+                        $re->execute();
+                        $repo = $re->fetchAll();
+                        $vts = $repo;
+
+
+                        foreach ($vts as $vt) { ?>
+                            <option value="<?php echo $vt['Id_reparation'] ?>"><?php echo $vt['descriptions']; ?></option>
+
+                        <?php } ?>
+
+
+                    </select>
+                </div>
+
+                <div class="ds1">
+                    <label for="description">Réparation 2</label>
+
+
+                    <select name="description2" id="pet-select">
+                        <option value="">choisir</option>
+                        <?php
+                        $re = $bdd->prepare("SELECT * FROM reparation ");
+                        $re->execute();
+                        $repo = $re->fetchAll();
+                        $vts = $repo;
+
+
+                        foreach ($vts as $vt) { ?>
+                            <option value="<?php echo $vt['Id_reparation'] ?>"><?php echo $vt['descriptions']; ?></option>
+
+                        <?php } ?>
+
+
+                    </select>
+                </div>
+
+
+
+            </div>
+            <br>
+
+            <div class="name-field">
+
+                <div class="ds2">
+                    <label for="description">Réparation 3</label>
+
+
+                    <select name="description3" id="pet-select">
+                        <option class="font_moyen" value="">choisir</option>
+                        <?php
+                        $re = $bdd->prepare("SELECT * FROM reparation ");
+                        $re->execute();
+                        $repo = $re->fetchAll();
+                        $vts = $repo;
+
+
+                        foreach ($vts as $vt) { ?>
+                            <option class="font_moyen" value="<?php echo $vt['Id_reparation'] ?>"><?php echo $vt['descriptions']; ?></option>
+
+                        <?php } ?>
+
+
+                    </select>
+                </div>
+
+                <div class="ds3">
+                    <label for="description">Réparation 4</label>
+
+
+                    <select name="description4" id="pet-select">
+                        <option class="font_moyen" value="">choisir</option>
+                        <?php
+                        $re = $bdd->prepare("SELECT * FROM reparation ");
+                        $re->execute();
+                        $repo = $re->fetchAll();
+                        $vts = $repo;
+
+
+                        foreach ($vts as $vt) { ?>
+                            <option class="font_moyen" value="<?php echo $vt['Id_reparation'] ?>"><?php echo $vt['descriptions']; ?></option>
+
+                        <?php } ?>
+
+
+                    </select>
+                </div>
+
+                <div class="ds4">
+                    <label for="description">Réparation 5</label>
+
+
+                    <select name="description5" id="pet-select">
+                        <option class="font_moyen" value="">choisir</option>
+                        <?php
+                        $re = $bdd->prepare("SELECT * FROM reparation ");
+                        $re->execute();
+                        $repo = $re->fetchAll();
+                        $vts = $repo;
+
+
+                        foreach ($vts as $vt) { ?>
+                            <option class="font_moyen" value="<?php echo $vt['Id_reparation'] ?>"><?php echo $vt['descriptions']; ?></option>
+
+                        <?php } ?>
+
+
+                    </select>
+                </div>
+
+
+            </div>
+            <br><br><br>
+
+
 
             <div align="center">
                 <button type="submit" class="bouton" name="ok">Ajout une facture </button>

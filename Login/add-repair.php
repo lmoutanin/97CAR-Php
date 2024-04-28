@@ -37,11 +37,7 @@ $_SESSION['id-voiture'] = $_GET['id'];
         <div class="separation"></div>
         <div class="corps-formulaire">
             <div class="gauche">
-                <div class="groupe">
-                    <label>Date</label>
-                    <input type="date" id="date" name="date" min="2000-01-01" max="<?php echo date('Y-m-d'); ?>" required />
 
-                </div>
                 <div class="groupe">
                     <label>Coût</label>
                     <input type="number" id="cout" name="cout" placeholder="Coût unitaire" size="30" autocomplete="off" required />

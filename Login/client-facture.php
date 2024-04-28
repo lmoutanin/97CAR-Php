@@ -117,7 +117,7 @@ $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $r
         <br>
 
         <div class="total">
-            <h4><?php echo 'MONTANT TOTAL : ' . $total; ?></h3>
+            <h4><?php echo 'MONTANT TOTAL : ' . $total . ' €';; ?></h3>
         </div>
 
     </div>
