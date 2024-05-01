@@ -13,6 +13,7 @@ class Facture
     private $quantite;
     private $description;
     private $total;
+    private $id_facture;
 
 
 
@@ -137,5 +138,16 @@ class Facture
     {
         $description = $this->filtre($description);
         $this->description = $description;
+    }
+
+    public function get_id_facture()
+    {
+        return $this->id_facture;
+    }
+
+    public function set_id_facture($id_facture)
+    {
+        $id_facture = $this->filtre($id_facture);
+        $this->id_facture = $id_facture;
     }
 }

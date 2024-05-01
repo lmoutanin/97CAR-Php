@@ -9,29 +9,14 @@
 <title>97CAR</title>
 </head>
 <body> 
- <!-- Entete -->
- <h1 id="titre">97CAR</h1>
-<!-- Entete -->
+ 
+<?php include('entete.php'); ?>
 
 
-<div class="navbar">
-  <a href="pageAP.php">Accueil</a>
-  <div class="dropdown">
-    <button class="dropbtn">Réparation
-      <i class="fa fa-caret-down" ></i>
-    </button>
-    <div class="dropdown-content">
-    <a href="voiture.php">Voiture</a>
-      <a href="reparation.php">Réparation</a>
-      <a href="facture.php">Facture</a>
-    </div>
-  </div>
-  <a href="prix.php">Prix global</a></li>
-  <a href="contact.php">Contact</a></li>
-  <li class="right"><a href="login/login.php">Compte </a></li>
-</div>
+
 
 <?php include "footer.php"; ?>
-</body>
 
+
+</body>
 </html>

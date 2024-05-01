@@ -1,42 +1,28 @@
 <?php
 session_start();
 
-$id = $_GET['pp'];
-$id_voiture = $_GET['id'];
-$date = $_GET['dt'];
+$id = $_GET['fa'];
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
-
-
 
 require('verify/bdd.php');
 require('menu.php');
 require('class/Client.php');
 
-$req = $bdd->prepare("SELECT * FROM client WHERE Id_client = :id");
-$req->execute(array('id' => $id));
-$repondre = $req->fetch();
+$req = $bdd->prepare("SELECT *
+FROM facture_reparation 
+INNER JOIN facture ON facture_reparation.Id_facture = facture.Id_facture 
+INNER JOIN reparation ON facture_reparation.Id_reparation = reparation.Id_reparation 
+INNER JOIN client ON facture.Id_client = client.Id_client
+INNER JOIN voiture ON facture.Id_voiture = voiture.Id_voiture
+WHERE facture_reparation.Id_facture =:id_facture");
+$req->execute(array('id_facture' => $id));
 
+$repondres = $req->fetchAll(); // Utiliser fetchAll() pour récupérer toutes les lignes de données
 
-$req = $bdd->prepare(" SELECT nom, prenom, marque, modele,date_facture,descriptions,cout,quantite,Id_facture
-FROM client 
-INNER JOIN voiture ON client.Id_client = voiture.Id_client
-INNER JOIN facture ON voiture.Id_voiture = facture.Id_voiture
-INNER JOIN reparation ON facture.Id_facture = reparation.Id_reparation
-WHERE client.Id_client = :id AND voiture.Id_voiture= :id_voiture  AND facture.date_facture=:dat");
-$req->execute(array('id' => $id, 'id_voiture' => $id_voiture, 'dat' => $date));
-$repondres = $req->fetchAll();
+$client = new Client($repondres[0]['mel'], $repondres[0]['prenom'], $repondres[0]['nom'], $repondres[0]['adresse'], $repondres[0]['code_postal'], $repondres[0]['ville'], $repondres[0]['telephone'], $repondres[0]['Id_client']);
 
-$facture = $bdd->prepare("SELECT   marque, modele,date_facture,  Id_facture
- FROM client 
- INNER JOIN voiture ON client.Id_client = voiture.Id_client
- INNER JOIN facture ON voiture.Id_voiture = facture.Id_voiture
- INNER JOIN reparation ON facture.Id_facture = reparation.Id_reparation
- WHERE client.Id_client = :id AND voiture.Id_voiture= :id_voiture;");
-$facture->execute(array('id' => $id, 'id_voiture' => $id_voiture));
-$factures = $facture->fetch();
-
-$client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $repondre['adresse'], $repondre['code_postal'], $repondre['ville'], $repondre['telephone'], $repondre['Id_client']);
+$total = 0; // Initialiser le total à zéro
 
 ?>
 
@@ -58,9 +44,9 @@ $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $r
 
         <div class="clients">
             <h2 align="center">97CAR</h2>
-            <h3>Facture :<?php echo  $factures['Id_facture'];  ?></h3>
+            <h3>Facture :<?php echo  $repondres[0]['Id_facture'];  ?></h3>
 
-            <h4>Le :<?php echo $factures['date_facture'];     ?> </h4>
+            <h4>Le :<?php echo $repondres[0]['date_facture'];     ?> </h4>
 
             <p>69 Rue des alamandas </p>
             <p>Saint-Benoît 97470, La Réunion </p>
@@ -97,7 +83,6 @@ $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $r
             <tbody>
 
                 <?php foreach ($repondres as $repondre) { ?>
-
                     <tr>
                         <td><?php echo $numero = $numero + 1; ?></td>
                         <td> <?php echo $repondre['descriptions']; ?> </td>
@@ -105,16 +90,14 @@ $client = new Client($repondre['mel'], $repondre['prenom'], $repondre['nom'], $r
                         <td><?php echo $repondre['cout']; ?> </td>
                         <td><?php echo $repondre['quantite'] * $repondre['cout']; ?></td>
                     </tr>
+                    <?php $total += $repondre['quantite'] * $repondre['cout']; // Ajouter le montant au total
+                    ?>
+                <?php } ?>
 
-                <?php $total = $total + $repondre['quantite'] * $repondre['cout'];
-                } ?>
-
-                <th colspan="4"> </th>
+            </tbody>
+            <br>
 
         </table>
-
-        </tbody>
-        <br>
 
         <div class="total">
             <h4><?php echo 'MONTANT TOTAL : ' . $total . ' €';; ?></h3>

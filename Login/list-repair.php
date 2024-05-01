@@ -5,7 +5,7 @@ require('verify/restricted-access.php');
 require('menu.php');
 
 require('class/Repair.php');
- 
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ require('class/Repair.php');
     <div class="formulaire ">
 
 
-        <h1> Liste des réparation </h1><br>
+        <h1> Liste des réparations </h1><br>
 
         <table class="formul1">
 
@@ -34,8 +34,9 @@ require('class/Repair.php');
 
 
                 <th>Description</th>
-                <th>Coût unitaire</th>
                 <th>Quantité</th>
+                <th>Coût unitaire</th>
+                <th>TOTAL</th>
 
 
                 </tr>
@@ -52,9 +53,9 @@ require('class/Repair.php');
 
 
                         <td> <?php echo $repair->get_description(); ?></td>
-                        <td> <?php echo $repair->get_cout() ?></td>
                         <td> <?php echo $repair->get_quantite() ?></td>
-
+                        <td> <?php echo $repair->get_cout() ?></td>
+                        <td> <?php echo  $repair->get_quantite() * $repair->get_cout() ?></td>
 
                     </tr>
                 <?php  } ?>

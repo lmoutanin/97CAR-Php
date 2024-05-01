@@ -12,10 +12,13 @@ $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 
 if ($token) {
-    $req = $bdd->prepare("SELECT date_facture,marque,modele,descriptions,cout,quantite,voiture.Id_voiture,client.Id_client
-    FROM client INNER JOIN voiture ON client.Id_client = voiture.Id_client 
-    INNER JOIN facture ON voiture.Id_voiture = facture.Id_voiture 
-    INNER JOIN reparation ON facture.Id_facture = reparation.Id_reparation");
+    $req = $bdd->prepare("SELECT facture.Id_facture,facture.date_facture,voiture.marque,voiture.modele,reparation.descriptions,reparation.cout,reparation.quantite,client.nom,client.prenom
+    FROM facture_reparation 
+    INNER JOIN facture ON facture_reparation.Id_facture = facture.Id_facture
+    INNER JOIN reparation  ON facture_reparation.Id_reparation = reparation.Id_reparation
+    INNER JOIN voiture ON facture.Id_voiture = voiture.Id_voiture
+    INNER JOIN client ON facture.Id_client = client.Id_client  
+	ORDER BY `facture`.`date_facture` DESC");
     $req->execute();
     $fts = $req->fetchAll();
 } ?>
@@ -59,18 +62,23 @@ if ($token) {
 
                 <?php foreach ($fts as $ft) {
 
-                    $ft = new Facture($ft['Id_client'], $ft['Id_voiture'], $ft['date_facture'], $ft['marque'], $ft['modele'], $ft['cout'], $ft['quantite'], $ft['descriptions']); ?>
+                    $ft = new Facture($ft['Id_facture'], $ft['Id_voiture'], $ft['date_facture'], $ft['marque'], $ft['modele'], $ft['cout'], $ft['quantite'], $ft['descriptions']);
+
+                ?>
 
                     <tr>
-                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_date(); ?> </td>
-                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_marque(); ?> </td>
-                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_modele(); ?> </td>
-                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_description(); ?> </td>
-                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_quantite(); ?> </td>
-                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->get_cout(); ?> </td>
-                        <td onclick="location.href='client-facture.php?<?php echo 'pp=' . $ft->get_id_client() . '&id=' . $ft->get_id_voiture() . '&dt=' . $ft->get_date(); ?>'"> <?php echo $ft->total(); ?> </td>
+
+                        <td onclick="location.href='client-facture.php?<?php echo 'fa=' . $ft->get_id_client(); ?>'"> <?php echo $ft->get_date(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'fa=' . $ft->get_id_client(); ?>'"> <?php echo $ft->get_marque(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'fa=' . $ft->get_id_client(); ?>'"> <?php echo $ft->get_modele(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'fa=' . $ft->get_id_client(); ?>'"> <?php echo $ft->get_description(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'fa=' . $ft->get_id_client(); ?>'"> <?php echo $ft->get_quantite(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'fa=' . $ft->get_id_client(); ?>'"> <?php echo $ft->get_cout(); ?> </td>
+                        <td onclick="location.href='client-facture.php?<?php echo 'fa=' . $ft->get_id_client(); ?>'"> <?php echo $ft->total(); ?> </td>
+
                         <?php $total = $total + $ft->total(); ?>
                     </tr>
+
 
                 <?php  } ?>
 

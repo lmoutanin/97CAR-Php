@@ -1,9 +1,9 @@
 #titre {
   color: red;
   text-align: center;
-  border: 2px solid #999; 
+  border: 2px solid #999;
   background: #333;
-  padding: 32px; 
+  padding: 32px;
 }
 
 .navbar {
@@ -26,7 +26,7 @@
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;  
+  font-size: 16px;
   border: none;
   outline: none;
   color: white;
@@ -36,7 +36,8 @@
   margin: 0;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover,
+.dropdown:hover .dropbtn {
   background-color: red;
 }
 
@@ -45,7 +46,7 @@
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -66,19 +67,15 @@
   display: block;
 }
 
- #Logo1 {
-    border: 2px solid #999; 
-    background: #333;
-    padding: 32px; 
-    width: 100px;
-    height: 100px;
-    
- }
+#Logo1 {
+  border: 2px solid #999;
+  background: #333;
+  padding: 32px;
+  width: 100px;
+  height: 100px;
+}
 
-
-
-
- /* Slideshow container */
+/* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
   position: relative;
@@ -86,7 +83,8 @@
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -108,8 +106,9 @@
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Caption text */
@@ -144,7 +143,8 @@
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: #717171;
 }
 
@@ -155,18 +155,22 @@
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
 }
-
-
-
-
 
 div.gallery {
   margin: 5px;

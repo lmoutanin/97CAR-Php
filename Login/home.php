@@ -38,6 +38,18 @@ $id = $_GET['id'];
 
 
             <div class="card">
+                <img src="image/reparation.png">
+                <div class="card-content">
+                    <h3 align="center"> + Réparation </h3>
+
+                    <a href="add-repair.php" class="btn">consulter</a>
+                </div>
+            </div>
+
+
+
+
+            <div class="card">
                 <img src="image/carnet-dadresses.png">
                 <div class="card-content">
                     <h3 align="center"> Client</h3>

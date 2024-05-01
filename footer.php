@@ -1,27 +1,26 @@
- 
-<!-- Footer -->
-<footer>
+ <!-- Footer -->
 
-<h1>Nos services</h1>
-<div class="services">
-    
-    <div class="service">
-        <h3>Livraison gratuite</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quidem recusandae explicabo veniam voluptatem voluptatum reprehenderit dignissimos ipsum magnam accusantium, dolores odio, dolorem provident sapiente consequuntur harum eaque veritatis? Eveniet.</p>
-    </div>
 
-    <div class="service">
-        <h3>Paiement en ligne</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quidem recusandae explicabo veniam voluptatem voluptatum reprehenderit dignissimos ipsum magnam accusantium, dolores odio, dolorem provident sapiente consequuntur harum eaque veritatis? Eveniet.</p>
-    </div>
+ <footer>
+     <div class="w3-row w3-section">
+         <div class="w3-third w3-container w3-black w3-large" style="height:250px">
+             <h2>Contact </h2>
+             <p><i class="fa fa-map-marker" style="width:30px"></i> Adresse</p>
+             <p><i class="fa fa-phone" style="width:30px"></i> Numero: 0692 97 47 00</p>
+             <p><i class="fa fa-envelope" style="width:30px"> </i> Email: mail@gmail.com</p>
+         </div>
+         <div class="w3-third w3-center w3-large w3-dark-grey w3-text-white" style="height:250px">
+             <p>----------------------------------------------------------------------------------------------</p>
+             <p>----------------------------------------------------------------------------------------------</p>
+             <h2 id="nom"> 97CAR</h2>
+             <p>----------------------------------------------------------------------------------------------</p>
+             <p>----------------------------------------------------------------------------------------------</p>
+         </div>
+         <div class="w3-third w3-center w3-large w3-grey w3-text-white" style="height:250px">
+             <h2>Horaire</h2>
+             <p><i class="fa fa-mapmarker" style="width:30px"></i> Lundi-Vendredi</p>
+             <p><i class="fa fa-phoe" style="width:30px"></i> 10h à 12h et 14h à 18h</p>
+         </div>
+     </div>
 
-    <div class="service">
-        <h3>Aimé ou remboursé</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quidem recusandae explicabo veniam voluptatem voluptatum reprehenderit dignissimos ipsum magnam accusantium, dolores odio, dolorem provident sapiente consequuntur harum eaque veritatis? Eveniet.</p>
-    </div>
-
-</div>
-
-<p id="contact">Contact : 08 19 17 278 1 | &copy; 2021, Burgure.</p>
-</footer>
- 
+ </footer>

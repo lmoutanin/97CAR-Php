@@ -36,7 +36,7 @@ if ($id) {
     <div class="formulaire">
         <form method="POST" action="">
 
-          
+
             <h1>Information <?php echo $client->get_nom() . " " . $client->get_prenom(); ?> </h1>
             <?php
             echo $msg_ins;
@@ -63,12 +63,12 @@ if ($id) {
 
                 <div>
                     <label for="adresse"> Adresse </label>
-                    <input type="text" id="adresse" name="adresse" minlength="2" maxlength="100" size="30" placeholder="Votre adresse" value="<?php echo $client->get_adresse(); ?>" required />
+                    <input type="text" id="adresse" name="adresse" minlength="2" maxlength="100" size="30" placeholder="Votre adresse" readonly="true" value="<?php echo $client->get_adresse(); ?>" required />
                 </div>
 
                 <div>
                     <label for="codePostal"> Code postal </label>
-                    <input type="text" id="codePostal" name="codePostal" pattern="[0-9]{5}" size="30" placeholder="Votre code postal" value="<?php echo $client->get_codePostal(); ?>" required />
+                    <input type="text" id="codePostal" name="codePostal" pattern="[0-9]{5}" size="30" placeholder="Votre code postal" readonly="true" value="<?php echo $client->get_codePostal(); ?>" required />
                 </div>
 
             </div>
@@ -78,12 +78,12 @@ if ($id) {
 
                 <div>
                     <label for="ville"> Ville </label>
-                    <input type="text" id="ville" name="ville" minlength="2" maxlength="50" size="30" placeholder="Votre ville" value="<?php echo $client->get_ville(); ?>" required />
+                    <input type="text" id="ville" name="ville" minlength="2" maxlength="50" size="30" placeholder="Votre ville" readonly="true" value="<?php echo $client->get_ville(); ?>" required />
                 </div>
 
                 <div>
                     <label for="telephone"> Téléphone </label>
-                    <input type="tel" id="telephone" name="telephone" pattern="[0-9]{10}" size="30" placeholder="Votre téléphone" value="<?php echo  $client->get_telephone(); ?>" required />
+                    <input type="tel" id="telephone" name="telephone" pattern="[0-9]{10}" size="30" placeholder="Votre téléphone" readonly="true" value="<?php echo  $client->get_telephone(); ?>" required />
                 </div>
 
             </div>
@@ -93,7 +93,7 @@ if ($id) {
 
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" id="email" size="30" name="email" placeholder="Votre email" value="<?php echo $client->get_email(); ?>" required />
+                    <input type="email" id="email" size="30" name="email" placeholder="Votre email" readonly="true" value="<?php echo $client->get_email(); ?>" required />
                 </div>
 
 

@@ -29,7 +29,7 @@ $prenom = $_SESSION['prenom'];
 
         <form method="POST" action="">
 
-            <h1><?php echo "Créer une voiture à {$nom} {$prenom}" ?> </h1>
+            <h1><?php echo "Ajouter une voiture à {$nom} {$prenom}" ?> </h1>
             <hr>
             <div align="center">
                 <?php echo "<strong>{$msg_ins} </strong>";  ?>
@@ -83,7 +83,7 @@ $prenom = $_SESSION['prenom'];
 
             <br>
             <div align="center">
-                <button type="submit" class="bouton" name="ok">Crée une voiture </button>
+                <button type="submit" class="bouton" name="ok">Ajout Voiture</button>
             </div>
 
         </form>

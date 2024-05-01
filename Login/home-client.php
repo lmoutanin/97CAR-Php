@@ -64,7 +64,7 @@
                  <div class="card-content">
                      <h3>Historique</h3>
 
-                     <a href="" class="btn">consulter</a>
+                     <a href="client-repair.php" class="btn">consulter</a>
                  </div>
              </div>
          </div>
@@ -93,7 +93,7 @@
              <div class="card">
                  <img src="image/facture-dachat.png">
                  <div class="card-content">
-                     <h3>+ Réparation</h3>
+                     <h3>+ Facture</h3>
 
                      <a href="add-facture.php" class="btn">consulter</a>
                  </div>

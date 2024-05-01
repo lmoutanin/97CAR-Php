@@ -36,7 +36,7 @@ $id_client = $_SESSION['id-client'];
     <div class="formulaire">
         <form method="POST" action="">
 
-            <h1>Crée une Facture à <?php echo $nom . ' ' . $prenom ?> </h1>
+            <h1>Crée une facture pour <?php echo $nom . ' ' . $prenom ?> </h1>
 
             <hr>
             <br>
@@ -214,7 +214,7 @@ $id_client = $_SESSION['id-client'];
 
 
             <div align="center">
-                <button type="submit" class="bouton" name="ok">Ajout une facture </button>
+                <button type="submit" class="bouton" name="ok">Ajout facture </button>
             </div>
         </form>
 
