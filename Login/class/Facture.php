@@ -35,10 +35,10 @@ class Facture
 
 
     public function filtre($a)
-    {
-        $a_nettoye = htmlspecialchars($a, ENT_QUOTES, 'UTF-8');
-        return  $a_nettoye;
-    }
+{
+    return htmlspecialchars((string) ($a ?? ''), ENT_QUOTES, 'UTF-8');
+}
+
 
     public function total()
     {

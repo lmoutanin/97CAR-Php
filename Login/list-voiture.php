@@ -1,6 +1,8 @@
 <?php
-session_start();
- 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+};
+
 require('verify/restricted-access.php');
 require('menu.php');
 
@@ -22,7 +24,7 @@ require('class/Voiture.php');
 
 <body>
     <div class="formulaire ">
- 
+
         <h1> Liste des voitures </h1><br>
 
         <table class="formul1">
@@ -60,11 +62,11 @@ require('class/Voiture.php');
                 <?php  } ?>
 
             </tbody>
- 
+
         </table>
- 
+
     </div>
- 
+
 </body>
 
 </html>

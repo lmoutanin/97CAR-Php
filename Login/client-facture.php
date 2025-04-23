@@ -1,10 +1,13 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+};
 
 $id = $_GET['fa'];
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 
+require('verify/restricted-access.php');
 require('verify/bdd.php');
 require('menu.php');
 require('class/Client.php');
@@ -18,12 +21,20 @@ INNER JOIN voiture ON facture.Id_voiture = voiture.Id_voiture
 WHERE facture_reparation.Id_facture =:id_facture");
 $req->execute(array('id_facture' => $id));
 
-$repondres = $req->fetchAll(); // Utiliser fetchAll() pour récupérer toutes les lignes de données
+$repondres = $req->fetchAll();
+
+// Vérifier si des résultats ont été trouvés
+if (empty($repondres)) {
+    // Gestion du cas où aucune facture n'est trouvée
+    echo "Aucune facture trouvée.";
+    exit;
+}
 
 $client = new Client($repondres[0]['mel'], $repondres[0]['prenom'], $repondres[0]['nom'], $repondres[0]['adresse'], $repondres[0]['code_postal'], $repondres[0]['ville'], $repondres[0]['telephone'], $repondres[0]['Id_client']);
 
-$total = 0; // Initialiser le total à zéro
-
+$total = 0;
+// Initialiser la variable $numero à 0 avant de l'utiliser
+$numero = 0;
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +43,7 @@ $total = 0; // Initialiser le total à zéro
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> </title>
+    <title>Facture <?php echo $repondres[0]['Id_facture']; ?> - 97CAR</title>
     <link rel="stylesheet" href="css/facture.css">
     <link rel="icon" type="image/png" href="image/Logo_97CAR_White.png" />
 
@@ -44,9 +55,9 @@ $total = 0; // Initialiser le total à zéro
 
         <div class="clients">
             <h2 align="center">97CAR</h2>
-            <h3>Facture :<?php echo  $repondres[0]['Id_facture'];  ?></h3>
+            <h3>Facture : <?php echo $repondres[0]['Id_facture']; ?></h3>
 
-            <h4>Le :<?php echo $repondres[0]['date_facture'];     ?> </h4>
+            <h4>Le : <?php echo $repondres[0]['date_facture']; ?> </h4>
 
             <p>69 Rue des alamandas </p>
             <p>Saint-Benoît 97470, La Réunion </p>
@@ -55,54 +66,43 @@ $total = 0; // Initialiser le total à zéro
         </div>
 
         <div class="client">
-            <h3><?php echo   $nom . '   ' . $prenom; ?></h3>
+            <h3><?php echo $nom . ' ' . $prenom; ?></h3>
             <p><?php echo $client->get_adresse(); ?> </p>
             <p><?php echo $client->get_ville() . ' , ' . $client->get_codePostal(); ?> </p>
             <p><?php echo $client->get_email(); ?> </p>
             <p><?php echo $client->get_telephone(); ?> </p>
-
         </div>
 
         <br><br><br><br><br>
 
         <table class="formul1">
-
             <thead>
-
                 <tr>
                     <th>N°</th>
                     <th>DESCRIPTION</th>
                     <th>QUANTITE</th>
                     <th>PRIX</th>
                     <th>MONTANT</th>
-
                 </tr>
-
             </thead>
 
             <tbody>
-
                 <?php foreach ($repondres as $repondre) { ?>
                     <tr>
-                        <td><?php echo $numero = $numero + 1; ?></td>
-                        <td> <?php echo $repondre['descriptions']; ?> </td>
-                        <td> <?php echo $repondre['quantite']; ?> </td>
-                        <td><?php echo $repondre['cout']; ?> </td>
-                        <td><?php echo $repondre['quantite'] * $repondre['cout']; ?></td>
+                        <td><?php echo ++$numero; ?></td>
+                        <td><?php echo $repondre['descriptions']; ?></td>
+                        <td><?php echo $repondre['quantite']; ?></td>
+                        <td><?php echo $repondre['cout']; ?> €</td>
+                        <td><?php echo $repondre['quantite'] * $repondre['cout']; ?> €</td>
                     </tr>
-                    <?php $total += $repondre['quantite'] * $repondre['cout']; // Ajouter le montant au total
-                    ?>
+                    <?php $total += $repondre['quantite'] * $repondre['cout']; ?>
                 <?php } ?>
-
             </tbody>
-            <br>
-
         </table>
 
         <div class="total">
-            <h4><?php echo 'MONTANT TOTAL : ' . $total . ' €';; ?></h3>
+            <h4>MONTANT TOTAL : <?php echo $total; ?> €</h4>
         </div>
-
     </div>
 </body>
 

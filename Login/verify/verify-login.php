@@ -1,7 +1,7 @@
 <?php
- 
- require('bdd.php');
- 
+
+require('bdd.php');
+
 
 $error_msg = "";
 
@@ -35,11 +35,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $update_req->execute(array('token' => $token, 'email' => $email_nettoye, 'mdp' => $mdp_nettoye)); //   mise à jour avec le nouveau token
 
 
-                session_start();
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                };
                 $_SESSION['token'] = $token;
                 $_SESSION['email'] = $email_nettoye;
-                
-               
+
+
 
                 header("Location: ./home.php"); // Rediriger vers la page du compte
                 exit();

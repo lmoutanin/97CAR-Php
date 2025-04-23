@@ -1,10 +1,12 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+};
 require('bdd.php');
 require('verify/restricted-access.php');
 require('class/Client.php');
 
- 
+
 
 $msg_ins = "";
 $error_msg = "";
@@ -24,8 +26,8 @@ if (isset($_POST['ok'])) {
     //  verifier si les champs email , mdp ,civilite ,prenom ,nom ,adresse , codePostal ,ville et telephone  ne sont pas vide
     if (!empty($email) &&  !empty($prenom) &&  !empty($nom)   &&  !empty($adresse)   &&  !empty($codePostal)   &&  !empty($ville) &&  !empty($telephone)) {
 
-        $cree = new Client($email, $prenom, $nom, $adresse, $codePostal, $ville, $telephone,0);
-         
+        $cree = new Client($email, $prenom, $nom, $adresse, $codePostal, $ville, $telephone, 0);
+
 
 
         //verifier si l'email à bien était nettoyer 
@@ -41,11 +43,11 @@ if (isset($_POST['ok'])) {
 
                 // envoyer dans la base donnée une requête pour ajoute les valeurs  suivantes dans la table acheteur 
                 $req = $bdd->prepare("INSERT INTO client (mel,prenom,nom,adresse,code_postal,ville,telephone) VALUES(:mel,:prenom,:nom,:adresse,:code_postal,:ville,:telephone)");
-                $req->execute(array('mel' => $cree->get_email(),'prenom' => $cree->get_prenom(), 'nom' => $cree->get_nom(), 'adresse' =>  $cree->get_adresse(), 'code_postal' => $cree->get_codePostal(), 'ville' => $cree->get_ville(), 'telephone' => $cree->get_telephone()));
-                
+                $req->execute(array('mel' => $cree->get_email(), 'prenom' => $cree->get_prenom(), 'nom' => $cree->get_nom(), 'adresse' =>  $cree->get_adresse(), 'code_postal' => $cree->get_codePostal(), 'ville' => $cree->get_ville(), 'telephone' => $cree->get_telephone()));
+
                 $msg_ins = "Ajout du Client {$cree->get_nom()}  {$cree->get_prenom()}  ";
-                 
-                
+
+
 
 
                 //Sinon affiche L'adresse mail existe déjà.

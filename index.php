@@ -84,7 +84,7 @@
     }
   </script>
 
-  <?php include('footer.php'); ?>
+
 
   <!-- Footer -->
 

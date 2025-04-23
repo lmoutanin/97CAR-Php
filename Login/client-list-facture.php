@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+};
 
 require 'verify/restricted-access.php';
 require 'menu.php';
@@ -7,22 +9,22 @@ require 'menu.php';
 require 'class/Facture.php';
 require 'verify/bdd.php';
 
-// Check if the client ID is set in the session
+
 if (isset($_SESSION['id-client'])) {
-    // Retrieve client information from the session
+
     $id = $_SESSION['id-client'];
     $nom = $_SESSION['nom'];
     $prenom = $_SESSION['prenom'];
 
-    // Initialize total variable
+
     $total = 0;
 
-    // Prepare and execute SQL query to retrieve facture IDs for the client
+
     $stmt = $bdd->prepare("SELECT Id_facture FROM client INNER JOIN facture ON client.Id_client = facture.Id_client WHERE client.Id_client = :id");
     $stmt->execute(['id' => $id]);
     $factureIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-    // Fetch facture details for each facture ID
+
     $fts = [];
     foreach ($factureIds as $factureId) {
         $stmt = $bdd->prepare("SELECT * FROM facture_reparation INNER JOIN facture ON facture_reparation.Id_facture = facture.Id_facture INNER JOIN voiture ON facture.Id_voiture = voiture.Id_voiture INNER JOIN reparation ON facture_reparation.Id_reparation = reparation.Id_reparation WHERE facture_reparation.Id_facture = :id");

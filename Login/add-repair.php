@@ -1,12 +1,15 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+};
 
+require('verify/restricted-access.php');
 require('verify/verify-add-repair.php');
 require('menu.php');
 
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
-$_SESSION['id-voiture'] = $_GET['id'];
+
 
 ?>
 

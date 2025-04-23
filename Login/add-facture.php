@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+require('verify/restricted-access.php');
 require('menu.php');
 
 require('verify/verify-add-facture.php');
@@ -13,8 +13,7 @@ require('menu.php');
 
 $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
-$marque = $_SESSION['marque'];
-$modele = $_SESSION['modele'];
+ 
 $id_client = $_SESSION['id-client'];
 
 ?>
@@ -41,8 +40,7 @@ $id_client = $_SESSION['id-client'];
             <hr>
             <br>
             <div align="center">
-                <?php echo "<strong>{$msg_ins} </strong>";  ?>
-                <?php echo "<strong>{$error_msg} </strong>";  ?>
+               
             </div>
             <br>
 

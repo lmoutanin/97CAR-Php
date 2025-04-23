@@ -1,9 +1,11 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+};
 require('verify/restricted-access.php');
 require('menu.php');
 
-$id = $_GET['id'];
+ 
 
 ?>
 

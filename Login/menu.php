@@ -43,10 +43,7 @@
             </a></li>
 
 
-        <li><a href="#">
-                <i class="fa-solid fa-gear"></i>
-                <span class="nav-item">Paramètre</span>
-            </a></li>
+       
 
         <li><a href="logout.php" class="logout">
                 <i class="fa-solid fa-power-off"></i>

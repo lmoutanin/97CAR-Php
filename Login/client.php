@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+};
 
 require('verify/restricted-access.php');
 require('menu.php');
@@ -38,10 +40,7 @@ if ($id) {
 
 
             <h1>Information <?php echo $client->get_nom() . " " . $client->get_prenom(); ?> </h1>
-            <?php
-            echo $msg_ins;
-            echo $error_msg;
-            ?>
+            
 
             <hr>
 
