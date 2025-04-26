@@ -7,8 +7,6 @@ require('verify/restricted-access.php');
 require('verify/verify-add-repair.php');
 require('menu.php');
 
-$nom = $_SESSION['nom'];
-$prenom = $_SESSION['prenom'];
 
 
 ?>
