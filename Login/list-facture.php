@@ -1,37 +1,42 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
 require('verify/restricted-access.php');
 require('verify/bdd.php');
 require('menu.php');
 require('class/Facture.php');
 
 // Vérifier si les variables de session existent
-if (!isset($_SESSION['token']) || !isset($_SESSION['nom']) || !isset($_SESSION['prenom'])) {
+if (!isset($_SESSION['token'])) {
     // Rediriger vers la page de connexion ou afficher un message d'erreur
     header('Location: login.php');
     exit;
 }
 
 $token = $_SESSION['token'];
-$nom = $_SESSION['nom'];
-$prenom = $_SESSION['prenom'];
 
-if ($token) {
-    $req = $bdd->prepare("SELECT facture.Id_facture, facture.Id_client, facture.Id_voiture, facture.date_facture, 
-                        voiture.marque, voiture.modele, 
-                        reparation.descriptions, reparation.cout, reparation.quantite, 
-                        client.nom, client.prenom
-                    FROM facture_reparation 
-                    INNER JOIN facture ON facture_reparation.Id_facture = facture.Id_facture
-                    INNER JOIN reparation ON facture_reparation.Id_reparation = reparation.Id_reparation
-                    INNER JOIN voiture ON facture.Id_voiture = voiture.Id_voiture
-                    INNER JOIN client ON facture.Id_client = client.Id_client  
-                    ORDER BY facture.date_facture DESC");
-    $req->execute();
-    $fts = $req->fetchAll();
+// Récupération des IDs de facture
+$stmt = $bdd->prepare("SELECT Id_facture FROM client INNER JOIN facture ON client.Id_client = facture.Id_client");
+$stmt->execute();
+$factureIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+// Initialisation du tableau des factures
+$fts = [];
+
+// Récupération des données de facture
+foreach ($factureIds as $factureId) {
+    if ($token) {
+        $req = $bdd->prepare("SELECT facture_reparation.Id_facture, client.Id_client, date_facture, marque, modele, sum(cout*quantite) as total 
+                              FROM facture_reparation 
+                              INNER JOIN facture ON facture_reparation.Id_facture = facture.Id_facture 
+                              INNER JOIN voiture ON facture.Id_voiture = voiture.Id_voiture 
+                              INNER JOIN client ON facture.Id_client = client.Id_client
+                              INNER JOIN reparation ON facture_reparation.Id_reparation = reparation.Id_reparation 
+                              WHERE facture_reparation.Id_facture = :id");
+        $req->execute(['id' => $factureId]);
+        $result = $req->fetchAll();
+        if (!empty($result)) {
+            $fts = array_merge($fts, $result);
+        }
+    }
 }
 ?>
 
@@ -57,11 +62,10 @@ if ($token) {
                 <thead>
                     <tr>
                         <th>DATE</th>
+                        <th>ID</th>
+                        <th>CLIENT</th>
                         <th>MARQUE</th>
                         <th>MODELE</th>
-                        <th>DESCRIPTION</th>
-                        <th>QUANTITE</th>
-                        <th>COUT</th>
                         <th>MONTANT</th>
                     </tr>
                 </thead>
@@ -74,13 +78,11 @@ if ($token) {
                             // Création d'un objet Facture avec les bonnes valeurs
                             $ft = new Facture(
                                 $ft_data['Id_client'],
-                                $ft_data['Id_voiture'],
+                                0, // Remplacez par la bonne valeur si nécessaire
                                 $ft_data['date_facture'],
                                 $ft_data['marque'],
                                 $ft_data['modele'],
-                                $ft_data['cout'],
-                                $ft_data['quantite'],
-                                $ft_data['descriptions']
+                                $ft_data['total']
                             );
 
                             // ID de la facture à utiliser dans les liens
@@ -88,16 +90,15 @@ if ($token) {
                     ?>
                             <tr>
                                 <td onclick="location.href='client-facture.php?fa=<?php echo $id_facture; ?>'"> <?php echo $ft->get_date(); ?> </td>
+                                <td onclick="location.href='client-facture.php?fa=<?php echo $id_facture; ?>'"> <?php echo $id_facture; ?> </td>
+                                <td onclick="location.href='client-facture.php?fa=<?php echo $id_facture; ?>'"> <?php echo $ft->get_id_client(); ?> </td>
                                 <td onclick="location.href='client-facture.php?fa=<?php echo $id_facture; ?>'"> <?php echo $ft->get_marque(); ?> </td>
                                 <td onclick="location.href='client-facture.php?fa=<?php echo $id_facture; ?>'"> <?php echo $ft->get_modele(); ?> </td>
-                                <td onclick="location.href='client-facture.php?fa=<?php echo $id_facture; ?>'"> <?php echo $ft->get_description(); ?> </td>
-                                <td onclick="location.href='client-facture.php?fa=<?php echo $id_facture; ?>'"> <?php echo $ft->get_quantite(); ?> </td>
                                 <td onclick="location.href='client-facture.php?fa=<?php echo $id_facture; ?>'"> <?php echo $ft->get_cout(); ?> € </td>
-                                <td onclick="location.href='client-facture.php?fa=<?php echo $id_facture; ?>'"> <?php echo $ft->total(); ?> € </td>
                             </tr>
                     <?php
                             // Additionner au total
-                            $total += $ft->total();
+                            $total += $ft->get_cout();
                         } catch (Exception $e) {
                             // En cas d'erreur avec une facture, continuer avec les autres
                             continue;

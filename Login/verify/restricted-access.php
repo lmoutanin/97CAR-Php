@@ -4,8 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 };
 
 require('bdd.php');
-
-$email = $_SESSION['email'];
+ 
 $token = $_SESSION['token'];
 
 if ($token) {

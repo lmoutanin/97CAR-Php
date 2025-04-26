@@ -17,7 +17,7 @@ class Facture
 
 
 
-    public function  __construct($id_client, $id_voiture, $date, $marque, $modele, $cout, $quantite, $description)
+    public function  __construct($id_client, $id_voiture=0, $date, $marque, $modele, $cout, $quantite=0, $description=0)
     {
 
         $this->id_client = $this->filtre($id_client);
